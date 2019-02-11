@@ -6,6 +6,8 @@ AUTHOR = 'Sarah H. McGrath'
 SITENAME = 'Sarah H. McGrath'
 SITEURL = ''
 
+THEME = './themes/abby'
+
 PATH = 'content'
 
 TIMEZONE = 'America/New_York'
