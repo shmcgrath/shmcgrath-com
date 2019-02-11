@@ -1,0 +1,189 @@
+/* COLORS GO RED ON BLUE BACKGROUND */
+body {
+  font-family: $main-font;
+  font-size: 16px;
+  margin: 2rem;
+  background: $background;
+}
+
+nav {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 1rem;
+}
+
+.header-person {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.social-icons-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: .5rem;
+}
+
+li {
+  list-style-type: none;
+}
+
+table {
+  text-align:center;
+}
+
+#navList li {
+  display: inline-block;
+  list-style-type: none;
+  font-size: 0.8rem;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+#social-icons-list li {
+  display: inline-block;
+  list-style-type: none;
+}
+
+#navList > li+li:before { 
+  content: " | ";
+  color: $shmred;
+}
+
+#navList > li:first-child:before { 
+  content: " | ";
+  color: $shmred;
+}
+
+#navList > li:last-child:after { 
+  content: " | ";
+  color: $shmred;
+}
+
+form {
+  display: block;
+}
+
+h1 {
+  color: $shmblue;
+}
+
+main {
+}
+
+table {
+  width: 100%;
+  padding: 1em;
+}
+
+td {
+  text-align: center;
+  content: center;
+  padding: .2em;
+  width: 33.3333%
+}
+
+#searchrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+main {
+  float: center;
+  margin: 32px;
+}
+
+article {
+  margin: 32px;
+}
+
+a {
+  color: $shmblue;
+}
+
+header {
+  font-family: $header-font;
+}
+
+#header-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: $shmblue;
+  border-bottom: .5rem double;
+  border-color: $shmred;
+}
+
+.article-header {
+  color: $shmred;
+}
+
+footer {
+}
+
+#main-footer {
+  border-top: .5rem double;
+  border-color: $shmred;
+}
+
+.article-footer {
+  border-top: 2px dotted;
+  padding-top: 1rem;
+  border-color: $shmred;
+
+}
+
+.icon {
+  height: 1rem;
+  width: 1rem;
+}
+
+h1 {
+  vertical-align: middle;
+  display: inline;
+}
+
+.portrait {
+  height: 4em;
+  width: 4em;
+  display: inline;
+  margin: 1rem;
+}
+
+#tipue_search_input {
+  height: 1rem;
+  width: 16rem;
+  background: url("../img/search32b.png") no-repeat left center;
+  padding: .5rem;
+  margin: 1rem;
+  padding-left: 2.1rem;
+  border: solid;
+  border-color: $shmred;
+}
+
+.guage {
+  background: $base05;
+  padding-top: 5px;
+}
+
+.guage-meter {
+  background: $shmblue;
+  width: 55%;
+}
+
+.header .image, 
+.header .text {
+    display: inline-block;
+    vertical-align: bottom;
+}

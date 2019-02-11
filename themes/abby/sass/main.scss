@@ -1,0 +1,37 @@
+@charset 'utf-8';
+
+/* When writing Sass, I follow the following guidelines
+https://smacss.com
+https://sass-guidelin.es
+https://css-tricks.com/sass-style-guide/ */
+@import '00-plugins/__plugins-dir.scss';
+/* Essentially, a base style says that wherever this element is on the page, it should look like this. */
+@import '01-base/__base-dir.scss';
+/* Layout rules divide the page into sections. Layouts hold one or more modules together.
+The minor components—such as a callout, or login form, or a navigation item—sit within the scope of major components such as a header or footer. I refer to the minor components as Modules and will dive into those in the next section. The major components are referred to as Layout styles.
+Generally, a Layout style only has a single selector: a single ID or class name. However, there are times when a Layout needs to respond to different factors. For example, you may have different layouts based on user preference.
+*/
+@import '02-layout/__layout-dir.scss';
+/* Modules are the reusable, modular parts of our design. They are the callouts, the sidebar sections, the product lists and so on.
+Files begin with l- or layout-
+It is your navigation bars and your carousels and your dialogs and your widgets and so on. This is the meat of the page. Modules sit inside Layout components. Modules can sometimes sit within other Modules, too. Each Module should be designed to exist as a standalone component. In doing so, the page will be more flexible. If done right, Modules can easily be moved to different parts of the layout without breaking.
+When defining the rule set for a module, avoid using IDs and element selectors, sticking only to class names. A module will likely contain a number of elements and there is likely to be a desire to use descendent or child selectors to target those elements.
+Only include a selector that includes semantics. A span or div holds none. A heading has some. A class defined on an element has plenty.
+*/
+@import '03-modules/__modules-dir.scss';
+/* State rules are ways to describe how our modules or layouts will look when in a particular state.
+Files are the bulk of any project, therefore are just the name of the modules themselves.
+Related elements within a module use the base name as a prefix.
+Modules that are a variation on another module should also use the base module name as a prefix.
+By adding the classes to the elements, we have increased the semantics of what those elements mean and removed any ambiguity when it comes to styling them.
+If you do wish to use an element selector, it should be within one level of a class selector. In other words, you should be in a situation to use child selectors. Alternatively, you should be extremely confident that the element in question will not be confused with another element. The more semantically generic the HTML element (like a span or div), the more likely it will create a conflict down the road. Elements with greater semantics like headings are more likely to appear by themselves within a container and you are more likely able to use an element selector successfully.
+*/
+@import '04-state/__state-dir.scss';
+/* Theme rules are similar to state rules in that they describe how modules or layouts might look. Most sites don’t require a layer of theming but it is good to be aware of it.
+Files begin with is- (as in is-hidden)
+There is plenty of similarity between a sub-module style and a state style. They both modify the existing look of an element. However, they differ in two key ways:
+    State styles can apply to layout and/or module styles; and
+    State styles indicate a JavaScript dependency.
+It is this second point that is the most important distinction. Sub-module styles are applied to an element at render time and then are never changed again. State styles, however, are applied to elements to indicate a change in state while the page is still running on the client machine.
+*/
+@import '05-theme/__theme-dir.scss';
