@@ -19,6 +19,8 @@ ARTICLE_EXCLUDES = ['extra', 'img']
 
 INDEX_SAVE_AS = 'blog/index.html'
 ARCHIVES_SAVE_AS = 'archives.html'
+TAGS_SAVE_AS = 'tags.html'
+AUTHORS_SAVE_AS = 'authors.html'
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None

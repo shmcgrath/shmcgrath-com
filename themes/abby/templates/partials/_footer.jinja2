@@ -19,10 +19,17 @@
 
 <div id="blogArchive" class="footerDiv">
 <ul>
-  <li>Archive</li>
-  <li>Tags</li>
+  {% if ARCHIVES_SAVE_AS %}
+    <li><a href="{{ SITEURL }}/{{ ARCHIVES_SAVE_AS }}">Archives</a></li>
+  {% endif %}
+  {% if TAGS_SAVE_AS %}
+    <li><a href="{{ SITEURL }}/{{ TAGS_SAVE_AS }}">Tags</a></li>
+  {% endif %}
   <li>Authors</li>
   <li>Disclosures</li>
+  {% if CATEGORIES_SAVE_AS %}
+    <li><a href="{{ SITEURL }}/{{ CATEGORIES_SAVE_AS }}">Categories</a></li>
+  {% endif %}
 </ul>
 </div>
 
