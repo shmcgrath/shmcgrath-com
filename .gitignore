@@ -2,6 +2,7 @@
 Makefile
 tasks.py
 output/
+pelican-plugins/
 
 # macos
 .DS_Store
