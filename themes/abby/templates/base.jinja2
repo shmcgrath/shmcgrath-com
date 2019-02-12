@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="{% block html_lang %}{{ DEFAULT_LANG }}{% endblock html_lang %}">
+  <head>
+    <!-- Title and Meta Information -->
+    <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
+    <meta name="author" content="{{ AUTHOR }}"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Style Sheets -->
+    <!-- Google Web Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Space+Mono|Work+Sans" rel="stylesheet">
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="{{ SITEURL}}/css/main.css">
+    <link rel="icon" href="{{ SITEURL }}/img/favicon.ico" type="image/x-icon"/>  
+    <!-- Additional CSS -->
+    {% block additional_css %}
+    {% endblock %}
+    <!-- Scripts -->
+    <!-- jQuery -->
+    <script type="text/javascript" src="{{ SITEURL }}/plugins/jquery-3.3.1.min.js"></script>
+    <!-- My JavaScript -->
+    <script type="text/javascript" src="{{ SITEURL }}/script/main.js"></script>
+    <!-- Additional Javascript -->
+    {% block additional_js %}
+    {% endblock %}
+    <!-- RSS Feed Information -->
+    {% include "partials/_rss.jinja2" %}
+    {% block headerblk %}
+    {% endblock %}
+  </head>
+  <body>
+    <header id="header-main banner">
+      <h1><a href="{{ SITEURL }}/">{{ SITENAME }}</a></h1>
+      <h2>{{ SITESUBTITLE }}</h2>
+      {% include "partials/_nav.jinja2" %}
+    </header>
+
+    <main>
+      {% block content %}
+      {% endblock %}
+    </main>
+
+    <footer id="main-footer">
+      {% include "partials/_footer.jinja2" %}
+      {% block footerblk %}
+      {% endblock %}
+
+    </footer>
+  </body>
+</html>

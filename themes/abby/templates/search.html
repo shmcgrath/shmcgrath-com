@@ -1,0 +1,25 @@
+{% extends "base.jinja2" %}
+
+{% block headerblk %}
+<script src="{{ SITEURL }}/tipuesearch_content.js"></script>
+<link rel="stylesheet" href="{{ SITEURL }}/plugins/tipuesearch/tipuesearch.css">
+<script src="{{ SITEURL }}/plugins/tipuesearch/tipuesearch_set.js"></script>
+<script src="{{ SITEURL }}/plugins/tipuesearch/tipuesearch.min.js"></script>
+{% endblock %}
+
+{% block content %}
+<div id="tipue_search_content">
+</div>
+{% endblock %}
+
+{% block additional_js %}
+<script>
+$(document).ready(function() {
+     $('#tipue_search_input').tipuesearch({
+          'show': 20,
+          'newWindow': true,
+          'imageZoom': true
+     });
+});
+</script>
+{% endblock %}

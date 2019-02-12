@@ -1,0 +1,15 @@
+{% extends "base.jinja2" %}
+
+{% block content %}
+  <h1>Education</h1>
+    {% for school in schools %}
+      <div class="edu header">
+        <h2 class="edu header text">{{ school.name}}</h2>
+        <img class="edu header image" src="img/{{ school.image }}"</img>
+      </div>
+      <ul>
+        <li>Graduation: {{ school.graduation }}</li>
+        <li>Degree: {{ school.degreeMajor }}</li>
+        <li><a href="{{ school.website.url }}">{{ school.website.linktext }}</a></li>
+    {% endfor %}
+{% endblock %}
