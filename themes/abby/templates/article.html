@@ -3,7 +3,7 @@
 
 {% block title %}{{ SITENAME }} - {{ article.title }}{% endblock %}
 
-{% block head %}
+{% block headblk %}
   {{ super() }}
 
   {% import 'translations.html' as translations with context %}
@@ -22,9 +22,9 @@
 {% endblock %}
 
 {% block content %}
-<section id="content" class="body">
+<article id="blogpost" class="body">
   <header>
-    <h2 class="entry-title">
+    <h2 class="post-title">
       <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
          title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2>
  {% import 'translations.html' as translations with context %}
@@ -63,5 +63,5 @@
   <div class="entry-content">
     {{ article.content }}
   </div><!-- /.entry-content -->
-</section>
+</article>
 {% endblock %}

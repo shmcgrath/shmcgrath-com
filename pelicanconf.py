@@ -13,13 +13,12 @@ THEME_STATIC_DIR = ''
 PATH = 'content'
 
 # static paths will be copied without parsing their contents
-STATIC_PATHS = [
-    'extra'
-    ]
-PAGE_EXCLUDES = ['extra']
-ARTICLE_EXCLUDES = ['extra']
+STATIC_PATHS = ['extra', 'img']
+PAGE_EXCLUDES = ['extra', 'img']
+ARTICLE_EXCLUDES = ['extra', 'img']
 
-INDEX_SAVE_AS = 'blog.html'
+INDEX_SAVE_AS = 'blog/index.html'
+ARCHIVES_SAVE_AS = 'archives.html'
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
@@ -34,6 +33,9 @@ LINKS = (('Pelican', 'http://getpelican.com/'),
          ('Jinja2', 'http://jinja.pocoo.org/'),
          ('You can modify those links in your config file', '#'),)
 
+MENUITEMS = (('Blog', SITEURL + '/' + INDEX_SAVE_AS),)
+# Make sure an archive page is created and added
+
 # Social widget
 SOCIAL = (('You can add links in your config file', '#'),
           ('Another social link', '#'),)
@@ -42,7 +44,13 @@ SOCIAL = (('You can add links in your config file', '#'),
 USE_FOLDER_AS_CATEGORY = False
 DEFAULT_PAGINATION = False
 DEFAULT_CATEGORY = 'misc'
+DISPLAY_CATEGORIES_ON_MENU = False
 
+SLUGIFY_SOURCE = 'basename'
+ARTICLE_URL = 'blog/{slug}'
+ARTICLE_SAVE_AS = 'blog/{slug}.html'
+PAGE_URL = '{slug}'
+PAGE_SAVE_AS = '{slug}.html'
 # jinja settings
 # http://jinja.pocoo.org/docs/dev/api/#jinja2.Environment
 # JINJA_ENVIRONMENT = {'trim_blocks': True, 'lstrip_blocks': True}

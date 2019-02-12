@@ -1,4 +1,4 @@
-Title: Certifications and Education
+Title: Education
 author: Sarah H. McGrath
 tags: comptia, network+, sls, cua, rmu, seton-lasalle, robert morris univeristy, the catholic university of america
 collection: pages
@@ -6,9 +6,6 @@ layout: page.njk
 
 ---
 
-## Certifications
-- Add MSFT Certification
-- Comptia N+ Certification // cert number
 
 ## Education
 
