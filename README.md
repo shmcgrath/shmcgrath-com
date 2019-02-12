@@ -2,8 +2,7 @@
 [Pelican](https://blog.getpelican.com/) config file and theme for shmcgrath.com.
 
 ## Color Palette
-
-I am using color combination number 12 from [ColorClaim by Tobias van Schneider.](https://www.vanschneider.com/colors). I may also use the grayscale from [base16](http://chriskempson.com/projects/base16/).
+I am using color combination number 12 from [ColorClaim by Tobias van Schneider](https://www.vanschneider.com/colors). In addition, I use the grayscale from [base16](http://chriskempson.com/projects/base16/).
 
 ### Blue
 - Hex: #0BBCD6
@@ -15,6 +14,8 @@ I am using color combination number 12 from [ColorClaim by Tobias van Schneider.
 - RGB: rgb(230, 98, 94)
 - HSL: hsl(2, 73%, 64%)
 
-## Sass
+## Icons
+The icons were generated from [iconizer](http://iconizer.net) or similar.
 
+## Sass
 Sass is compiled via [libsass build.](https://sass.github.io/libsass-python/sassutils/builder.html)
