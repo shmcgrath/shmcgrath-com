@@ -3,6 +3,7 @@ Makefile
 tasks.py
 output/
 pelican-plugins/
+SECRETS.PY
 
 # macos
 .DS_Store
