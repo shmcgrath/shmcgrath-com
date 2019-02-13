@@ -6,12 +6,12 @@ About Me
 :author: Sarah H. McGrath
 :tags: about me
 :date: 2019-02-12 18:03
-:modified: 2019-02-12 18:21
+:modified: 2019-02-12 23:17
 
-I am originally from Pittsburgh, PA and am currently an intern at Plus Consulting on the Dynamics CRM team.
+I am originally from Pittsburgh, PA and am currently an Applications Consultant at Plus Consulting on the Microsoft Dynamics CRM team.
 
-I have a big interest on working on the back end of systems, particularly those written in COBOL. I took two semesters of COBOL and enjoy writing in the language.
+I am interested in working on the back end of systems, particularly those written in COBOL. I took two semesters of COBOL and enjoy writing in the language. I am gaining experience using SSIS to interact with systems.
 
-Recently, I have begun to play around with Python. I am working on a couple simple scripts and used Pelican to create this website. In my free time I am going to be working on creating my own Pelican theme over the next couple of months.
+When coding in my free time, I typically use Python. I have a couple of one shot scripts on Github and am working on a package that would move saved URLs between various websites. Most of my Python work is done in Vim / the terminal and my dotfiles are also on Github.
 
-In my free time I like to read, play video games, and watch sports. I have made sporadic efforts to learn German and want to re-focus on that when I graduate from RMU in May.
+In my free time I like to watch sports, read, and play video games. I have built several OLKBs (orto-linear keyboards) and tinker with running various services on my Arch Linux powered server.

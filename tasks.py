@@ -10,7 +10,7 @@ from invoke.util import cd
 from pelican.server import ComplexHTTPRequestHandler, RootedHTTPServer
 
 import sass
-from secrets import *
+import secrets as secrets
 
 CONFIG = {
     # Local path configuration (can be absolute or relative to tasks.py)

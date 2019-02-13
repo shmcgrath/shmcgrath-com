@@ -1,8 +1,8 @@
 ################
-Sarah H. McGrath
+Home
 ################
 
-:title: Sarah H. McGrath
+:title: Home
 :author: Sarah H. McGrath
 :tags: home
 :url:

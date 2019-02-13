@@ -123,6 +123,12 @@ header {
   color: $shmblue;
   border-bottom: .5rem double;
   border-color: $shmred;
+
+  h1 {
+    a {
+      color: $shmred;
+    }
+  }
 }
 
 .article-header {
@@ -132,7 +138,7 @@ header {
 footer {
 }
 
-#main-footer {
+#footer-main {
   border-top: .5rem double;
   border-color: $shmred;
 }
@@ -163,7 +169,7 @@ h1 {
 
 #tipue_search_input {
   height: 1rem;
-  width: 16rem;
+  width: 80%;
   background: url("../img/search32b.png") no-repeat left center;
   padding: .5rem;
   margin: 1rem;
@@ -186,4 +192,8 @@ h1 {
 .header .text {
     display: inline-block;
     vertical-align: bottom;
+}
+
+#disclaimer {
+  font-size: 0.90em;
 }

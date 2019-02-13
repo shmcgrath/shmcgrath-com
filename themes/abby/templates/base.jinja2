@@ -61,30 +61,20 @@
     </main>
 
     <footer id="footer-main" class="footer">
-      <div id="socialicons" class="footerDiv">
-        <ul id="social-icons-list">
-          <li><a href="https://github.com/shmcgrath"><img src="{{ SITEURL }}/img/githubr.png" alt=""></a></li>
-          <li><a href="https://www.linkedin.com/in/mcgrathsh"><img src="{{ SITEURL }}/img/linkedinr.png" alt=""></a></li>
-          <li><a href="mailto:sarah@shmcgrath.com"><img src="{{ SITEURL }}/img/mailr.png" alt=""></a></li>
-          <li><a href="https://www.reddit.com/user/shmcg/"><img src="{{ SITEURL }}/img/redditr.png" alt=""></a></li>
-          <li><a href="https://www.shmcgrath.com/feed"><img src="{{ SITEURL }}/img/rssr.png" alt=""></a></li>
-          <li><a href="https://twitter.com/mcgrath_sh"><img src="{{ SITEURL }}/img/twitterr.png" alt=""></a></li>
-        </ul>
-      </div>
-
-      <div id="pelican" class="footerDiv">
-          Proudly powered by <a href="http://getpelican.com/">Pelican</a>
-      </div>
 
       <div id="backTop" class="footerDiv">
       <p><a href="#top">Back to Top</a></p>
       </div>
 
-      <div id="contact" class="footerDiv">
-          <p>Contact the author of this page:</p>
-          <address id="about" class="vcard body">
-            <a href="mailto:sarah@shmcgrath.com">sarah@shmcgrath.com</a><br/>
-          </address>
+      <div id="socialIcons" class="footerDiv">
+        <ul id="social-icons-list">
+          <li><a href="https://github.com/shmcgrath"><img src="{{ SITEURL }}/img/githubr.png" alt=""></a></li>
+          <li><a href="https://www.linkedin.com/in/mcgrathsh"><img src="{{ SITEURL }}/img/linkedinr.png" alt=""></a></li>
+          <li><a href="mailto:sarah@shmcgrath.com"><img src="{{ SITEURL }}/img/mailr.png" alt=""></a></li>
+          <li><a href="https://www.reddit.com/user/shmcg/"><img src="{{ SITEURL }}/img/redditr.png" alt=""></a></li>
+          <li><a href="{{ SITEURL }}/feed"><img src="{{ SITEURL }}/img/rssr.png" alt=""></a></li>
+          <li><a href="https://twitter.com/mcgrath_sh"><img src="{{ SITEURL }}/img/twitterr.png" alt=""></a></li>
+        </ul>
       </div>
 
       <div id="blogArchive" class="footerDiv">
@@ -101,7 +91,7 @@
         {% if CATEGORIES_SAVE_AS %}
           <li><a href="{{ SITEURL }}/{{ CATEGORIES_SAVE_AS }}">Categories</a></li>
         {% endif %}
-        <li>Disclosures</li>
+        {# <li>Disclosures</li> #}
       </ul>
       </div>
 
@@ -109,15 +99,15 @@
           {% include "partials/_searchbox.jinja2" %}
       </div>
 
+      <div id="pelican" class="footerDiv">
+          Powered by <a href="http://getpelican.com/">Pelican</a>.
+      </div>
+
       <div id="disclaimerCopyright" class="footerDiv">
-          <p><small>All opinions expressed in this site are my personal opinions and are not endorsed by, nor do they represent, the opinions of my previous, current, or future employers, or any of their affiliates, partners, or customers.</small></p>
+          <p id="disclaimer">All opinions expressed in this site are my personal opinions and are not endorsed by, nor do they represent, the opinions of my previous, current, or future employers, or any of their affiliates, partners, or customers.</p>
           <p>Copyright (c) 2017-2019</p>
       </div>
 
-      <div id="footerblk" class="footerDiv">
-      {% block footerblk %}
-      {% endblock %}
-      </div>
     </footer>
   </body>
 </html>
