@@ -11,11 +11,21 @@ from pelican.server import ComplexHTTPRequestHandler, RootedHTTPServer
 
 import sass
 
+from secrets import *
+
+
+        newsblurUsername = accountinfo.NEWSBLUR_USERNAME
+        newsblurPassword = accountinfo.NEWSBLUR_PASSWORD
+    except ImportError:
+        logging.debug('error in import')
+        print('error importing account information from accountinfo.py')
+        exit(1)
+
 CONFIG = {
     # Local path configuration (can be absolute or relative to tasks.py)
     'deploy_path': 'output',
     # Remote server configuration
-    'production': 'root@localhost:22',
+    'production': '',
     'dest_path': '/var/www',
     # Port for `serve`
     'port': 8000,

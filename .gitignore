@@ -2,7 +2,8 @@
 Makefile
 output/
 pelican-plugins/
-SECRETS.PY
+SECRETS.py
+secrets.py
 
 # macos
 .DS_Store
