@@ -3,6 +3,12 @@
 
 {% block title %}{{ SITENAME }} - {{ page.title }}{%endblock%}
 
+{#{% block top_center %}
+  <h1>
+    <a href="{{ SITEURL }}/{{ page.url }}" rel="bookmark" title="Permalink to {{ page.title|striptags|e }}">{{ page.title }}</a>
+  </h1>
+  {% endblock %}#}
+
 {% block head %}
   {{ super() }}
 
@@ -18,6 +24,10 @@
     {{ translations.translations_for(page) }}
 
     {{ page.content }}
+
+    {% if page.title == RESUME_PAGE and HAS_RESUME == True %}
+      <a href="{{ SITEURL }}/{{ RESUME_LOCATION }}">View my PDF Resume here.</a>
+    {% endif %}
 
     {% if page.modified %}
         <p>

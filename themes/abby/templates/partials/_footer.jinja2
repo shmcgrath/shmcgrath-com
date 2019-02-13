@@ -25,11 +25,13 @@
   {% if TAGS_SAVE_AS %}
     <li><a href="{{ SITEURL }}/{{ TAGS_SAVE_AS }}">Tags</a></li>
   {% endif %}
-  <li>Authors</li>
-  <li>Disclosures</li>
+  {% if AUTHORS_SAVE_AS %}
+    <li><a href="{{ SITEURL }}/{{ AUTHORS_SAVE_AS }}">Tags</a></li>
+  {% endif %}
   {% if CATEGORIES_SAVE_AS %}
     <li><a href="{{ SITEURL }}/{{ CATEGORIES_SAVE_AS }}">Categories</a></li>
   {% endif %}
+  <li>Disclosures</li>
 </ul>
 </div>
 
