@@ -14,7 +14,7 @@ from pelicanconf import *
 SITEURL = 'https://www.shmcgrath.com'
 RELATIVE_URLS = False
 
-FEED_ALL_ATOM = 'feeds/all.atom.xml'
+FEED_ALL_ATOM = '/feed'
 
 DELETE_OUTPUT_DIRECTORY = True
 
