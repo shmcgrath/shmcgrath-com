@@ -50,7 +50,7 @@ DEFAULT_CATEGORY = 'misc'
 DISPLAY_CATEGORIES_ON_MENU = False
 
 SLUGIFY_SOURCE = 'basename'
-ARTICLE_URL = 'blog/{slug}/'
+ARTICLE_URL = 'blog/{slug}'
 ARTICLE_SAVE_AS = 'blog/{slug}.html'
 PAGE_URL = '{slug}'
 PAGE_SAVE_AS = '{slug}.html'
