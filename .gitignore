@@ -1,6 +1,5 @@
 # Pelican
 Makefile
-tasks.py
 output/
 pelican-plugins/
 SECRETS.PY
