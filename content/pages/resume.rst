@@ -1,11 +1,12 @@
-################
+######
 Resume
-################
+######
+
 :title: Resume
-:modified: 2019-02-12
 :authors: Sarah H. McGrath
 :tags: resume, jobs, job
-:category: resume
+:date: 2019-02-12 00:15
+:modified: 2019-02-12 18:22
 
 Professional Summary
 ====================
@@ -72,3 +73,6 @@ Seton LaSalle Catholic High School
 
 Skills
 ======
+
+PDF Resume
+==========
