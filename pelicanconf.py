@@ -66,7 +66,7 @@ PAGE_SAVE_AS = '{slug}.html'
 #   (HTML code)
 # better_code_samples This plugin wraps all table blocks with a class attribute .codehilitetable in an additional div of class .hilitewrapper. It thus permits to style codeblocks better, especially to make them scrollable.
 PLUGIN_PATHS = ['pelican-plugins']
-PLUGINS = ['tipue_search']
+PLUGINS = ['tipue_search', 'summary']
 #PLUGINS = ['tipue_search', 'html_rst_directive', 'better_code_samples']
 DIRECT_TEMPLATES = ['index', 'tags', 'archives', 'search']
 
@@ -79,3 +79,6 @@ RESUME_PAGE = "Resume"
 RESUME_LOCATION = "/docs/SHMcGrathResume.pdf"
 
 ABOUT_SITE = True
+
+# Pygments
+PYGMENTS_RST_OPTIONS =  {'linenos': 'table'}

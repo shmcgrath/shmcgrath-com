@@ -5,8 +5,9 @@ Forbidden
 :title: Forbidden
 :authors: Sarah H. McGrath
 :tags: error
+:category: error
 :url:
-:save_as: err403.html
+:save_as: error/err403.html
 :status: hidden
 :date: 2019-02-12 18:03
 :modified: 2019-02-12 18:21

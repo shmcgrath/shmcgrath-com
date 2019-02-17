@@ -5,6 +5,7 @@ Education
 :title: Education
 :author: Sarah H. McGrath
 :tags: seton-lasalle, robert morris univeristy, the catholic university of america
+:category: infopage
 :date: 2019-02-12 18:03
 :modified: 2019-02-12 18:21
 

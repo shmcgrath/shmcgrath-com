@@ -19,3 +19,6 @@ The icons were generated from [iconizer](http://iconizer.net) or similar.
 
 ## Sass
 Sass is compiled via [libsass build.](https://sass.github.io/libsass-python/sassutils/builder.html)
+
+## Pygments Colorscheme
+I am using the [base16-nord](https://github.com/mohd-akram/base16-pygments) colorsheme for code blocks formatted by pygments.

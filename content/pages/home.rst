@@ -5,6 +5,7 @@ Home
 :title: Home
 :author: Sarah H. McGrath
 :tags: home
+:category: infopage
 :url:
 :save_as: index.html
 :status: hidden

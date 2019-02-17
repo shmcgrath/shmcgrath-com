@@ -5,8 +5,9 @@ Authorization Required
 :title: Authorization Required
 :authors: Sarah H. McGrath
 :tags: error
+:category: error
 :url:
-:save_as: err401.html
+:save_as: error/err401.html
 :status: hidden
 :date: 2019-02-12 18:03
 :modified: 2019-02-12 18:21

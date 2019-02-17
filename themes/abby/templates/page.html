@@ -29,7 +29,7 @@
       <a href="{{ SITEURL }}/{{ RESUME_LOCATION }}">View my PDF Resume here.</a>
     {% endif %}
 
-    {% if page.modified and page.title != "Home" %}
+    {% if page.modified and page.title != "Home"  and page.category != "error" %}
         <p>
         Last updated: {{ page.locale_modified }}
         </p>

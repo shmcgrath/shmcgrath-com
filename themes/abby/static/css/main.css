@@ -21,6 +21,11 @@ nav {
   text-align: center;
   margin: 1rem; }
 
+#navList li {
+  display: inline-block;
+  list-style-type: none;
+  font-size: 0.8rem; }
+
 .header-person {
   display: flex;
   align-items: center;
@@ -36,14 +41,6 @@ nav {
 
 li {
   list-style-type: none; }
-
-table {
-  text-align: center; }
-
-#navList li {
-  display: inline-block;
-  list-style-type: none;
-  font-size: 0.8rem; }
 
 ul {
   padding: 0;
@@ -71,16 +68,17 @@ form {
 h1 {
   color: #0bbad5; }
 
-table {
+/*table {
   width: 100%;
-  padding: 1em; }
+  padding: 1em;
+}
 
 td {
   text-align: center;
   content: center;
   padding: .2em;
-  width: 33.3333%; }
-
+  width: 33.3333%
+}*/
 #searchrow {
   display: flex;
   justify-content: center;

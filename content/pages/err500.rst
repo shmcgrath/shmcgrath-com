@@ -5,8 +5,9 @@ Internal Server Error
 :title: Internal Server Error
 :authors: Sarah H. McGrath
 :tags: error
+:category: error
 :url:
-:save_as: err500.html
+:save_as: error/err500.html
 :status: hidden
 :date: 2019-02-12 18:03
 :modified: 2019-02-12 18:21

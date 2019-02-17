@@ -15,12 +15,19 @@ nav {
   margin: 1rem;
 }
 
+#navList li {
+  display: inline-block;
+  list-style-type: none;
+  font-size: 0.8rem;
+}
+
 .header-person {
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
+
 .social-icons-container {
   display: flex;
   align-items: center;
@@ -31,16 +38,6 @@ nav {
 
 li {
   list-style-type: none;
-}
-
-table {
-  text-align:center;
-}
-
-#navList li {
-  display: inline-block;
-  list-style-type: none;
-  font-size: 0.8rem;
 }
 
 ul {
@@ -79,7 +76,7 @@ h1 {
 main {
 }
 
-table {
+/*table {
   width: 100%;
   padding: 1em;
 }
@@ -89,7 +86,7 @@ td {
   content: center;
   padding: .2em;
   width: 33.3333%
-}
+}*/
 
 #searchrow {
   display: flex;

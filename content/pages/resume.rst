@@ -5,6 +5,7 @@ Resume
 :title: Resume
 :authors: Sarah H. McGrath
 :tags: resume, jobs, job
+:category: infopage
 :date: 2019-02-12 00:15
 :modified: 2019-02-12 18:22
 

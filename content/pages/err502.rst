@@ -5,8 +5,9 @@ Bad Gateway
 :title: Bad Gateway
 :authors: Sarah H. McGrath
 :tags: error
+:category: error
 :url:
-:save_as: err502.html
+:save_as: error/err502.html
 :status: hidden
 :date: 2019-02-13 02:28
 :modified: 2019-02-13 02:28
