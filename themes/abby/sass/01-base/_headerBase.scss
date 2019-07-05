@@ -1,0 +1,19 @@
+#headerBase {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: $shmblue;
+  border-bottom: .5rem double;
+  border-color: $shmred;
+}
+
+#headerBaseSitename {
+  color: $shmred;
+  font-size: 1.75rem;
+}
+
+#headerBaseSitesubtitle {
+  color: $shmred;
+  font-size: 1.5rem;
+}

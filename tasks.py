@@ -19,7 +19,8 @@ CONFIG = {
     'production': secrets.PROD_URL,
     'dest_path': secrets.PROD_DEST_PATH,
     # Port for `serve`
-    'port': secrets.PROD_PORT,
+    'prod-port': secrets.PROD_PORT,
+    'dev-port': 8000,
 }
 
 @task
@@ -46,22 +47,23 @@ def regenerate(c):
 
 @task
 def serve(c):
-    """Serve site at http://localhost:8000/"""
+    """Serve site at http://localhost:{dev-port}/"""
 
     class AddressReuseTCPServer(RootedHTTPServer):
         allow_reuse_address = True
 
     server = AddressReuseTCPServer(
         CONFIG['deploy_path'],
-        ('', CONFIG['port']),
+        ('', CONFIG['dev-port']),
         ComplexHTTPRequestHandler)
 
-    sys.stderr.write('Serving on port {port} ...\n'.format(**CONFIG))
+    sys.stderr.write('Serving on port {dev-port} ...\n'.format(**CONFIG))
     server.serve_forever()
 
 @task
 def reserve(c):
     """`build`, then `serve`"""
+    abbysass(c)
     build(c)
     serve(c)
 

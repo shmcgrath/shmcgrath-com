@@ -1,0 +1,13 @@
+article {
+  margin: 32px;
+}
+
+.articleHeader {
+  color: $shmred;
+}
+
+.articleFooter {
+  border-top: 2px dotted;
+  padding-top: 1rem;
+  border-color: $shmred;
+}

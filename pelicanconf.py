@@ -60,14 +60,8 @@ PAGE_SAVE_AS = '{slug}.html'
 # JINJA_FILTERS = {}
 
 # Plugins
-# Tipue Search
-# html_rst_directive This plugin allows you to use HTML tags from within reST documents.
-# .. html::
-#   (HTML code)
-# better_code_samples This plugin wraps all table blocks with a class attribute .codehilitetable in an additional div of class .hilitewrapper. It thus permits to style codeblocks better, especially to make them scrollable.
 PLUGIN_PATHS = ['pelican-plugins']
 PLUGINS = ['tipue_search', 'summary']
-#PLUGINS = ['tipue_search', 'html_rst_directive', 'better_code_samples']
 DIRECT_TEMPLATES = ['index', 'tags', 'archives', 'search']
 
 # Uncomment following line if you want document-relative URLs when developing
@@ -77,6 +71,7 @@ DIRECT_TEMPLATES = ['index', 'tags', 'archives', 'search']
 HAS_RESUME = True
 RESUME_PAGE = "Resume"
 RESUME_LOCATION = "/docs/SHMcGrathResume.pdf"
+SITE_DESCRIPTION = "Sarah H. McGrath's website."
 
 ABOUT_SITE = True
 

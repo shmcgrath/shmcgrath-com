@@ -22,3 +22,11 @@ Sass is compiled via [libsass build.](https://sass.github.io/libsass-python/sass
 
 ## Pygments Colorscheme
 I am using the [base16-nord](https://github.com/mohd-akram/base16-pygments) colorsheme for code blocks formatted by pygments.
+
+## Evnironment Setup
+- create a venv with and install requirements.txt
+- clone [pelican-plugins](https://github.com/getpelican/pelican-plugins)
+- tranfer or create secrets.py which should include
+    - PROD_URL = ''
+    - PROD_DEST_PATH = ''
+    - PROD_PORT = 

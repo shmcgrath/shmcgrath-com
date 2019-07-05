@@ -6,10 +6,73 @@ https://css-tricks.com/sass-style-guide/ */
 /* Essentially, a base style says that wherever this element is on the page, it should look like this. */
 /* A Base rule is applied to an element using an element selector, a descendent selector, or a child selector, along with any pseudo-classes. It doesn’t include any class or ID selectors. It is defining the default styling for how that element should look in all occurrences on the page. */
 /* The red and blue colors are from Color Claim by Tobias van Schneider. It is pallet No. 12 at http://www.vanschneider.com/colors/ */
+#footerBase {
+  border-top: .5rem double;
+  border-color: #e66560; }
+
+#disclaimer {
+  font-size: 0.90em; }
+
+#blogArchive {
+  text-align: left;
+  list-style-type: none; }
+
+#blogArchive li {
+  list-style-type: none; }
+
+#headerBase {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #0bbad5;
+  border-bottom: .5rem double;
+  border-color: #e66560; }
+
+#headerBaseSitename {
+  color: #e66560;
+  font-size: 1.75rem; }
+
+#headerBaseSitesubtitle {
+  color: #e66560;
+  font-size: 1.5rem; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Arial, sans-serif; }
+
+h1 {
+  color: #0bbad5;
+  font-size: 1.5rem; }
+
+h2 {
+  color: #e66560;
+  font-size: 1.4rem; }
+
+h3 {
+  font-size: 1.3rem; }
+
+h4 {
+  font-size: 1.2rem; }
+
+h5 {
+  font-size: 1.1rem; }
+
+h6 {
+  font-size: 1.0rem; }
+
+#navMainMenu > li:before {
+  content: " | ";
+  color: #e66560; }
+
+#navMainMenu > li:last-child:after {
+  content: " | ";
+  color: #e66560; }
+
 /* COLORS GO RED ON BLUE BACKGROUND */
+html {
+  font-family: Arial, sans-serif; }
+
 body {
-  font-family: "Work Sans", Arial, sans-serif;
-  font-size: 16px;
   margin: 2rem;
   background: #f7f7f7; }
 
@@ -24,7 +87,10 @@ nav {
 #navList li {
   display: inline-block;
   list-style-type: none;
-  font-size: 0.8rem; }
+  font-size: 0.9rem; }
+
+#blog-list {
+  list-style-type: none; }
 
 .header-person {
   display: flex;
@@ -39,7 +105,7 @@ nav {
   text-align: center;
   margin: .5rem; }
 
-li {
+nav li {
   list-style-type: none; }
 
 ul {
@@ -50,23 +116,8 @@ ul {
   display: inline-block;
   list-style-type: none; }
 
-#navList > li + li:before {
-  content: " | ";
-  color: #e66560; }
-
-#navList > li:first-child:before {
-  content: " | ";
-  color: #e66560; }
-
-#navList > li:last-child:after {
-  content: " | ";
-  color: #e66560; }
-
 form {
   display: block; }
-
-h1 {
-  color: #0bbad5; }
 
 /*table {
   width: 100%;
@@ -89,37 +140,8 @@ main {
   float: center;
   margin: 32px; }
 
-article {
-  margin: 32px; }
-
 a {
   color: #0bbad5; }
-
-header {
-  font-family: "Space Mono", Arial, sans-serif; }
-
-#header-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: #0bbad5;
-  border-bottom: .5rem double;
-  border-color: #e66560; }
-  #header-main h1 a {
-    color: #e66560; }
-
-.article-header {
-  color: #e66560; }
-
-#footer-main {
-  border-top: .5rem double;
-  border-color: #e66560; }
-
-.article-footer {
-  border-top: 2px dotted;
-  padding-top: 1rem;
-  border-color: #e66560; }
 
 .icon {
   height: 1rem;
@@ -158,8 +180,11 @@ h1 {
   display: inline-block;
   vertical-align: bottom; }
 
-#disclaimer {
-  font-size: 0.90em; }
+.page-last-updated {
+  font-size: 0.75rem;
+  color: #e66560;
+  display: flex;
+  justify-content: right; }
 
 /* Layout rules divide the page into sections. Layouts hold one or more modules together.
 The minor components—such as a callout, or login form, or a navigation item—sit within the scope of major components such as a header or footer. I refer to the minor components as Modules and will dive into those in the next section. The major components are referred to as Layout styles.

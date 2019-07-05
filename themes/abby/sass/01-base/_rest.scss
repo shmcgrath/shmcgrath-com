@@ -1,7 +1,10 @@
 /* COLORS GO RED ON BLUE BACKGROUND */
-body {
+html {
   font-family: $main-font;
-  font-size: 16px;
+  //font-size: 16px;
+}
+
+body {
   margin: 2rem;
   background: $background;
 }
@@ -18,7 +21,11 @@ nav {
 #navList li {
   display: inline-block;
   list-style-type: none;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
+}
+
+#blog-list {
+  list-style-type: none;
 }
 
 .header-person {
@@ -36,7 +43,7 @@ nav {
   margin: .5rem;
 }
 
-li {
+nav li {
   list-style-type: none;
 }
 
@@ -50,28 +57,10 @@ ul {
   list-style-type: none;
 }
 
-#navList > li+li:before { 
-  content: " | ";
-  color: $shmred;
-}
-
-#navList > li:first-child:before { 
-  content: " | ";
-  color: $shmred;
-}
-
-#navList > li:last-child:after { 
-  content: " | ";
-  color: $shmred;
-}
-
 form {
   display: block;
 }
 
-h1 {
-  color: $shmblue;
-}
 
 main {
 }
@@ -100,51 +89,8 @@ main {
   margin: 32px;
 }
 
-article {
-  margin: 32px;
-}
-
 a {
   color: $shmblue;
-}
-
-header {
-  font-family: $header-font;
-}
-
-#header-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: $shmblue;
-  border-bottom: .5rem double;
-  border-color: $shmred;
-
-  h1 {
-    a {
-      color: $shmred;
-    }
-  }
-}
-
-.article-header {
-  color: $shmred;
-}
-
-footer {
-}
-
-#footer-main {
-  border-top: .5rem double;
-  border-color: $shmred;
-}
-
-.article-footer {
-  border-top: 2px dotted;
-  padding-top: 1rem;
-  border-color: $shmred;
-
 }
 
 .icon {
@@ -191,6 +137,9 @@ h1 {
     vertical-align: bottom;
 }
 
-#disclaimer {
-  font-size: 0.90em;
+.page-last-updated {
+  font-size: 0.75rem;
+  color: $shmred;
+  display: flex;
+  justify-content:right;
 }
