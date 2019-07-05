@@ -5,8 +5,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
-    <!-- TODO: <link rel="canonical" href="" /> -->
-    <!-- TODO: <link rel="copyright" href="copyright.html" /> -->
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <meta http-equiv="x-dns-prefetch-control" content="off">
@@ -14,9 +12,6 @@
     <meta name="description" content="{% block description %}{{ SITE_DESCRIPTION }}{% endblock description %}" />
     <meta name=’distribution’ content=’Global’>
     <meta name="generator" content="{{ META_GENERATOR }}" />
-    {# {% if SITE_REVISED IS DEFINED %}
-      <meta name="revised" content="{{ SITE_REVISED }}" />
-    {% endif %} #}
     <meta name="robots" content="index,follow" />
     {% block metablk %}
     {% endblock metablk %} 
@@ -35,10 +30,6 @@
     {% if META_TWITTER %}
       {% include "partials/_metaTwitter.jinja2" %}
     {% endif %}
-    <!-- Style Sheets -->
-    <!-- Google Web Fonts -->
-    <!-- <link href="https://fonts.googleapis.com/css?family=Space+Mono|Work+Sans" rel="stylesheet"> -->
-    <!-- <link href="https://fonts.googleapis.com/css?family=Fauna+One|Playfair+Display:400,400i,700,700i&display=swap" rel="stylesheet"> -->
     <!-- Local CSS -->
     <link rel="stylesheet" href="{{ SITEURL}}/css/main.css">
     <link rel="stylesheet" href="{{ SITEURL}}/css/pygment.css">
