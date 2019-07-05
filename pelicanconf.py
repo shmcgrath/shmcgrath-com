@@ -82,6 +82,23 @@ META_GOOGLE = False
 META_PINTEREST = False
 META_TWITTER = False
 
+# social icons variables and definitions
+# for red icons, set color to "r"; for blue icons set color to "b"
+SOCIAL_ICONS = True
+SOCIAL_ICONS_COLOR = "r"
+SOCIAL_ICONS_GITHUB = True
+SOCIAL_ICONS_GITHUB_USER = "shmcgrath"
+SOCIAL_ICONS_LINKEDIN = True
+SOCIAL_ICONS_LINKEDIN_URL = "mcgrathsh"
+SOCIAL_ICONS_MAILTO = True
+SOCIAL_ICONS_MAILTO_ADDRESS = "sarah@shmcgrath.com"
+SOCIAL_ICONS_TWITTER = True
+SOCIAL_ICONS_TWITTER_USER = "mcgrath_sh"
+SOCIAL_ICONS_REDDIT = True
+SOCIAL_ICONS_REDDIT_USER = "shmcg"
+SOCIAL_ICONS_PDF_RESUME = True
+SOCIAL_ICONS_FEED_ATOM = True
+
 # variables defining Metadata
 META_GENERATOR = "Pelican v.4.0.1"
 

@@ -87,17 +87,33 @@
         <p><a href="#top">Back to Top</a></p>
       </div>
 
+      {% if SOCIAL_ICONS %}
       <div id="socialIcons" class="footerDiv">
         <ul id="socialIconsList">
-          <li><a href="https://github.com/shmcgrath"><img src="{{ SITEURL }}/img/githubr.png" alt="GitHub"></a></li>
-          <li><a href="https://www.linkedin.com/in/mcgrathsh"><img src="{{ SITEURL }}/img/linkedinr.png" alt="LinkedIn"></a></li>
-          <li><a href="mailto:sarah@shmcgrath.com"><img src="{{ SITEURL }}/img/mailr.png" alt="mailto"></a></li>
-          <li><a href="https://twitter.com/mcgrath_sh"><img src="{{ SITEURL }}/img/twitterr.png" alt="twitter"></a></li>
-          <li><a href="https://www.reddit.com/user/shmcg/"><img src="{{ SITEURL }}/img/redditr.png" alt="reddit"></a></li>
-          <li><a title="PDF Resume" href="{{ SITEURL }}{{ RESUME_LOCATION }}"><img title="PDF Resume" src="{{ SITEURL }}/img/pdfr.png" alt="PDF Resume"></a></li></a>
-          <li><a href="{{ SITEURL }}/feeds/all.atom.xml"><img src="{{ SITEURL }}/img/rssr.png" alt="Atom Feed"></a></li>
+          {% if SOCIAL_ICONS_GITHUB %}
+          <li><a href="https://github.com/{{ SOCIAL_ICONS_GITHUB_USER}}"><img src="{{ SITEURL }}/img/github{{ SOCIAL_ICONS_COLOR }}.png" alt="GitHub"></a></li>
+          {% endif %}
+          {% if SOCIAL_ICONS_LINKEDIN %}
+          <li><a href="https://www.linkedin.com/in/{{ SOCIAL_ICONS_LINKEDIN_URL }}"><img src="{{ SITEURL }}/img/linkedin{{ SOCIAL_ICONS_COLOR }}.png" alt="LinkedIn"></a></li>
+          {% endif %}
+          {% if SOCIAL_ICONS_MAILTO %}
+          <li><a href="mailto:{{ SOCIAL_ICONS_MAILTO_ADDRESS }}"><img src="{{ SITEURL }}/img/mail{{ SOCIAL_ICONS_COLOR }}.png" alt="mailto"></a></li>
+          {% endif %}
+          {% if SOCIAL_ICONS_TWITTER %}
+          <li><a href="https://twitter.com/{{ SOCIAL_ICONS_TWITTER_USER }}"><img src="{{ SITEURL }}/img/twitter{{ SOCIAL_ICONS_COLOR }}.png" alt="twitter"></a></li>
+          {% endif %}
+          {% if SOCIAL_ICONS_REDDIT %}
+          <li><a href="https://www.reddit.com/user/{{ SOCIAL_ICONS_REDDIT_USER }}/"><img src="{{ SITEURL }}/img/reddit{{ SOCIAL_ICONS_COLOR }}.png" alt="reddit"></a></li>
+          {% endif %}
+          {% if SOCIAL_ICONS_PDF_RESUME%}
+          <li><a title="PDF Resume" href="{{ SITEURL }}{{ RESUME_LOCATION }}"><img title="PDF Resume" src="{{ SITEURL }}/img/pdf{{ SOCIAL_ICONS_COLOR }}.png" alt="PDF Resume"></a></li></a>
+          {% endif %}
+          {% if SOCIAL_ICONS_FEED_ATOM %}
+          <li><a href="{{ SITEURL }}/feeds/all.atom.xml"><img src="{{ SITEURL }}/img/rss{{ SOCIAL_ICONS_COLOR }}.png" alt="Atom Feed"></a></li>
+          {% endif %}
         </ul>
       </div>
+      {% endif %}
 
       <div id="blogArchive" class="footerDiv">
       <ul>
