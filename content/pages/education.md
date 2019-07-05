@@ -18,10 +18,10 @@ modified: 2019-07-05 13:00
 - Degree and Major: Bachelor of Arts, Philosophy
 - Graduation: May 2010 from the [School of Philosophy](http://philosophy.cua.edu/)
 - Attended: August 2006 - May 2010
+- Studied a range of Philosophers in core coursework focusing on 'Aristotelian' philosophers such as Plato, Aristotle, and Aquinas. In addition, studied modern political philosophy, modern philosophy, and ancient philosophy.
 - Activities:
     - Catholic University of America Women's Rugby Football Club (2006-2010)
     - [The Tower](http://cuatower.com/) (2006)
-- Studied a range of Philosophers in core coursework focusing on 'Aristotelian' philosophers such as Plato, Aristotle, and Aquinas. In addition, studied modern political philosophy, modern philosophy, and ancient philosophy.
 - [CUA Website](https://www.catholic.edu/index.html)
 
 ## Seton LaSalle Catholic High School
