@@ -1,8 +1,7 @@
 {% extends "base.jinja2" %}
+{% block title %}{{ SITENAME }} - {{ period | reverse | join(' ') }} archives {% endblock %}
 
-{% block title %}{{ SITENAME }} - {{ period | reverse | join(' ') }} archives{% endblock %}
-
-{% block content %}
+{% block contentblk %}
 <h1>Archives for {{ period | reverse | join(' ') }}</h1>
 
 <dl>

@@ -1,8 +1,7 @@
 {% extends "base.jinja2" %}
+{% block title %}{{ SITENAME }} - Tags {% endblock %}
 
-{% block title %}{{ SITENAME }} - Tags{% endblock %}
-
-{% block content %}
+{% block contentblk %}
     <h1>Tags for {{ SITENAME }}</h1>
     <ul>
     {% for tag, articles in tags|sort %}

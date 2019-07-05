@@ -1,9 +1,9 @@
 {% extends "base.jinja2" %}
-{% block title %}{{ SITENAME }} - Blog{% endblock %}
-{% block content %}
+{% block title %}{{ SITENAME }} - Blog {% endblock %}
+{% block contentblk %}
 <h1>Blog</h1>
 
-<ol id="blog-list">
+<ol id="blogList">
 {% for article in articles_page.object_list %}
   <li><article class="hentry">
     <header> <h2 class="entry-title"><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2> </header>
@@ -18,9 +18,9 @@
                 <div class="entry-content"> {{ article.summary }} </div><!-- /.entry-content -->
         </article></li>
 {% endfor %}
-</ol><!-- /#posts-list -->
+</ol>
 {% if articles_page.has_other_pages() %}
     {% include 'pagination.html' %}
 {% endif %}
 </section><!-- /#content -->
-{% endblock content %}
+{% endblock %}

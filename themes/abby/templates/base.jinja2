@@ -5,8 +5,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
-    TODO: <link rel="canonical" href="" />
-    TODO: <link rel="copyright" href="copyright.html" />
+    <!-- TODO: <link rel="canonical" href="" /> -->
+    <!-- TODO: <link rel="copyright" href="copyright.html" /> -->
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <meta http-equiv="x-dns-prefetch-control" content="off">
@@ -14,15 +14,12 @@
     <meta name="description" content="{% block description %}{{ SITE_DESCRIPTION }}{% endblock description %}" />
     <meta name=’distribution’ content=’Global’>
     <meta name="generator" content="{{ META_GENERATOR }}" />
-    <meta name="keywords" content="" />
-    <meta name="medium" content="article" />
-    <meta name="news_keywords" content="" />
-    {% if SITE_REVISED IS DEFINED %}
+    {# {% if SITE_REVISED IS DEFINED %}
       <meta name="revised" content="{{ SITE_REVISED }}" />
-    {% endif %}
+    {% endif %} #}
     <meta name="robots" content="index,follow" />
-    {% block metablock %}
-    {% endblock metablock %} 
+    {% block metablk %}
+    {% endblock metablk %} 
     {% if META_BING %}
       {% include "partials/_metaBing.jinja2" %}
     {% endif %}
@@ -59,7 +56,7 @@
     {% endblock %}
     <!-- RSS Feed Information -->
     {% include "partials/_rss.jinja2" %}
-    {% block headerblk %}
+    {% block headblk %}
     {% endblock %}
   </head>
   <body>
@@ -90,18 +87,17 @@
     </header>
 
     <main id="mainBase">
-      {% block content %}
+      {% block contentblk %}
       {% endblock %}
     </main>
 
     <footer id="footerBase" class="footer">
-
       <div id="backTop" class="footerDiv">
-      <p><a href="#top">Back to Top</a></p>
+        <p><a href="#top">Back to Top</a></p>
       </div>
 
       <div id="socialIcons" class="footerDiv">
-        <ul id="social-icons-list">
+        <ul id="socialIconsList">
           <li><a href="https://github.com/shmcgrath"><img src="{{ SITEURL }}/img/githubr.png" alt=""></a></li>
           <li><a href="https://www.linkedin.com/in/mcgrathsh"><img src="{{ SITEURL }}/img/linkedinr.png" alt=""></a></li>
           <li><a href="mailto:sarah@shmcgrath.com"><img src="{{ SITEURL }}/img/mailr.png" alt=""></a></li>
@@ -133,14 +129,9 @@
         {% include "partials/_searchbox.jinja2" %}
       </div>
 
-      <div id="pelican" class="footerDiv">
-        <p>Powered by <a href="http://getpelican.com/">Pelican</a>.</p>
-        <p><a href="https://github.com/shmcgrath/shmcgrath-com">Source code on GitHub.</a></p>
-      </div>
-
       <div id="disclaimerCopyright" class="footerDiv">
           <p id="disclaimer">All opinions expressed in this site are my personal opinions and are not endorsed by, nor do they represent, the opinions of my previous, current, or future employers, or any of their affiliates, partners, or customers.</p>
-          <p>Copyright (c) 2017-2019</p>
+          <p id="copyright">Copyright (c) 2017-2019 <span class="red">||</span> <a href="http://getpelican.com/">Powered by Pelican</a></p>
       </div>
 
     </footer>

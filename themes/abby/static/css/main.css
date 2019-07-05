@@ -10,16 +10,6 @@ https://css-tricks.com/sass-style-guide/ */
   border-top: .5rem double;
   border-color: #e66560; }
 
-#disclaimer {
-  font-size: 0.90em; }
-
-#blogArchive {
-  text-align: left;
-  list-style-type: none; }
-
-#blogArchive li {
-  list-style-type: none; }
-
 #headerBase {
   display: flex;
   flex-direction: column;
@@ -42,7 +32,9 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   color: #0bbad5;
-  font-size: 1.5rem; }
+  display: inline;
+  font-size: 1.5rem;
+  vertical-align: middle; }
 
 h2 {
   color: #e66560;
@@ -60,22 +52,6 @@ h5 {
 h6 {
   font-size: 1.0rem; }
 
-#navMainMenu > li:before {
-  content: " | ";
-  color: #e66560; }
-
-#navMainMenu > li:last-child:after {
-  content: " | ";
-  color: #e66560; }
-
-/* COLORS GO RED ON BLUE BACKGROUND */
-html {
-  font-family: Arial, sans-serif; }
-
-body {
-  margin: 2rem;
-  background: #f7f7f7; }
-
 nav {
   overflow: hidden;
   display: flex;
@@ -84,12 +60,34 @@ nav {
   text-align: center;
   margin: 1rem; }
 
-#navList li {
+#navBaseMenu > li:before {
+  content: " | ";
+  color: #e66560; }
+
+#navBaseMenu > li:last-child:after {
+  content: " | ";
+  color: #e66560; }
+
+#navBase li {
   display: inline-block;
   list-style-type: none;
   font-size: 0.9rem; }
 
-#blog-list {
+nav li {
+  list-style-type: none; }
+
+/* COLORS GO RED ON BLUE BACKGROUND */
+html {
+  font-family: Arial, sans-serif; }
+
+.red {
+  color: #e66560; }
+
+body {
+  margin: 2rem;
+  background: #f7f7f7; }
+
+#blogList {
   list-style-type: none; }
 
 .header-person {
@@ -98,43 +96,12 @@ nav {
   justify-content: center;
   text-align: center; }
 
-.social-icons-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  margin: .5rem; }
-
-nav li {
-  list-style-type: none; }
-
 ul {
   padding: 0;
   margin: 0; }
 
-#social-icons-list li {
-  display: inline-block;
-  list-style-type: none; }
-
 form {
   display: block; }
-
-/*table {
-  width: 100%;
-  padding: 1em;
-}
-
-td {
-  text-align: center;
-  content: center;
-  padding: .2em;
-  width: 33.3333%
-}*/
-#searchrow {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center; }
 
 main {
   float: center;
@@ -147,33 +114,11 @@ a {
   height: 1rem;
   width: 1rem; }
 
-h1 {
-  vertical-align: middle;
-  display: inline; }
-
 .portrait {
   height: 4em;
   width: 4em;
   display: inline;
   margin: 1rem; }
-
-#tipue_search_input {
-  height: 1rem;
-  width: 80%;
-  background: url("../img/search32b.png") no-repeat left center;
-  padding: .5rem;
-  margin: 1rem;
-  padding-left: 2.1rem;
-  border: solid;
-  border-color: #e66560; }
-
-.guage {
-  background: #d9d9d9;
-  padding-top: 5px; }
-
-.guage-meter {
-  background: #0bbad5;
-  width: 55%; }
 
 .header .image,
 .header .text {
@@ -185,6 +130,22 @@ h1 {
   color: #e66560;
   display: flex;
   justify-content: right; }
+
+#searchrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center; }
+
+#tipue_search_input {
+  height: 1rem;
+  width: 80%;
+  background: url("../img/search32b.png") no-repeat left center;
+  padding: .5rem;
+  margin: 1rem;
+  padding-left: 2.1rem;
+  border: solid;
+  border-color: #e66560; }
 
 /* Layout rules divide the page into sections. Layouts hold one or more modules together.
 The minor components—such as a callout, or login form, or a navigation item—sit within the scope of major components such as a header or footer. I refer to the minor components as Modules and will dive into those in the next section. The major components are referred to as Layout styles.
@@ -203,10 +164,33 @@ Generally, a Layout style only has a single selector: a single ID or class name.
   grid-column: 1 / span 2; }
 
 #disclaimerCopyright {
-  font-size: 0.50rem; }
+  font-size: 0.60rem;
+  grid-column: 1 / span 2; }
 
 #pelican {
+  text-align: left;
   font-size: 0.75rem; }
+
+#blogArchive {
+  text-align: left;
+  list-style-type: none;
+  align-items: center;
+  display: flex;
+  justify-content: center; }
+
+#blogArchive li {
+  list-style-type: none; }
+
+.social-icons-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: .5rem; }
+
+#socialIconsList li {
+  display: inline-block;
+  list-style-type: none; }
 
 /* Modules are the reusable, modular parts of our design. They are the callouts, the sidebar sections, the product lists and so on.
 Files begin with l- or layout-
@@ -214,6 +198,14 @@ It is your navigation bars and your carousels and your dialogs and your widgets 
 When defining the rule set for a module, avoid using IDs and element selectors, sticking only to class names. A module will likely contain a number of elements and there is likely to be a desire to use descendent or child selectors to target those elements.
 Only include a selector that includes semantics. A span or div holds none. A heading has some. A class defined on an element has plenty.
 */
+.guage {
+  background: #d9d9d9;
+  padding-top: 5px; }
+
+.guage-meter {
+  background: #0bbad5;
+  width: 55%; }
+
 /* State rules are ways to describe how our modules or layouts will look when in a particular state.
 Files are the bulk of any project, therefore are just the name of the modules themselves.
 Related elements within a module use the base name as a prefix.

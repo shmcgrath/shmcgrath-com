@@ -1,13 +1,14 @@
 {% extends "base.jinja2" %}
+{% block title %}{{ SITENAME }} - Search {% endblock %}
 
-{% block headerblk %}
+{% block headblk %}
 <script src="{{ SITEURL }}/tipuesearch_content.js"></script>
 <link rel="stylesheet" href="{{ SITEURL }}/plugins/tipuesearch/tipuesearch.css">
 <script src="{{ SITEURL }}/plugins/tipuesearch/tipuesearch_set.js"></script>
 <script src="{{ SITEURL }}/plugins/tipuesearch/tipuesearch.min.js"></script>
 {% endblock %}
 
-{% block content %}
+{% block contentblk %}
 <div id="tipue_search_content">
 </div>
 {% endblock %}

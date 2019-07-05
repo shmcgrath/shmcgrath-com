@@ -1,0 +1,17 @@
+#searchrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#tipue_search_input {
+  height: 1rem;
+  width: 80%;
+  background: url("../img/search32b.png") no-repeat left center;
+  padding: .5rem;
+  margin: 1rem;
+  padding-left: 2.1rem;
+  border: solid;
+  border-color: $shmred;
+}

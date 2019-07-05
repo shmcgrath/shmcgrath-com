@@ -15,10 +15,36 @@
 }
 
 #disclaimerCopyright {
-  font-size: 0.50rem;
-  
+  font-size: 0.60rem;
+  grid-column: 1 / span 2;
 }
 
 #pelican {
+  text-align: left;
   font-size: 0.75rem;
+}
+
+#blogArchive {
+  text-align: left;
+  list-style-type: none;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+#blogArchive li {
+  list-style-type: none;
+}
+
+.social-icons-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: .5rem;
+}
+
+#socialIconsList li {
+  display: inline-block;
+  list-style-type: none;
 }

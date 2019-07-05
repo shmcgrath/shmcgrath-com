@@ -1,8 +1,7 @@
 {% extends "base.jinja2" %}
-
 {% block title %}{{ SITENAME }} - Authors{% endblock %}
 
-{% block content %}
+{% block contentblk %}
     <h1>Authors on {{ SITENAME }}</h1>
     <ul>
     {% for author, articles in authors|sort %}

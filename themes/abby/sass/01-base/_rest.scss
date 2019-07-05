@@ -4,27 +4,16 @@ html {
   //font-size: 16px;
 }
 
+.red {
+  color: $shmred;
+}
+
 body {
   margin: 2rem;
   background: $background;
 }
 
-nav {
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin: 1rem;
-}
-
-#navList li {
-  display: inline-block;
-  list-style-type: none;
-  font-size: 0.9rem;
-}
-
-#blog-list {
+#blogList {
   list-style-type: none;
 }
 
@@ -35,53 +24,13 @@ nav {
   text-align: center;
 }
 
-.social-icons-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  margin: .5rem;
-}
-
-nav li {
-  list-style-type: none;
-}
-
 ul {
   padding: 0;
   margin: 0;
 }
 
-#social-icons-list li {
-  display: inline-block;
-  list-style-type: none;
-}
-
 form {
   display: block;
-}
-
-
-main {
-}
-
-/*table {
-  width: 100%;
-  padding: 1em;
-}
-
-td {
-  text-align: center;
-  content: center;
-  padding: .2em;
-  width: 33.3333%
-}*/
-
-#searchrow {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
 }
 
 main {
@@ -98,37 +47,11 @@ a {
   width: 1rem;
 }
 
-h1 {
-  vertical-align: middle;
-  display: inline;
-}
-
 .portrait {
   height: 4em;
   width: 4em;
   display: inline;
   margin: 1rem;
-}
-
-#tipue_search_input {
-  height: 1rem;
-  width: 80%;
-  background: url("../img/search32b.png") no-repeat left center;
-  padding: .5rem;
-  margin: 1rem;
-  padding-left: 2.1rem;
-  border: solid;
-  border-color: $shmred;
-}
-
-.guage {
-  background: $base05;
-  padding-top: 5px;
-}
-
-.guage-meter {
-  background: $shmblue;
-  width: 55%;
 }
 
 .header .image, 
