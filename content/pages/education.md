@@ -4,39 +4,28 @@ author: Sarah H. McGrath
 tags: seton-lasalle, robert morris univeristy, the catholic university of america
 category: infopage
 date: 2019-02-12 18:03
-modified: 2019-02-12 18:21
+modified: 2019-07-05 13:00
 ...
 
 ## Robert Morris University
+- Degree and Major: Master of Science, [Information Security and Assurance](https://sentry.rmu.edu/OnTheMove/wpmajdegr.major_desc?idegree=MS&imajor=ISEA&ischool=G&icalledby=WPMAJDEGR)
 - Graduation: May 2017 with a 4.0 GPA
-- Degree and Major: Master of Science, Information Security and Assurance
-- [RMU Website](https://www.rmu.edu/)
 - Attended: May 2013 - May 2017
-
-<!-- TODO: Add Student Awards Address: 6001 University Boulevard, Moon, PA 15108 -->
-
-<!-- ### Classes completed 
-- Java Programming 
-- Visual Basic Programming
-- Advanced Visual Basic Programming
-- Computer Network Security
-- Secure Programming
-- Database Management Systems
-- COBOL Programming I
-- Database Management Systems -->
+- Completed several programming courses along with classwork that taught the administration and technologies surrounding Information Security.
+- [RMU Website](https://www.rmu.edu/)
 
 ## The Catholic University of America
-- Graduation: May 2010 from the [School of Philosophy](http://philosophy.cua.edu/)
 - Degree and Major: Bachelor of Arts, Philosophy
-- [CUA Website](https://www.catholic.edu/index.html)
+- Graduation: May 2010 from the [School of Philosophy](http://philosophy.cua.edu/)
 - Attended: August 2006 - May 2010
-
-<!-- Address: 620 Michigan Avenue NE, Washington, DC 20064 -->
+- Activities:
+    - Catholic University of America Women's Rugby Football Club (2006-2010)
+    - [The Tower](http://cuatower.com/) (2006)
+- Studied a range of Philosophers in core coursework focusing on 'Aristotelian' philosophers such as Plato, Aristotle, and Aquinas. In addition, studied modern political philosophy, modern philosophy, and ancient philosophy.
+- [CUA Website](https://www.catholic.edu/index.html)
 
 ## Seton LaSalle Catholic High School
-- Graduation: May 2006
 - Degree: High School Diploma
-- [Seton LaSalle Website](https://www.slshs.org/) 
+- Graduation: May 2006
 - Attended: August 2002 - May 2006
-
-<!-- Address: 1000 McNeilly Road, Pittsburgh, PA 15226 Phone: +1 412-561-3583 -->
+- [Seton LaSalle Website](https://www.slshs.org/)

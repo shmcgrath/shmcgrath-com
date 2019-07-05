@@ -44,13 +44,13 @@ h3 {
   font-size: 1.3rem; }
 
 h4 {
-  font-size: 1.2rem; }
+  font-size: 1.0rem; }
 
 h5 {
-  font-size: 1.1rem; }
+  font-size: 0.9rem; }
 
 h6 {
-  font-size: 1.0rem; }
+  font-size: 0.8rem; }
 
 nav {
   overflow: hidden;
@@ -95,10 +95,6 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center; }
-
-ul {
-  padding: 0;
-  margin: 0; }
 
 form {
   display: block; }
@@ -192,6 +188,20 @@ Generally, a Layout style only has a single selector: a single ID or class name.
   display: inline-block;
   list-style-type: none; }
 
+.twoColumnList {
+  columns: 2; }
+
+ul {
+  margin: 0.5rem;
+  margin-left: 0.75rem;
+  padding: 0; }
+
+ul ul {
+  margin-left: 1rem; }
+
+ul ul ul {
+  margin-left: 1.25rem; }
+
 /* Modules are the reusable, modular parts of our design. They are the callouts, the sidebar sections, the product lists and so on.
 Files begin with l- or layout-
 It is your navigation bars and your carousels and your dialogs and your widgets and so on. This is the meat of the page. Modules sit inside Layout components. Modules can sometimes sit within other Modules, too. Each Module should be designed to exist as a standalone component. In doing so, the page will be more flexible. If done right, Modules can easily be moved to different parts of the layout without breaking.
@@ -205,6 +215,16 @@ Only include a selector that includes semantics. A span or div holds none. A hea
 .guage-meter {
   background: #0bbad5;
   width: 55%; }
+
+.resumeDate {
+  font-size: 0.7rem; }
+
+.resumeNote {
+  font-size: 0.7rem;
+  display: flex;
+  margin: 0rem;
+  padding: 0rem;
+  justify-content: center; }
 
 /* State rules are ways to describe how our modules or layouts will look when in a particular state.
 Files are the bulk of any project, therefore are just the name of the modules themselves.
