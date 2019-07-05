@@ -91,25 +91,25 @@
       <div id="socialIcons" class="footerDiv">
         <ul id="socialIconsList">
           {% if SOCIAL_ICONS_GITHUB %}
-          <li><a href="https://github.com/{{ SOCIAL_ICONS_GITHUB_USER}}"><img src="{{ SITEURL }}/img/github{{ SOCIAL_ICONS_COLOR }}.png" alt="GitHub"></a></li>
+          <li><a href="https://github.com/{{ SOCIAL_ICONS_GITHUB_USER}}"><img src="{{ SITEURL }}/img/github{{ SOCIAL_ICONS_COLOR }}.png" alt="GitHub" title="GitHub"></a></li>
           {% endif %}
           {% if SOCIAL_ICONS_LINKEDIN %}
-          <li><a href="https://www.linkedin.com/in/{{ SOCIAL_ICONS_LINKEDIN_URL }}"><img src="{{ SITEURL }}/img/linkedin{{ SOCIAL_ICONS_COLOR }}.png" alt="LinkedIn"></a></li>
+          <li><a href="https://www.linkedin.com/in/{{ SOCIAL_ICONS_LINKEDIN_URL }}"><img src="{{ SITEURL }}/img/linkedin{{ SOCIAL_ICONS_COLOR }}.png" alt="LinkedIn" title="LinkedIn"></a></li>
           {% endif %}
           {% if SOCIAL_ICONS_MAILTO %}
-          <li><a href="mailto:{{ SOCIAL_ICONS_MAILTO_ADDRESS }}"><img src="{{ SITEURL }}/img/mail{{ SOCIAL_ICONS_COLOR }}.png" alt="mailto"></a></li>
+          <li><a href="mailto:{{ SOCIAL_ICONS_MAILTO_ADDRESS }}"><img src="{{ SITEURL }}/img/mail{{ SOCIAL_ICONS_COLOR }}.png" alt="mailto" title="mailto"></a></li>
           {% endif %}
           {% if SOCIAL_ICONS_TWITTER %}
-          <li><a href="https://twitter.com/{{ SOCIAL_ICONS_TWITTER_USER }}"><img src="{{ SITEURL }}/img/twitter{{ SOCIAL_ICONS_COLOR }}.png" alt="twitter"></a></li>
+          <li><a href="https://twitter.com/{{ SOCIAL_ICONS_TWITTER_USER }}"><img src="{{ SITEURL }}/img/twitter{{ SOCIAL_ICONS_COLOR }}.png" alt="twitter" title="twitter"></a></li>
           {% endif %}
           {% if SOCIAL_ICONS_REDDIT %}
-          <li><a href="https://www.reddit.com/user/{{ SOCIAL_ICONS_REDDIT_USER }}/"><img src="{{ SITEURL }}/img/reddit{{ SOCIAL_ICONS_COLOR }}.png" alt="reddit"></a></li>
+          <li><a href="https://www.reddit.com/user/{{ SOCIAL_ICONS_REDDIT_USER }}/"><img src="{{ SITEURL }}/img/reddit{{ SOCIAL_ICONS_COLOR }}.png" alt="reddit" title="reddit"></a></li>
           {% endif %}
           {% if SOCIAL_ICONS_PDF_RESUME%}
-          <li><a title="PDF Resume" href="{{ SITEURL }}{{ RESUME_LOCATION }}"><img title="PDF Resume" src="{{ SITEURL }}/img/pdf{{ SOCIAL_ICONS_COLOR }}.png" alt="PDF Resume"></a></li></a>
+          <li><a href="{{ SITEURL }}{{ RESUME_LOCATION }}"><img src="{{ SITEURL }}/img/pdf{{ SOCIAL_ICONS_COLOR }}.png" alt="PDF Resume" title="PDF Resume"></a></li></a>
           {% endif %}
           {% if SOCIAL_ICONS_FEED_ATOM %}
-          <li><a href="{{ SITEURL }}/feeds/all.atom.xml"><img src="{{ SITEURL }}/img/rss{{ SOCIAL_ICONS_COLOR }}.png" alt="Atom Feed"></a></li>
+          <li><a href="{{ SITEURL }}/feeds/all.atom.xml"><img src="{{ SITEURL }}/img/rss{{ SOCIAL_ICONS_COLOR }}.png" alt="Atom Feed" title="Atom Feed"></a></li>
           {% endif %}
         </ul>
       </div>
