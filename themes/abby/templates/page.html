@@ -23,7 +23,7 @@
     {{ page.content }}
 
     {% if page.title == RESUME_PAGE and HAS_RESUME == True %}
-      <a href="{{ SITEURL }}/{{ RESUME_LOCATION }}">View my PDF Resume here.</a>
+      <a href="{{ SITEURL }}{{ RESUME_LOCATION }}">View my PDF Resume</a>
     {% endif %}
 
     {% if page.modified and page.title != "Home"  and page.category != "error" %}
