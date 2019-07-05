@@ -61,8 +61,12 @@ PAGE_SAVE_AS = '{slug}.html'
 
 # Plugins
 PLUGIN_PATHS = ['pelican-plugins']
-PLUGINS = ['tipue_search', 'summary']
+PLUGINS = ['tipue_search', 'summary', 'sitemap']
 DIRECT_TEMPLATES = ['index', 'tags', 'archives', 'search']
+SITEMAP = {
+    'format': 'xml',
+    'exclude': ['tag/', 'category/'],
+}
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
