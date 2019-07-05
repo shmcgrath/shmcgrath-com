@@ -3,88 +3,41 @@
   <head>
     <!-- Title and Meta Information -->
     <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
-    <meta charset="utf-8">
-    <meta name="robots" content="index,follow">
-    <meta name="robots" content="noindex,nofollow">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="copyright" href="copyright.html">
-    <meta name="generator" content="{{ PELICANVERSION }}">
-    <!-- https://schema.org/docs/gs.html -->
-    <!-- <link /> is an empty element, i.e. it can not have anything inside of it. All it does is specify a relationship with another document. Additionally, the <link> tag is only used in the <head> section. -->
-<!-- https://schema.org/WebPage -->
-
+    TODO: <link rel="canonical" href="" />
+    TODO: <link rel="copyright" href="copyright.html" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="x-dns-prefetch-control" content="off">
+    <meta name="author" content="{{ AUTHOR }}" />
+    <meta name="description" content="{% block description %}{{ SITE_DESCRIPTION }}{% endblock description %}" />
+    <meta name=’distribution’ content=’Global’>
+    <meta name="generator" content="{{ META_GENERATOR }}" />
+    <meta name="keywords" content="" />
+    <meta name="medium" content="article" />
+    <meta name="news_keywords" content="" />
+    {% if SITE_REVISED IS DEFINED %}
+      <meta name="revised" content="{{ SITE_REVISED }}" />
+    {% endif %}
+    <meta name="robots" content="index,follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     {% block metablock %}
-    <meta name="description" content="{% block description %}{{ SITE_DESCRIPTION }}{% endblock description %}">
-    <meta name="keywords" content="wood, furniture, garden, garden-table, etc">
-    <meta name="author" content="{{ AUTHOR }}"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<!-- https://html.spec.whatwg.org/multipage/links.html#link-type-canonical -->
-<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-<meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<link rel="canonical" href="https://www.espn.com/nba/story/_/id/17777645/tiers-nba-zach-lowe" />
-<meta name="description" content="How will the season shape up for your favorite squad? We split up the best teams, the bottom-feeders and everything in between." />
-<meta name="news_keywords" content="National Basketball Association, , NBA" />
-<meta name="keywords" content="National Basketball Association, , NBA" />
-<meta name="DC.date.issued" content="2016-10-21T12:00:00Z">
-<meta property="fb:app_id" content="116656161708917" />
-<meta property="og:site_name" content="ESPN.com" />
-<meta property="og:url" content="https://www.espn.com/nba/story/_/id/17777645" />
-<meta property="og:title" content="The entire NBA rated by tiers"/>
-<meta property="og:description" content="How will the season shape up for your favorite squad? We split up the best teams, the bottom-feeders and everything in between." />
-<meta property="og:image" content="https://a2.espncdn.com/combiner/i?img=%2Fphoto%2F2016%2F0602%2Fr88834_1296x729_16%2D9.jpg"/>
-<meta property="og:image:width" content="1296" />
-<meta property="og:image:height" content="729" />
-<meta property="og:type" content="article" />
-<meta name="twitter:site" content="espn" />
-<meta name="twitter:url" content="https://www.espn.com/nba/story/_/id/17777645" />
-<meta name="twitter:title" content="The entire NBA rated by tiers"/>
-<meta name="twitter:description" content="How will the season shape up for your favorite squad? We split up the best teams, the bottom-feeders and everything in between." />
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:app:name:iphone" content="ESPN"/>
-<meta name="twitter:app:id:iphone" content="317469184"/>
-<meta name="twitter:app:url:iphone" content="sportscenter://x-callback-url/showStory?uid=17777645"/>
-<meta name="twitter:app:name:googleplay" content="ESPN"/>
-<meta name="twitter:app:id:googleplay" content="com.espn.score_center"/>
-<meta name="twitter:app:url:googleplay" content="sportscenter://x-callback-url/showStory?uid=17777645"/>
-<meta name="title" content="2016-17: Tiers of the NBA - Zach Lowe"/>
-<meta name="medium" content="article" />
-<meta name="apple-itunes-app" content="app-id=317469184, app-argument=sportscenter://x-callback-url/showStory?uid=17777645"/>
- <link rel="manifest" href="/manifest.json">
-     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
-           <meta name="keywords" content="jerrod mustaf,NBA">
-                   <meta name="news_keywords" content="jerrod mustaf,NBA">
-                         <meta name="sailthru.date" content="2019-04-17 12:51:08" />
-                               <meta name="sailthru.tags" content="jerrod-mustaf,nba" />
-                                   <meta name="description" content="The former NBA player is forever linked to the murder of his girlfriend. 
-                                       ">
-                                           <link rel="canonical" href="https://www.si.com/nba/2019/04/17/jerrod-mustaf-former-nba-player-girlfriend-althea-hayes-murder-case-community-leader">
-                                                 <meta property="og:title" content="Has anyone ever Googled Jerrod Mustaf?">
-                                                     <meta property="og:type" content="article">
-                                                         <meta property="og:site_name" content="SI.com">
-                                                               <meta property="og:url" content="https://www.si.com/nba/2019/04/17/jerrod-mustaf-former-nba-player-girlfriend-althea-hayes-murder-case-community-leader">
-                                                                     <meta property="og:description" content="The former NBA player is forever linked to the murder of his girlfriend. 
-                                                                          ">
-                                                                              <meta name="pinterest:url" content="https://www.si.com/nba/2019/04/17/jerrod-mustaf-former-nba-player-girlfriend-althea-hayes-murder-case-community-leader">
-                                                                                    <meta name="twitter:card" content="summary_large_image">
-                                                                                          <meta name="twitter:url" content="https://www.si.com/nba/2019/04/17/jerrod-mustaf-former-nba-player-girlfriend-althea-hayes-murder-case-community-leader">
-                                                                                                <meta name="twitter:title" content="Has anyone ever Googled Jerrod Mustaf?">
-                                                                                                      <meta name="twitter:description" content="The former NBA player is forever linked to the murder of his girlfriend. 
-                                                                                                          ">
-                                                                                                                <meta name="pinterest:description" content="The former NBA player is forever linked to the murder of his girlfriend. 
-                                                                                                                    ">
-                                                                                                                        <meta name="twitter:creator" content="@jon_wertheim">
-                                                                                                                            <meta name="pinterest:media" content="https://imagesvc.timeincapp.com/v3/mm/image?url&#x3D;https://cdn-s3.si.com/images/jerrod-mustaf-sports-illustrated-true-crime.jpg&amp;w&#x3D;1200&amp;h&#x3D;628&amp;c&#x3D;sc&amp;poi&#x3D;face&amp;q&#x3D;85">
-                                                                                                                                <meta name="twitter:image" content="https://imagesvc.timeincapp.com/v3/mm/image?url&#x3D;https://cdn-s3.si.com/images/jerrod-mustaf-sports-illustrated-true-crime.jpg&amp;w&#x3D;1024&amp;h&#x3D;512&amp;c&#x3D;sc&amp;poi&#x3D;face&amp;q&#x3D;85">
-                                                                                                                                    <meta property="og:image" content="https://imagesvc.timeincapp.com/v3/mm/image?url&#x3D;https://cdn-s3.si.com/images/jerrod-mustaf-sports-illustrated-true-crime.jpg&amp;w&#x3D;1200&amp;h&#x3D;628&amp;c&#x3D;sc&amp;poi&#x3D;face&amp;q&#x3D;85">
-                                                                                                                                          <meta property="og:image:width" content="1200">
-                                                                                                                                                <meta property="og:image:height" content="628">
-                                                                                                                                                    <meta property="fb:app_id" content="165082593548215">
-                                                                                                                                                        <meta property="fb:pages" content="10053803772">
-                                                                                                                                                              <script type="application/ld+json">
-                                                                                                                                                                      [{"@context":"http://schema.org","@type":"ItemList","itemListElement":[{"@context":"http://schema.org","@type":"SiteNavigationElement","position":1,"name":"Scores","url":"https://www.si.com/scoreboard"},{"@context":"http://schema.org","@type":"SiteNavigationElement","position":2,"name":"Photos","url":"https://www.si.com/photos"},{"@context":"http://schema.org","@type":"SiteNavigationElement","position":3,"name":"Videos","url":"https://www.si.com/watch"},{"@context":"http://schema.org","@type":"SiteNavigationElement","position":4,"name":"Writers","url":"https://www.si.com/writers"},{"@context":"http://schema.org","@type":"SiteNavigationElement","position":5,"name":"Podcasts","url":"https://www.si.com/podcasts"},{"@context":"http://schema.org","@type":"SiteNavigationElement","position":6,"name":"Shop","url":"http://si.fanatics.com/"}]},{"@context":"http://schema.org","@type":"NewsArticle","headline":"Jerrod Mustaf Is a Community Hero. Has Anyone Ever Googled Him?","image":[{"@type":"ImageObject","url":"https://imagesvc.timeincapp.com/v3/mm/image?url=https://cdn-s3.si.com/images/jerrod-mustaf-sports-illustrated-true-crime.jpg&w=400&h=300&c=sc&poi=face&q=85","height":300,"caption":""},{"@type":"ImageObject","url":"https://imagesvc.timeincapp.com/v3/mm/image?url=https://cdn-s3.si.com/images/jerrod-mustaf-illustration-accepting-award-wizards.jpg&w=1500&h=1650&c=sc&poi=face&q=85","height":1650},{"@type":"ImageObject","url":"https://imagesvc.timeincapp.com/v3/mm/image?url=https://cdn-s3.si.com/images/jerrod-mustaf-althea-hayes-body-found-illustration.jpg&w=1500&h=1650&c=sc&poi=face&q=85","height":1650},{"@type":"ImageObject","url":"https://imagesvc.timeincapp.com/v3/mm/image?url=https://cdn-s3.si.com/images/jerrod-mustaf-suns-nba-closeup.jpg&w=1500&h=2000&c=sc&poi=face&q=85","height":2000},{"@type":"ImageObject","url":"https://imagesvc.timeincapp.com/v3/mm/image?url=https://cdn-s3.si.com/images/jerrod-mustaf-girlfriend-murder-throwing-guns.jpg&w=1500&h=1650&c=sc&poi=face&q=85","height":1650},{"@type":"ImageObject","url":"https://imagesvc.timeincapp.com/v3/mm/image?url=https://cdn-s3.si.com/images/levonnie-wooten-jail-jerrod-mustaf-cousin.jpg&w=1500&h=1650&c=sc&poi=face&q=85","height":1650},{"@type":"ImageObject","url":"https://imagesvc.timeincapp.com/v3/mm/image?url=https://cdn-s3.si.com/images/jerrod-mustaf-althea-hayes-parents-portrait.jpg&w=2000&h=2067&c=sc&poi=face&q=85","height":2067},{"@type":"ImageObject","url":"https://imagesvc.timeincapp.com/v3/mm/image?url=https://cdn-s3.si.com/s3fs-public/2018/10/03/si-true-crime-inline-linkout2.jpg&w=1300&h=724&c=sc&poi=face&q=85","height":724}],"author":[{"@type":"Person","name":"Jon Wertheim"}],"publisher":{"@type":"Organization","name":"SI.com","url":"https://www.si.com","logo":{"@type":"ImageObject","url":"https://www.si.com/img/misc/og-default.png","height":60},"sameAs":["https://www.facebook.com/SportsIllustrated","https://twitter.com/SInow","https://www.instagram.com/sportsillustrated","https://flipboard.com/@sportsillustrated","https://www.reddit.com/user/sportsillustrated"]},"datePublished":"2019-04-17T12:51:08.000Z","dateModified":null,"description":"The former NBA player is forever linked to the murder of his girlfriend. \n","mainEntityOfPage":"https://www.si.com/nba/2019/04/17/jerrod-mustaf-former-nba-player-girlfriend-althea-hayes-murder-case-community-leader"}]
-                                                                                                                                                                            </script>
     {% endblock metablock %} 
+    {% if META_BING %}
+      {% include "partials/_metaBing.jinja2" %}
+    {% endif %}
+    {% if META_FACEBOOK %}
+      {% include "partials/_metaFacebook.jinja2" %}
+    {% endif %}
+    {% if META_GOOGLE %}
+      {% include "partials/_metaGoogle.jinja2" %}
+    {% endif %}
+    {% if META_PINTEREST %}
+      {% include "partials/_metaPinterest.jinja2" %}
+    {% endif %}
+    {% if META_TWITTER %}
+      {% include "partials/_metaTwitter.jinja2" %}
+    {% endif %}
     <!-- Style Sheets -->
     <!-- Google Web Fonts -->
     <!-- <link href="https://fonts.googleapis.com/css?family=Space+Mono|Work+Sans" rel="stylesheet"> -->

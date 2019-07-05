@@ -72,6 +72,18 @@ HAS_RESUME = True
 RESUME_PAGE = "Resume"
 RESUME_LOCATION = "/docs/SHMcGrathResume.pdf"
 SITE_DESCRIPTION = "Sarah H. McGrath's website."
+# The revised meta tag records the last update done to the site.
+# Format: YYYY-MM-DD
+# SITE_REVISED = ""
+# variables for including Metadata
+META_BING = False
+META_FACEBOOK = False
+META_GOOGLE = False
+META_PINTEREST = False
+META_TWITTER = False
+
+# variables defining Metadata
+META_GENERATOR = "Pelican v.4.0.1"
 
 ABOUT_SITE = True
 
