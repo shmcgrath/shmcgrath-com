@@ -79,8 +79,7 @@ def publish(c):
     abbysass(c)
     c.run('pelican -s publishconf.py')
     c.run(
-        'rsync --delete --exclude ".DS_Store" -pthrvz -c --filter "protect
-        /home/public/.well-known/"'
+        'rsync --delete --exclude ".DS_Store" -pthrvz -c --filter "protect /home/public/.well-known/"'
         '{} {production}:{dest_path}'.format(
             CONFIG['deploy_path'].rstrip('/') + '/',
             **CONFIG))

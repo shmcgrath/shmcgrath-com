@@ -140,26 +140,6 @@ modified: 2019-07-05 14:12
 - Waited on customers, took payment and made change
 - Accounted for receipts
 
-## Education
-### Robert Morris University
-- Degree and Major: Master of Science, Information Security and Assurance
-- Graduation: May 2017 with a 4.0 GPA
-
-### The Catholic University of America
-- Degree and Major: Bachelor of Arts, Philosophy
-- Graduation: May 2010 from the School of Philosophy
-
-### Seton LaSalle Catholic High School
-- Degree: High School Diploma
-- Graduation: May 2006
-
-## Certifications
-- MB2-715 Microsoft Dynamics 365 customer engagement Online Deployment
-    - Credential ID: G563-6232
-- Comptia Network+ Certification
-    - Credential ID: C7ZD3MGFLL111333
-    - valid until April 28, 2020
-
 ## Skills
 <ul class="twoColumnList">
     <li>Bash</li>
@@ -168,12 +148,12 @@ modified: 2019-07-05 14:12
     <li>CSS</li>
     <li>HTML</li>
     <li>JavaScript</li>
+    <li>jQuery</li>
     <li>Microsoft Access</li>
     <li>Python</li>
     <li>SQL</li>
     <li>SQLite</li>
     <li>SSIS</li>
-    <li>jQuery</li>
     <li>Version Control Systems</li>
         <ul>
             <li>Git</li>

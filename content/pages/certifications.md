@@ -11,4 +11,4 @@ modified: 2019-07-05 14:13
     - Credential ID: G563-6232
 - Comptia Network+ Certification
     - Credential ID: C7ZD3MGFLL111333
-    - valid until April 28, 2020
+    - Valid until April 28, 2020
