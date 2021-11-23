@@ -60,7 +60,7 @@ PAGE_SAVE_AS = '{slug}.html'
 # JINJA_FILTERS = {}
 
 # Plugins
-PLUGIN_PATHS = ['pelican-plugins']
+PLUGIN_PATHS = ['./pelican-plugins']
 PLUGINS = ['tipue_search', 'summary', 'sitemap']
 DIRECT_TEMPLATES = ['index', 'tags', 'archives', 'search']
 SITEMAP = {
