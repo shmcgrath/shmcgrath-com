@@ -1,5 +1,4 @@
 # Pelican
-Makefile
 output/
 pelican-plugins/
 SECRETS.py
