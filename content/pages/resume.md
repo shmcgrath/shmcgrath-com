@@ -1,11 +1,23 @@
----
-title: Resume
-authors: Sarah H. McGrath
-tags: resume, jobs, job
-category: infopage
-date: 2019-02-12 00:15
-modified: 2019-07-05 14:12
-...
++++
+title = "Resume"
+description = ""
+authors = ["Sarah H. McGrath"]
+date = 2019-02-12T00:15:00-05:00
+updated = 2019-07-05T14:14:12-05:00
+weight = 0
+draft = false
+render = true
+slug = "resume"
+path = "resume"
+aliases = []
+in_search_index = true
+template = "page.html"
+generate_feeds = false
+[taxonomies]
+categories = ["infopage"]
+tags = ["resume", "job"]
+[extra]
++++
 
 ## Professional Summary
 - Evaluated existing Dynamics 365 CRM systems to find gaps between the client’s business processes or end user experiences and the existing CRM implementation

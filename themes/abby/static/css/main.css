@@ -1,56 +1,137 @@
 @charset "UTF-8";
-/* When writing Sass, I follow the following guidelines
-https://smacss.com
-https://sass-guidelin.es
-https://css-tricks.com/sass-style-guide/ */
-/* Essentially, a base style says that wherever this element is on the page, it should look like this. */
-/* A Base rule is applied to an element using an element selector, a descendent selector, or a child selector, along with any pseudo-classes. It doesn’t include any class or ID selectors. It is defining the default styling for how that element should look in all occurrences on the page. */
-/* The red and blue colors are from Color Claim by Tobias van Schneider. It is pallet No. 12 at http://www.vanschneider.com/colors/ */
+:root {
+  --shmred: hsl(2, 73%, 64%);
+  --shmblue: hsl(188, 90%, 44%);
+  --base00: hsl(0, 0%, 9%);
+  --base01: hsl(0, 0%, 16%);
+  --base02: hsl(0, 0%, 22%);
+  --base03: hsl(0, 0%, 35%);
+  --base04: hsl(0, 0%, 72%);
+  --base05: hsl(0, 0%, 85%);
+  --base06: hsl(0, 0%, 91%);
+  --base07: hsl(0, 0%, 97%);
+  --background-light: var(--base05);
+	--text-light: #000000;
+	--text-light-alt: #1a1a1a;
+	--background-dark: var(--base01);
+	--background-dark-alt: #0e0e0e;
+	--text-dark: #eaeaea;
+  --main-font: "Courier New", Courier, monospace;
+  --header-font: "Courier New", Courier, monospace;
+}
+
+* {box-sizing: border-box;}
+
+html body {
+  font-family: var(--main-font);
+	font-size: 0.95em;
+	min-height: 100vh;
+	transition: background 0.2s linear;
+}
+
+html[data-theme="light"] body {
+	background-color: var(--background-light);
+	color: var(--text-light);
+}
+
+html[data-theme="dark"] body {
+	background-color: var(--background-dark);
+	color: var(--text-dark);
+}
+
+#theme-toggle-div {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#theme-toggle {
+	visibility: hidden;
+}
+
+#theme-toggle-label {
+	display: inline-block;
+	cursor: pointer;
+	margin-right: 1vw;
+	margin-top: 1vh;
+}
+
+#theme-toggle-icon {
+	width: 32px;
+	height: 32px;
+	transition: opacity 0.3s ease;
+}
+
+p {
+  line-height: 1.25;
+}
+
+article {
+  margin: 2rem;
+}
+
+.articleHeader {
+  color: var(--shmred);
+}
+
+.articleFooter {
+  border-top: 2px dotted var(--shmred);
+  padding-top: 1rem;
+}
+
 #footerBase {
-  border-top: .5rem double;
-  border-color: #e66560; }
+  border-top: 0.5rem double var(--shmred);
+}
 
 #headerBase {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: #0bbad5;
-  border-bottom: .5rem double;
-  border-color: #e66560; }
+  color: var(--shmblue);
+  border-bottom: 0.5rem double var(--shmred);
+}
 
 #headerBaseSitename {
-  color: #e66560;
-  font-size: 1.75rem; }
+  color: var(--shmred);
+  font-size: 1.75rem;
+}
 
 #headerBaseSitesubtitle {
-  color: #e66560;
-  font-size: 1.5rem; }
+  color: var(--shmred);
+  font-size: 1.5rem;
+}
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: Arial, sans-serif; }
+  font-family: var(--header-font);
+}
 
 h1 {
-  color: #0bbad5;
+  color: var(--shmblue);
   display: inline;
   font-size: 1.5rem;
-  vertical-align: middle; }
+  vertical-align: middle;
+}
 
 h2 {
-  color: #e66560;
-  font-size: 1.4rem; }
+  color: var(--shmred);
+  font-size: 1.4rem;
+}
 
 h3 {
-  font-size: 1.3rem; }
+  font-size: 1.3rem;
+}
 
 h4 {
-  font-size: 1.0rem; }
+  font-size: 1.0rem;
+}
 
 h5 {
-  font-size: 0.9rem; }
+  font-size: 0.9rem;
+}
 
 h6 {
-  font-size: 0.8rem; }
+  font-size: 0.8rem;
+}
 
 nav {
   overflow: hidden;
@@ -58,185 +139,191 @@ nav {
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin: 1rem; }
+  margin: 1rem;
+}
 
 #navBaseMenu > li:before {
   content: " | ";
-  color: #e66560; }
+  color: var(--shmred);
+}
 
 #navBaseMenu > li:last-child:after {
   content: " | ";
-  color: #e66560; }
+  color: var(--shmred);
+}
 
 #navBase li {
   display: inline-block;
   list-style-type: none;
-  font-size: 0.9rem; }
+  font-size: 0.9rem;
+}
 
 nav li {
-  list-style-type: none; }
-
-/* COLORS GO RED ON BLUE BACKGROUND */
-html {
-  font-family: Arial, sans-serif; }
+  list-style-type: none;
+}
 
 .red {
-  color: #e66560; }
-
-body {
-  margin: 2rem;
-  background: #f7f7f7; }
+  color: var(--shmred);
+}
 
 #blogList {
-  list-style-type: none; }
+  list-style-type: none;
+}
 
 .header-person {
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center; }
+  text-align: center;
+}
 
 form {
-  display: block; }
+  display: block;
+}
 
 main {
-  float: center;
-  margin: 32px; }
+  display: block;
+  margin: 32px;
+}
 
 a {
-  color: #0bbad5; }
+  color: var(--shmblue);
+}
 
 .icon {
   height: 1rem;
-  width: 1rem; }
+  width: 1rem;
+}
 
 .portrait {
   height: 4em;
   width: 4em;
   display: inline;
-  margin: 1rem; }
+  margin: 1rem;
+}
 
-.header .image,
+.header .image, 
 .header .text {
   display: inline-block;
-  vertical-align: bottom; }
+  vertical-align: bottom;
+}
 
 .page-last-updated {
   font-size: 0.75rem;
-  color: #e66560;
+  color: var(--shmred);
   display: flex;
-  justify-content: right; }
+  justify-content: right;
+}
 
 #searchrow {
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center; }
+  text-align: center;
+}
 
 #tipue_search_input {
   height: 1rem;
   width: 80%;
-  background: url("../img/search32b.png") no-repeat left center;
-  padding: .5rem;
+  background: url("../img/icons-blue/search32.png") no-repeat left center;
+  padding: 0.5rem;
   margin: 1rem;
   padding-left: 2.1rem;
-  border: solid;
-  border-color: #e66560; }
+  border: solid var(--shmred);
+}
 
-/* Layout rules divide the page into sections. Layouts hold one or more modules together.
-The minor components—such as a callout, or login form, or a navigation item—sit within the scope of major components such as a header or footer. I refer to the minor components as Modules and will dive into those in the next section. The major components are referred to as Layout styles.
-Generally, a Layout style only has a single selector: a single ID or class name. However, there are times when a Layout needs to respond to different factors. For example, you may have different layouts based on user preference.
-*/
 .footer {
   display: grid;
   grid-template-columns: 1fr 2fr;
   align-items: center;
-  text-align: center; }
+  text-align: center;
+}
 
-#backTop {
-  grid-column: 1 / span 2; }
-
-#socialIcons {
-  grid-column: 1 / span 2; }
+#backTop,
+#socialIcons,
+#disclaimerCopyright {
+  grid-column: 1 / span 2;
+}
 
 #disclaimerCopyright {
-  font-size: 0.60rem;
-  grid-column: 1 / span 2; }
+  font-size: 0.6rem;
+}
 
 #pelican {
   text-align: left;
-  font-size: 0.75rem; }
+  font-size: 0.75rem;
+}
 
 #blogArchive {
   text-align: left;
   list-style-type: none;
   align-items: center;
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+}
 
 #blogArchive li {
-  list-style-type: none; }
+  list-style-type: none;
+}
 
 .social-icons-container {
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  margin: .5rem; }
+  margin: 0.5rem;
+}
 
 #socialIconsList li {
   display: inline-block;
-  list-style-type: none; }
+  list-style-type: none;
+}
 
 .twoColumnList {
-  columns: 2; }
+  columns: 2;
+}
 
 ul {
   margin: 0.5rem;
   margin-left: 0.75rem;
-  padding: 0; }
+  padding: 0;
+}
 
 ul ul {
-  margin-left: 1rem; }
+  margin-left: 1rem;
+}
 
 ul ul ul {
-  margin-left: 1.25rem; }
+  margin-left: 1.25rem;
+}
 
-/* Modules are the reusable, modular parts of our design. They are the callouts, the sidebar sections, the product lists and so on.
-Files begin with l- or layout-
-It is your navigation bars and your carousels and your dialogs and your widgets and so on. This is the meat of the page. Modules sit inside Layout components. Modules can sometimes sit within other Modules, too. Each Module should be designed to exist as a standalone component. In doing so, the page will be more flexible. If done right, Modules can easily be moved to different parts of the layout without breaking.
-When defining the rule set for a module, avoid using IDs and element selectors, sticking only to class names. A module will likely contain a number of elements and there is likely to be a desire to use descendent or child selectors to target those elements.
-Only include a selector that includes semantics. A span or div holds none. A heading has some. A class defined on an element has plenty.
-*/
 .guage {
-  background: #d9d9d9;
-  padding-top: 5px; }
+  background: var(--base05);
+  padding-top: 5px;
+}
 
 .guage-meter {
-  background: #0bbad5;
-  width: 55%; }
+  background: var(--shmblue);
+  width: 55%;
+}
 
 .resumeDate {
-  font-size: 0.7rem; }
+  font-size: 0.7rem;
+}
 
 .resumeNote {
   font-size: 0.7rem;
   display: flex;
-  margin: 0rem;
-  padding: 0rem;
-  justify-content: center; }
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+}
 
-/* State rules are ways to describe how our modules or layouts will look when in a particular state.
-Files are the bulk of any project, therefore are just the name of the modules themselves.
-Related elements within a module use the base name as a prefix.
-Modules that are a variation on another module should also use the base module name as a prefix.
-By adding the classes to the elements, we have increased the semantics of what those elements mean and removed any ambiguity when it comes to styling them.
-If you do wish to use an element selector, it should be within one level of a class selector. In other words, you should be in a situation to use child selectors. Alternatively, you should be extremely confident that the element in question will not be confused with another element. The more semantically generic the HTML element (like a span or div), the more likely it will create a conflict down the road. Elements with greater semantics like headings are more likely to appear by themselves within a container and you are more likely able to use an element selector successfully.
-*/
-/* Theme rules are similar to state rules in that they describe how modules or layouts might look. Most sites don’t require a layer of theming but it is good to be aware of it.
-Files begin with is- (as in is-hidden)
-There is plenty of similarity between a sub-module style and a state style. They both modify the existing look of an element. However, they differ in two key ways:
-    State styles can apply to layout and/or module styles; and
-    State styles indicate a JavaScript dependency.
-It is this second point that is the most important distinction. Sub-module styles are applied to an element at render time and then are never changed again. State styles, however, are applied to elements to indicate a change in state while the page is still running on the client machine.
-*/
+.debug-output {
+  background: #222;
+  color: #eee;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}

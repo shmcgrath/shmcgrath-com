@@ -7,13 +7,14 @@ compile_sass = false
 minify_html = false
 build_search_index = true
 generate_feeds = true
-feed_filenames = ["atom.xml"]
+feed_filenames = ["atom.xml", "rss.xml"]
+author = "Sarah H. McGrath"
 
 # When set to "false", Sitemap.xml is not generated
 generate_sitemap = true
 
 # When set to "false", robots.txt is not generated
-generate_robots_txt = true
+generate_robots_txt = false
 
 # A list of glob patterns specifying asset files to ignore when the content
 # directory is processed.
@@ -32,7 +33,6 @@ hard_link_static = false
 
 theme = "abby"
 
-author = "Sarah H. McGrath"
 # The taxonomies to be rendered for the site and their configuration of the default languages
 # Example:
 #     taxonomies = [
@@ -42,7 +42,10 @@ author = "Sarah H. McGrath"
 #       {name = "authors"}, # Basic definition: no feed or pagination
 #     ]
 #
-taxonomies = []
+taxonomies = [
+	{name = "tags", feed = true},
+	{name = "categories", feed = true},
+]
 
 [markdown]
 # When set to "true", all code blocks are highlighted.
@@ -119,7 +122,7 @@ external_level = "error"
 # Various slugification strategies, see below for details
 # Defaults to everything being a slug
 [slugify]
-paths = "on"
+paths = "safe"
 taxonomies = "on"
 anchors = "on"
 # Whether to remove date prefixes for page path slugs.
@@ -131,29 +134,19 @@ paths_keep_dates = false
 # Whether to include the title of the page/section in the index
 include_title = true
 # Whether to include the description of the page/section in the index
-include_description = false
+include_description = true
 # Whether to include the RFC3339 datetime of the page in the search index
-include_date = false
+include_date = true
 # Whether to include the path of the page/section in the index (the permalink is always included)
-include_path = false
+include_path = true
 # Whether to include the rendered content of the page/section in the index
 include_content = true
-# At which code point to truncate the content to. Useful if you have a lot of pages and the index would
-# become too big to load on the site. Defaults to not being set.
-# truncate_content_length = 100
 
 # Whether to produce the search index as a javascript file or as a JSON file
 # Accepted values:
 # - "elasticlunr_javascript", "elasticlunr_json"
 # - "fuse_javascript", "fuse_json"
-index_format = "elasticlunr_javascript"
-
-# Optional translation object for the default language
-# Example:
-#     default_language = "fr"
-#
-#     [translations]
-#     title = "Un titre"
+index_format = "fuse_json"
 #
 [translations]
 
@@ -181,34 +174,58 @@ index_format = "elasticlunr_javascript"
 # author value will be available using {{ config.extra.author }} in templates
 #
 [extra]
+site_subtitle = ""
 
+[extra.search]
+fusejs_version = "7.1.0"
+# https://cdn.jsdelivr.net/npm/fuse.js@7.1.0
+
+[extra.abby]
+
+icons_color = "red"
+default_data_theme = "dark"
+display_pages_on_menu = true
+display_categories_on_menu = false
+#MENUITEMS = (("Blog", SITEURL + "/" + INDEX_SAVE_AS),)
+index_save_as = "blog/index.html"
+archives_save_as = "archives.html"
+tags_save_as = "tags.html"
+authors_save_as = ""
+category_save_as = ""
 
 # Resume
-has_resume = true
-resume_page = "Resume"
-resume_location = "/docs/SHMcGrathResume.pdf"
+[extra.abby.resume]
+included = true
+pdf = true
+page = "Resume"
+location = "/documents/SHMcGrathResume.pdf"
 
 # Social icons
-social_icons = true
-social_icons_color = "r"
-github_user = "shmcg"
-linkedin_url = "mcgrathsh"
+[extra.abby.social]
+icons = true
+github_username = "shmcgrath"
+linkedin_username = "mcgrathsh"
 mailto_address = "sarah@shmcgrath.com"
-twitter_user = "mcgrath_sh"
-reddit_user = "shmcg"
-pdf_resume = true
+twitter_username = "mcgrath_sh"
+reddit_username = "shmcg"
 feed_atom = true
 
 # Meta toggles (you'll handle these in templates)
-meta_bing = false
-meta_facebook = false
-meta_google = false
-meta_pinterest = false
-meta_twitter = false
+[extra.abby.meta]
+bing = false
+facebook = false
+google = false
+pinterest = false
+twitter = false
 
-# Theme settings from Pelican theme (optional)
+# The revised meta tag records the last update done to the site.
+# Format: YYYY-MM-DD
+# SITE_REVISED = ""
+# variables for including Metadata
+
 site_revised = "" # if you want to inject a last-updated tag
-meta_generator = "Zola"
+generator = "Zola"
+generator_url = "https://www.getzola.org"
 about_site = true
 
 # TODO

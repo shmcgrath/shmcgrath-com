@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="{% block html_lang %}{{ config.default_language }}{% endblock html_lang %}">
+  <head>
+    <!-- Title and Meta Information -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="x-dns-prefetch-control" content="off">
+    <meta name="author" content="{{ config.author }}" />
+    <meta name="description" content="{% block description %}{{ config.description }}{% endblock description %}" />
+    <meta name=’distribution’ content=’Global’>
+    <meta name="generator" content="{{ config.extra.abby.meta.generator }}" />
+    <meta name="robots" content="index,follow" />
+    {% block metablk %}
+    {% endblock metablk %} 
+    {% if config.extra.abby.meta.bing %}
+      {% include "partials/_metaBing.jinja2" %}
+    {% endif %}
+    {% if config.extra.abby.meta.facebook %}
+      {% include "partials/_metaFacebook.jinja2" %}
+    {% endif %}
+    {% if config.extra.abby.meta.google %}
+      {% include "partials/_metaGoogle.jinja2" %}
+    {% endif %}
+    {% if config.extra.abby.meta.pinterest %}
+      {% include "partials/_metaPinterest.jinja2" %}
+    {% endif %}
+    {% if config.extra.abby.meta.twitter %}
+      {% include "partials/_metaTwitter.jinja2" %}
+    {% endif %}
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="{{ config.base_url }}/css/main.css">
+    <link rel="icon" href="{{ config.base_url }}/img/favicon.ico" type="image/x-icon"/>  
+    <!-- Additional CSS -->
+    {% block additional_css %}
+    {% endblock %}
+    <!-- Scripts -->
+    <!-- jQuery -->
+    <script type="text/javascript" src="{{ config.base_url }}/plugins/jquery-3.3.1.min.js"></script>
+    <!-- My JavaScript -->
+    <script type="text/javascript" src="{{ config.base_url }}/script/main.js"></script>
+    <!-- Additional Javascript -->
+    {% block additional_js %}
+    {% endblock %}
+    <!-- RSS Feed Information -->
+    {% block headblk %}
+    {% endblock %}
+  </head>
+  <body>
+    <header id="headerBase">
+      <p id="headerBaseSitename"><a href="{{ config.base_url }}/">{{ config.title }}</a></p>
+      {% if config.extra.site_subtitle %}
+        <p id="headerBaseSitesubtitle">{{ config.extra.site_subtitle }}</p>
+      {% endif %}
+      <nav id="navBase">
+        <ul id="navBaseMenu">
+          {% if config.extra.abby.display_pages_on_menu %}
+            {% for p in pages %}
+              <li{% if p == page %} class="active"{% endif %}><a href="{{ config.base_url }}/{{ p.url }}">{{ p.title }}</a></li>
+            {% endfor %}
+          {% endif %}
+
+          {% for title, link in config.extra.abby.menuitems %}
+              <li><a href="{{ link }}">{{ title }}</a></li>
+          {% endfor %}
+
+          {% if config.extra.abby.display_categories_on_menu %}
+            {% for cat, null in categories %}
+              <li{% if cat == category %} class="active"{% endif %}><a href="{{ config.base_url }}/{{ cat.url }}">{{ cat }}</a></li>
+            {% endfor %}
+          {% endif %}
+        </ul>
+      </nav>
+    </header>
+
+    <main id="mainBase">
+      {% block contentblk %}
+      {% endblock %}
+    </main>
+
+    <footer id="footerBase" class="footer">
+      <div id="backTop" class="footerDiv">
+        <p><a href="#top">Back to Top</a></p>
+      </div>
+
+      {% if config.extra.abby.social.icons %}
+      <div id="socialIcons" class="footerDiv">
+        <ul id="socialIconsList">
+          {% if config.extra.abby.social.github_username %}
+          <li><a href="https://github.com/{{ config.extra.abby.social.github_username }}"><img src="{{ config.base_url }}/img/github{{ config.extra.abby.social.icons_color }}.png" alt="GitHub" title="GitHub"></a></li>
+          {% endif %}
+          {% if config.extra.abby.social.linkedin_username %}
+          <li><a href="https://www.linkedin.com/in/{{ config.extra.abby.social.linkedin_username }}"><img src="{{ config.base_url }}/img/linkedin{{ config.extra.abby.social.icons_color }}.png" alt="LinkedIn" title="LinkedIn"></a></li>
+          {% endif %}
+          {% if config.extra.abby.social.mailto_address %}
+          <li><a href="mailto:{{ config.extra.abby.social.mailto_address }}"><img src="{{ config.base_url }}/img/mail{{ config.extra.abby.social.icons_color }}.png" alt="mailto" title="mailto"></a></li>
+          {% endif %}
+          {% if config.extra.abby.social.twitter_username %}
+          <li><a href="https://twitter.com/{{ config.extra.abby.social.twitter_username }}"><img src="{{ config.base_url }}/img/twitter{{ config.extra.abby.social.icons_color }}.png" alt="twitter" title="twitter"></a></li>
+          {% endif %}
+          {% if config.extra.abby.social.reddit_username %}
+          <li><a href="https://www.reddit.com/user/{{ config.extra.abby.social.reddit_username }}/"><img src="{{ config.base_url }}/img/reddit{{ config.extra.abby.social.icons_color }}.png" alt="reddit" title="reddit"></a></li>
+          {% endif %}
+          {% if config.extra.abby.resume.pdf %}
+          <li><a href="{{ config.base_url }}{{ config.extra.abby.resume.location }}"><img src="{{ config.base_url }}/img/pdf{{ config.extra.abby.social.icons_color }}.png" alt="PDF Resume" title="PDF Resume"></a></li></a>
+          {% endif %}
+        </ul>
+      </div>
+      {% endif %}
+
+      <div id="blogArchive" class="footerDiv">
+      <ul>
+        {% if config.extra.abby.archives_save_as %}
+          <li><a href="{{ config.base_url }}/{{ config.extra.abby.archives_save_as }}">Archives</a></li>
+        {% endif %}
+        {% if config.extra.abby.tags_save_as %}
+          <li><a href="{{ config.base_url }}/{{ config.extra.abby.tags_save_as }}">Tags</a></li>
+        {% endif %}
+        {% if config.extra.abby.authors_save_as %}
+          <li><a href="{{ config.base_url }}/{{ config.extra.abby.authors_save_as }}">Tags</a></li>
+        {% endif %}
+        {% if config.extra.abby.categories_save_aS %}
+          <li><a href="{{ config.base_url }}/{{ config.extra.abby.categories_save_aS }}">Categories</a></li>
+        {% endif %}
+        {# <li>Disclosures</li> #}
+      </ul>
+      </div>
+
+      <div id="searchFooter" class="footerDiv">
+        {% include "partials/_searchbox.html" %}
+      </div>
+
+      <div id="disclaimerCopyright" class="footerDiv">
+          <p id="disclaimer">All opinions expressed in this site are my personal opinions and are not endorsed by, nor do they represent, the opinions of my previous, current, or future employers, or any of their affiliates, partners, or customers.</p>
+					<p id="copyright">Copyright (c) 2017-{{ now() | date(format="%Y") }} <span class="red">||</span> <a href="{{ config.extra.abby.meta.generator_url }}">Powered by {{ config.extra.abby.meta.generator }}.</a></p>
+      </div>
+    </footer>
+  </body>
+</html>

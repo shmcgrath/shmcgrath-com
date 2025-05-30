@@ -1,0 +1,94 @@
+    <header id="headerBase">
+      <p id="headerBaseSitename"><a href="{{ config.base_url }}/">{{ config.title }}</a></p>
+      {% if SITESUBTITLE %}
+        <p id="headerBaseSitesubtitle">{{ SITESUBTITLE }}</p>
+      {% endif %}
+      <nav id="navBase">
+        <ul id="navBaseMenu">
+          {% if DISPLAY_PAGES_ON_MENU %}
+            {% for p in pages %}
+              <li{% if p == page %} class="active"{% endif %}><a href="{{ config.base_url }}/{{ p.url }}">{{ p.title }}</a></li>
+            {% endfor %}
+          {% endif %}
+
+          {% for title, link in MENUITEMS %}
+              <li><a href="{{ link }}">{{ title }}</a></li>
+          {% endfor %}
+
+          {% if DISPLAY_CATEGORIES_ON_MENU %}
+            {% for cat, null in categories %}
+              <li{% if cat == category %} class="active"{% endif %}><a href="{{ config.base_url }}/{{ cat.url }}">{{ cat }}</a></li>
+            {% endfor %}
+          {% endif %}
+        </ul>
+      </nav>
+    </header>
+
+    <main id="mainBase">
+      {% block contentblk %}
+      {% endblock %}
+    </main>
+
+    <footer id="footerBase" class="footer">
+      <div id="backTop" class="footerDiv">
+        <p><a href="#top">Back to Top</a></p>
+      </div>
+
+      {% if SOCIAL_ICONS %}
+      <div id="socialIcons" class="footerDiv">
+        <ul id="socialIconsList">
+          {% if SOCIAL_ICONS_GITHUB %}
+          <li><a href="https://github.com/{{ SOCIAL_ICONS_GITHUB_USER}}"><img src="{{ config.base_url }}/img/github{{ SOCIAL_ICONS_COLOR }}.png" alt="GitHub" title="GitHub"></a></li>
+          {% endif %}
+          {% if SOCIAL_ICONS_LINKEDIN %}
+          <li><a href="https://www.linkedin.com/in/{{ SOCIAL_ICONS_LINKEDIN_URL }}"><img src="{{ config.base_url }}/img/linkedin{{ SOCIAL_ICONS_COLOR }}.png" alt="LinkedIn" title="LinkedIn"></a></li>
+          {% endif %}
+          {% if SOCIAL_ICONS_MAILTO %}
+          <li><a href="mailto:{{ SOCIAL_ICONS_MAILTO_ADDRESS }}"><img src="{{ config.base_url }}/img/mail{{ SOCIAL_ICONS_COLOR }}.png" alt="mailto" title="mailto"></a></li>
+          {% endif %}
+          {% if SOCIAL_ICONS_TWITTER %}
+          <li><a href="https://twitter.com/{{ SOCIAL_ICONS_TWITTER_USER }}"><img src="{{ config.base_url }}/img/twitter{{ SOCIAL_ICONS_COLOR }}.png" alt="twitter" title="twitter"></a></li>
+          {% endif %}
+          {% if SOCIAL_ICONS_REDDIT %}
+          <li><a href="https://www.reddit.com/user/{{ SOCIAL_ICONS_REDDIT_USER }}/"><img src="{{ config.base_url }}/img/reddit{{ SOCIAL_ICONS_COLOR }}.png" alt="reddit" title="reddit"></a></li>
+          {% endif %}
+          {% if SOCIAL_ICONS_PDF_RESUME%}
+          <li><a href="{{ config.base_url }}{{ RESUME_LOCATION }}"><img src="{{ config.base_url }}/img/pdf{{ SOCIAL_ICONS_COLOR }}.png" alt="PDF Resume" title="PDF Resume"></a></li></a>
+          {% endif %}
+          {% if SOCIAL_ICONS_FEED_ATOM %}
+          <li><a href="{{ config.base_url }}/feeds/all.atom.xml"><img src="{{ config.base_url }}/img/rss{{ SOCIAL_ICONS_COLOR }}.png" alt="Atom Feed" title="Atom Feed"></a></li>
+          {% endif %}
+        </ul>
+      </div>
+      {% endif %}
+
+      <div id="blogArchive" class="footerDiv">
+      <ul>
+        {% if ARCHIVES_SAVE_AS %}
+          <li><a href="{{ config.base_url }}/{{ ARCHIVES_SAVE_AS }}">Archives</a></li>
+        {% endif %}
+        {% if TAGS_SAVE_AS %}
+          <li><a href="{{ config.base_url }}/{{ TAGS_SAVE_AS }}">Tags</a></li>
+        {% endif %}
+        {% if AUTHORS_SAVE_AS %}
+          <li><a href="{{ config.base_url }}/{{ AUTHORS_SAVE_AS }}">Tags</a></li>
+        {% endif %}
+        {% if CATEGORIES_SAVE_AS %}
+          <li><a href="{{ config.base_url }}/{{ CATEGORIES_SAVE_AS }}">Categories</a></li>
+        {% endif %}
+        {# <li>Disclosures</li> #}
+      </ul>
+      </div>
+
+      <div id="searchFooter" class="footerDiv">
+        {% include "partials/_searchbox.jinja2" %}
+      </div>
+
+      <div id="disclaimerCopyright" class="footerDiv">
+          <p id="disclaimer">All opinions expressed in this site are my personal opinions and are not endorsed by, nor do they represent, the opinions of my previous, current, or future employers, or any of their affiliates, partners, or customers.</p>
+          <p id="copyright">Copyright (c) 2017-2019 <span class="red">||</span> <a href="http://getpelican.com/">Powered by Pelican</a></p>
+      </div>
+
+    </footer>
+  </body>
+</html>

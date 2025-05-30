@@ -1,11 +1,23 @@
----
-title: Education
-author: Sarah H. McGrath
-tags: seton-lasalle, robert morris univeristy, the catholic university of america
-category: infopage
-date: 2019-02-12 18:03
-modified: 2019-07-05 13:00
-...
++++
+title = "Education"
+description = ""
+authors = ["Sarah H. McGrath"]
+date = 2019-02-12T18:03:00-05:00
+updated = 2019-07-05T14:13:00-05:00
+weight = 0
+draft = false
+render = true
+slug = "education"
+path = "education"
+aliases = []
+in_search_index = true
+template = "page.html"
+generate_feeds = false
+[taxonomies]
+categories = ["infopage"]
+tags = ["seton-lasalle", "robert morris university", "the catholic university of america"]
+[extra]
++++
 
 ## Robert Morris University
 - Degree and Major: Master of Science, [Information Security and Assurance](https://sentry.rmu.edu/OnTheMove/wpmajdegr.major_desc?idegree=MS&imajor=ISEA&ischool=G&icalledby=WPMAJDEGR)

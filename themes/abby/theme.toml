@@ -1,8 +1,10 @@
 name = "abby"
 description = "Custom theme for shmcgrath.com"
 license = "MIT"
-homepage = "https://shmcgrath.com"
+homepage = "https://github.com/shmcgrath/shmcgrath-com"
 min_version = "0.17.0"
 
 [extra]
-author = "Sarah H. McGrath"
+[author]
+name = "Sarah H. McGrath"
+homepage = "https://shmcgrath.com"
