@@ -1,24 +1,21 @@
-ZOLA ?= zola
 PROJECT_ROOT := $(CURDIR)
-BUILD_DIR := public
+BUILD_DIR := $(PROJECT_ROOT)/public
 DEPLOY_BRANCH := gh-pages
-LOCAL_IP := ipconfig getifaddr en0
 
 .PHONY: serve build clean deploy new-post publish-post update-post fuse-update css-check-prefix css-minify
 
-serve:
-	$(ZOLA) serve
-
-serve-lan:
-	$(ZOLA) serve --interface 0.0.0.0 --base-url $(LOCAL_IP)
-
-build:
-	#$(MAKE) css-minify
-	$(ZOLA) build
-	@rm $(PROJECT_ROOT)/$(BUILD_DIR)/404.html
-
 clean:
-	rm -rf $(BUILD_DIR)
+	@rm -rf $(BUILD_DIR)
+
+serve: build
+	@printf "http://127.0.0.1:5859/\n" | pbcopy
+	@python3 -m http.server --bind 127.0.0.1 --directory public 5859
+
+build: clean
+	@mkdir -pv $(BUILD_DIR)
+	@cp -r static/. $(BUILD_DIR)/
+	@m4 $(PROJECT_ROOT)/config.m4 $(PROJECT_ROOT)/templates/base.html > $(BUILD_DIR)/index.html
+
 
 css-minify:
 	./scripts/css-minify.sh

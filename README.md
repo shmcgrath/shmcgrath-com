@@ -1,5 +1,5 @@
 # shmcgrath-com
-I use [Zola](https://www.getzola.org/) to build shmcgrath.com, and GitHub Pages to host it. Both the source and resulting website are in this repo.
+I have decided to use a combination of Make, M4, multimarkdown, and Bash to generate this blog. I previously used Pelican. I am using GitHub Pages to host it.
 
 ## Color Palette
 I am using color combination number 12 from [ColorClaim by Tobias van Schneider](https://www.vanschneider.com/colors). In addition, I use the grayscale from [base16](http://chriskempson.com/projects/base16/).
@@ -14,18 +14,12 @@ I am using color combination number 12 from [ColorClaim by Tobias van Schneider]
 - RGB: rgb(230, 98, 94)
 - HSL: hsl(2, 73%, 64%)
 
+## Dark/Light Toggle
+The dark//light toggle was inspired by [Light/Dark Theme Toggle using CSS and Javascript](https://codepen.io/Umer_Farooq/pen/eYJgKGN) by Umer Farooq on CodePen.
+
 ## Icons
-The icons were generated from [iconizer](http://iconizer.net) or similar.
+I made my favicon. I want to move it to svg eventually. The SVGs are credited inline via the svg_source tag.
 
-## Pygments Colorscheme
-I am using the [base16-nord](https://github.com/mohd-akram/base16-pygments) colorsheme for code blocks formatted by pygments.
-
-- create a venv with Python 3 and install requirements.txt
-- clone [pelican-plugins](https://github.com/getpelican/pelican-plugins)
-- transfer or create secrets.py which should include
-    - PROD_URL = ''
-    - PROD_DEST_PATH = ''
-    - PROD_PORT = 
 ## .htaccess remove html from url
 
 [This link](https://stackoverflow.com/questions/5730092/how-to-remove-html-from-url) was a comment in my .htaccess file and I believe it is where I got the code below from. I am removing it from my .htaccess file as I am moving to GitHub pages. I want to keep it here for future reference if I need it.
@@ -37,3 +31,5 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^([^\.]+)$ $1.html [NC,L]
 # RewriteRule ^(.*)\.html$ /$1 [L,R=301]
 ```
+## TODO
+- get cyberdream to a chroma for code highlighting

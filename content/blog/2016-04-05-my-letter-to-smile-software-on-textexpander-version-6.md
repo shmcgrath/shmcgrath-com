@@ -1,20 +1,15 @@
-+++
-title = "My Letter to Smile Software on TextExpander Version 6"
-slug = "2016-04-05-my-letter-to-smile-software-on-textexpander-version-6"
-authors = ["Sarah H. McGrath"]
-date = 2016-04-05T12:00:00-05:00
-updated = 2016-04-05T12:00:00-05:00
-in_search_index = true
-template = "page.html"
-draft = false
-[taxonomies]
-tags = ["osx", "macos", "opinion", "software", "ios", "saas"]
-categories = ["blog"]
-[extra]
-+++
+title: My Letter to Smile Software on TextExpander Version 6
+author: Sarah H. McGrath
+summary: A couple of people have said that they were interested in reading what I sent to Smile Software about their decision to move TextExpander to a SaaS model. I have copied and pasted my email below.
+tags: osx macos opinion software ios saas
+date: 2016-04-05T12:00:00-05:00
+date_updated: 2016-04-05T12:00:00-05:00
+date_published: 2016-04-05T12:00:00-05:00
+slug: 2016-04-05-my-letter-to-smile-software-on-textexpander-version-6
+in_search_index: true
+draft: false
 
 *A couple of people have said that they were interested in reading what I sent to Smile Software about their decision to move TextExpander to a SaaS model. I have copied and pasted my email below.*
-<!-- more -->
 
 Hello. I know today has probably been a rough day on you guys, and that can't be a good feeling when launching new software you have poured time and energy into. I don't want to pile onto you guys, but I wanted to take some time to give you guys some feedback on my thought process when buying software and services, and how that impacts my upgrade to TextExpander v.6.
 
