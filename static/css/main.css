@@ -193,17 +193,17 @@ nav {
   margin: 1rem;
 }
 
-#navBaseMenu > li:before {
+#nav-links > li:before {
   content: " | ";
   color: var(--shmred);
 }
 
-#navBaseMenu > li:last-child:after {
+#nav-links > li:last-child:after {
   content: " | ";
   color: var(--shmred);
 }
 
-#navBase li {
+#nav-menu li {
   display: inline-block;
   list-style-type: none;
   font-size: 0.9rem;
@@ -273,10 +273,9 @@ a {
   text-align: center;
 }
 
-#tipue_search_input {
+#fuse_search_input {
   height: 1rem;
   width: 80%;
-  background: url("../img/icons-blue/search32.png") no-repeat left center;
   padding: 0.5rem;
   margin: 1rem;
   padding-left: 2.1rem;

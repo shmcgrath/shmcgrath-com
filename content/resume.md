@@ -1,23 +1,11 @@
-+++
-title = "Resume"
-description = ""
-authors = ["Sarah H. McGrath"]
-date = 2019-02-12T00:15:00-05:00
-updated = 2019-07-05T14:14:12-05:00
-weight = 0
-draft = false
-render = true
-slug = "resume"
-path = "resume"
-aliases = []
-in_search_index = true
-template = "page.html"
-generate_feeds = false
-[taxonomies]
-categories = ["infopage"]
-tags = ["resume", "job"]
-[extra]
-+++
+---
+title: Resume
+date: 2019-02-12T00:15:00-05:00
+date_updated: 2025-12-05T00:19:51-05:00
+in_search_index: true
+draft: false
+
+---
 
 ## Professional Summary
 - Evaluated existing Dynamics 365 CRM systems to find gaps between the client’s business processes or end user experiences and the existing CRM implementation
@@ -28,8 +16,14 @@ tags = ["resume", "job"]
 - Gathered client requirements, created requirements documentation, and delivered design documents for systems migrations and implementations
 
 ## Work Experience
+### Evoqua
+#### Senior IT Business Analyst <span class="resumeDate">(November 2019 - June 2020)</span>
+- Liaison between the business and developers for CRM feature development and implementation
+- Wrote functional requirements documents for and oversaw implementation of various features in Dynamics CRM; implementation includes development, testing, overseeing UAT/business testing, and acquiring organizational approval
+- Serve as top-tier escalation point for Dynamics CRM support issues
+
 ### Plus Consulting
-#### Applications Consultant <span class="resumeDate">(September 2017 - Present)</span>
+#### Applications Consultant <span class="resumeDate">(September 2017 - October 2019)</span>
 - Wrote Microsoft Dynamics CRM Plugins and Custom Workflow Activities with C#
 	- Plugin functionality included checking user input, CRUD operations on records, and  updating data in individual fields
 	- Custom Workflow Activities were created for reusable functions such as adding days to a date
@@ -160,17 +154,13 @@ tags = ["resume", "job"]
     <li>CSS</li>
     <li>HTML</li>
     <li>JavaScript</li>
-    <li>jQuery</li>
     <li>Microsoft Access</li>
     <li>Python</li>
     <li>SQL</li>
     <li>SQLite</li>
     <li>SSIS</li>
-    <li>Version Control Systems</li>
-        <ul>
-            <li>Git</li>
-            <li>TFS</li>
-        </ul>
+    <li>Git</li>
 </ul>
 
 ## PDF Resume
+[Click here for my resume in PDF format.](/documents/SHMcGrathResume.pdf)

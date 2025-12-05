@@ -1,5 +1,5 @@
 # shmcgrath-com
-I have decided to use a combination of Make, M4, multimarkdown, and Bash to generate this blog. I previously used Pelican. I am using GitHub Pages to host it.
+I have decided to use a combination of Make, M4, pandoc, and Bash to generate this blog. I previously used Pelican. I am using GitHub Pages to host it.
 
 ## Color Palette
 I am using color combination number 12 from [ColorClaim by Tobias van Schneider](https://www.vanschneider.com/colors). In addition, I use the grayscale from [base16](http://chriskempson.com/projects/base16/).
@@ -17,8 +17,13 @@ I am using color combination number 12 from [ColorClaim by Tobias van Schneider]
 ## Dark/Light Toggle
 The dark//light toggle was inspired by [Light/Dark Theme Toggle using CSS and Javascript](https://codepen.io/Umer_Farooq/pen/eYJgKGN) by Umer Farooq on CodePen.
 
+Note: to change the light/dark toggle icon color, search ".theme-toggle-icon" in main.css
+
+
 ## Icons
 I made my favicon. I want to move it to svg eventually. The SVGs are credited inline via the svg_source tag.
+
+Note: to change the social icons color, search ".socialIcon" in main.css.
 
 ## .htaccess remove html from url
 
@@ -32,4 +37,7 @@ RewriteRule ^([^\.]+)$ $1.html [NC,L]
 # RewriteRule ^(.*)\.html$ /$1 [L,R=301]
 ```
 ## TODO
+- set up last revised date to change html, possibly with current date, too (m4 again?)
 - get cyberdream to a chroma for code highlighting
+- navigation html
+- code css

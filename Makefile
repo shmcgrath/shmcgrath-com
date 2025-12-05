@@ -1,8 +1,18 @@
 PROJECT_ROOT := $(CURDIR)
 BUILD_DIR := $(PROJECT_ROOT)/public
+CONTENT_DIR := $(PROJECT_ROOT)/content
 DEPLOY_BRANCH := gh-pages
 
-.PHONY: serve build clean deploy new-post publish-post update-post fuse-update css-check-prefix css-minify
+.PHONY: serve build clean deploy new-post publish-post update-post fuse-update css-check-prefix css-minify html postprocess-awk
+
+build-html:
+	./scripts/build-html.sh $(CONTENT_DIR) $(BUILD_DIR)
+
+build-error-pages:
+	./scripts/build-error-pages.sh $(BUILD_DIR)
+
+postprocess-awk:
+	./scripts/postprocess-awk-html.sh $(FILE)
 
 clean:
 	@rm -rf $(BUILD_DIR)
@@ -14,8 +24,8 @@ serve: build
 build: clean
 	@mkdir -pv $(BUILD_DIR)
 	@cp -r static/. $(BUILD_DIR)/
-	@m4 $(PROJECT_ROOT)/config.m4 $(PROJECT_ROOT)/templates/base.html > $(BUILD_DIR)/index.html
-
+	$(MAKE) build-html
+	$(MAKE) build-error-pages
 
 css-minify:
 	./scripts/css-minify.sh
@@ -52,4 +62,3 @@ deploy:
 
 	# Clean up
 	git worktree remove /tmp/$(DEPLOY_BRANCH)
-

@@ -32,3 +32,17 @@
 		});
   }
 })();
+
+(function () {
+    try {
+        const currentYear = new Date().getFullYear();
+        const yearDiv = document.getElementById('current-year');
+        if (yearDiv) {
+            yearDiv.textContent = currentYear;
+        } else {
+            console.error('no div with id "current-year"');
+        }
+    } catch (error) {
+        console.error('Error while updating current year:', error);
+    }
+})();

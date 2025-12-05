@@ -1,23 +1,11 @@
-+++
-title = "Education"
-description = ""
-authors = ["Sarah H. McGrath"]
-date = 2019-02-12T18:03:00-05:00
-updated = 2019-07-05T14:13:00-05:00
-weight = 0
-draft = false
-render = true
-slug = "education"
-path = "education"
-aliases = []
-in_search_index = true
-template = "page.html"
-generate_feeds = false
-[taxonomies]
-categories = ["infopage"]
-tags = ["seton-lasalle", "robert morris university", "the catholic university of america"]
-[extra]
-+++
+---
+title: Education
+date: 2019-02-12T18:03:00-05:00
+date_updated: 2019-07-05T14:13:00-05:00
+in_search_index: true
+draft: false
+
+---
 
 ## Robert Morris University
 - Degree and Major: Master of Science, [Information Security and Assurance](https://sentry.rmu.edu/OnTheMove/wpmajdegr.major_desc?idegree=MS&imajor=ISEA&ischool=G&icalledby=WPMAJDEGR)
