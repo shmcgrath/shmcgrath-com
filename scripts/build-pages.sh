@@ -14,16 +14,7 @@ BUILD_DIR="${2:-$DEFAULT_BUILD_DIR}"
 printf "Using content directory: $CONTENT_DIR"
 printf "Using build directory: $BUILD_DIR"
 
-# Process blog posts
-find "$CONTENT_DIR/blog" -type f -name '*.md' | while read -r file; do
-  base=$(basename "${file%.*}")
-  output="${BUILD_DIR}/blog/${base}.html"
-
-  printf "Processing blog: $file -> $output"
-  mkdir -p "$(dirname "$output")"
-
-  pandoc "$file" --output="$output" --to=html --template=./templates/base.html
-done
+mkdir -p "$BUILD_DIR"
 
 # Process page content
 find "$CONTENT_DIR" -type f -name '*.md' | while read -r file; do
@@ -31,7 +22,6 @@ find "$CONTENT_DIR" -type f -name '*.md' | while read -r file; do
   output="${BUILD_DIR}/${base}.html"
 
   printf "Processing page: $file -> $output"
-  mkdir -p "$(dirname "$output")"
 
   pandoc "$file" --output="$output" --to=html --template=./templates/base.html
 done

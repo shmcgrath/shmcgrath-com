@@ -5,8 +5,11 @@ DEPLOY_BRANCH := gh-pages
 
 .PHONY: serve build clean deploy new-post publish-post update-post fuse-update css-check-prefix css-minify html postprocess-awk
 
-build-html:
-	./scripts/build-html.sh $(CONTENT_DIR) $(BUILD_DIR)
+build-pages:
+	./scripts/build-pages.sh $(CONTENT_DIR) $(BUILD_DIR)
+
+build-posts:
+	./scripts/build-posts.sh $(CONTENT_DIR) $(BUILD_DIR)
 
 build-error-pages:
 	./scripts/build-error-pages.sh $(BUILD_DIR)
@@ -24,7 +27,8 @@ serve: build
 build: clean
 	@mkdir -pv $(BUILD_DIR)
 	@cp -r static/. $(BUILD_DIR)/
-	$(MAKE) build-html
+	$(MAKE) build-pages
+	$(MAKE) build-posts
 	$(MAKE) build-error-pages
 
 css-minify:
