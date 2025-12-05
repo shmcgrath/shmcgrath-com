@@ -1,3 +1,7 @@
+# M4 Processing
+tmp/
+public/
+
 # Pelican
 output/
 pelican-plugins/
