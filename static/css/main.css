@@ -2,6 +2,10 @@
 :root {
   --shmred: hsl(2, 73%, 64%);
   --shmblue: hsl(188, 90%, 44%);
+	--shmpurple: hsl(270, 40%, 60%);
+	--shmyellow: hsl(50, 90%, 50%);
+	--shmyellow: hsl(50, 70%, 60%);
+	--shmaccent: var(--shmyellow);
   --base00: hsl(0, 0%, 9%);
   --base01: hsl(0, 0%, 16%);
   --base02: hsl(0, 0%, 22%);
@@ -10,14 +14,14 @@
   --base05: hsl(0, 0%, 85%);
   --base06: hsl(0, 0%, 91%);
   --base07: hsl(0, 0%, 97%);
-  --background-light: var(--base05);
+  --background-light: var(--base06);
 	--text-light: #000000;
 	--text-light-alt: #1a1a1a;
 	--background-dark: var(--base01);
 	--background-dark-alt: #0e0e0e;
 	--text-dark: #eaeaea;
-  --main-font: "Courier New", Courier, monospace;
-  --header-font: "Courier New", Courier, monospace;
+	--main-font: Arial, sans-serif;
+	--header-font: Arial, sans-serif;
 }
 
 * {box-sizing: border-box;}
@@ -32,11 +36,14 @@ html body {
 html[data-theme="light"] body {
 	background-color: var(--background-light);
 	color: var(--text-light);
+	--shmaccent: var(--shmpurple);
+
 }
 
 html[data-theme="dark"] body {
 	background-color: var(--background-dark);
 	color: var(--text-dark);
+	--shmaccent: var(--shmyellow);
 }
 
 #theme-toggle-div {
@@ -209,6 +216,11 @@ nav {
   font-size: 0.9rem;
 }
 
+#nav-menu li.active > a {
+    color: var(--shmaccent);
+		font-weight: bold;
+}
+
 nav li {
   list-style-type: none;
 }
@@ -261,7 +273,6 @@ a {
 
 .page-last-updated {
   font-size: 0.75rem;
-  color: var(--shmred);
   display: flex;
   justify-content: right;
 }

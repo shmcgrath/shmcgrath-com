@@ -11,49 +11,33 @@ DEFAULT_BUILD_DIR="$(pwd)/public"
 CONTENT_DIR="${1:-$DEFAULT_CONTENT_DIR}"
 BUILD_DIR="${2:-$DEFAULT_BUILD_DIR}"
 
-printf "\nUsing content directory: $CONTENT_DIR"
-printf "\nUsing build directory: $BUILD_DIR"
+printf "\n%s" "Using content directory: $CONTENT_DIR"
+printf "\n%s" "Using build directory: $BUILD_DIR"
 
 mkdir -p "$BUILD_DIR"
+mkdir -p "$(pwd)/tmp"
+
+m4 "templates/page.html" > "tmp/page.html"
 
 # Process page content
 find "$CONTENT_DIR" -maxdepth 1 -type f -name '*.md' | while read -r file; do
 	base=$(basename "${file%.*}")
 	output="${BUILD_DIR}/${base}.html"
 
-	tab="$(printf '\t')"
-	nl=$'\n'
-	tabs="${tab}${tab}${tab}${tab}${tab}"
+	printf "\n%s\n" "Processing page: $base -> $output"
 
-	nav_links=""
+	cp -v "tmp/page.html" "tmp/${base}.html"
 
-	if [ "${base}" = "blog" ]; then
-		nav_links+="${nl}${tabs}<li class=\"active\"><a href=\"/blog.html\">Blog</a></li>"
-	else
-		nav_links+="${nl}${tabs}<li><a href=\"/blog.html\">Blog</a></li>"
-	fi
+	# Patch nav: add class="active" to the correct <li>
+	# macOS BSD sed
+	sed -i '' "/<a href=\"\/$base.html\">/s|<li>|<li class=\"active\">|" "tmp/${base}.html" 2>/dev/null || \
+	# GNU sed
+	sed -i "/<a href=\"\/$base.html\">/s|<li>|<li class=\"active\">|" "tmp/${base}.html"
 
-	for nav_file in ${CONTENT_DIR}/*.md; do
-		nav_base="$(basename "${nav_file}" .md)"
-		#nav_title="${nav_base^}"
-		nav_title=pandoc ${nav_file} --template=<(echo '$title$') --to=plain
-
-		if [ "${base}" = "${nav_base}" ]; then
-			nav_links+="${nl}${tabs}<li class=\"active\"><a href=\"/${nav_base}.html\">${nav_title}</a></li>"
-		else
-			nav_links+="${nl}${tabs}<li><a href=\"/${nav_base}.html\">${nav_title}</a></li>"
-		fi
-
-	done
-
-	mkdir -p "$(pwd)/tmp"
-	m4 --define=M4_NAV_MENU="${nav_links}" templates/base.html > "tmp/${base}.html"
-
-	printf "\nProcessing page: $base -> $output"
-
-	#pandoc "$file" --output="$output" --to=html --template=./tmp/${base}.html
+	pandoc "$file" \
+		--output="$output" \
+		--to=html \
+		--template="tmp/${base}.html"
 done
 
-
-
-printf "\nProcessing complete."
+printf "\n%s" "Processing complete."

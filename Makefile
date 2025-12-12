@@ -3,7 +3,7 @@ BUILD_DIR := $(PROJECT_ROOT)/public
 CONTENT_DIR := $(PROJECT_ROOT)/content
 DEPLOY_BRANCH := gh-pages
 
-.PHONY: serve build clean deploy new-post publish-post update-post fuse-update css-check-prefix css-minify html postprocess-awk
+.PHONY: serve build clean deploy new-post publish-post update-post fuse-update css-check-prefix html postprocess-awk
 
 build-pages:
 	./scripts/build-pages.sh $(CONTENT_DIR) $(BUILD_DIR)
@@ -20,9 +20,13 @@ postprocess-awk:
 clean:
 	@rm -rf $(BUILD_DIR)
 
-serve: build
+serve:
 	@printf "http://127.0.0.1:5859/\n" | pbcopy
 	@python3 -m http.server --bind 127.0.0.1 --directory public 5859
+
+copy-static:
+	@mkdir -pv $(BUILD_DIR)
+	@cp -r static/. $(BUILD_DIR)/
 
 build: clean
 	@mkdir -pv $(BUILD_DIR)
@@ -30,9 +34,6 @@ build: clean
 	$(MAKE) build-pages
 	$(MAKE) build-posts
 	$(MAKE) build-error-pages
-
-css-minify:
-	./scripts/css-minify.sh
 
 css-check-prefix:
 	./scripts/css-prefix-check.sh
