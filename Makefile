@@ -3,7 +3,7 @@ BUILD_DIR := $(PROJECT_ROOT)/public
 CONTENT_DIR := $(PROJECT_ROOT)/content
 DEPLOY_BRANCH := gh-pages
 
-.PHONY: serve build clean deploy new-post publish-post update-post fuse-update css-check-prefix html postprocess-awk
+.PHONY: serve build clean deploy new-post publish-post update-post fuse-update css-check-prefix
 
 build-pages:
 	./scripts/build-pages.sh $(CONTENT_DIR) $(BUILD_DIR)
@@ -14,11 +14,9 @@ build-posts:
 build-error-pages:
 	./scripts/build-error-pages.sh $(BUILD_DIR)
 
-postprocess-awk:
-	./scripts/postprocess-awk-html.sh $(FILE)
-
 clean:
 	@rm -rf $(BUILD_DIR)
+	@rm -rf $(PROJECT_ROOT)/tmp
 
 serve:
 	@printf "http://127.0.0.1:5859/\n" | pbcopy
@@ -30,7 +28,7 @@ copy-static:
 
 build: clean
 	@mkdir -pv $(BUILD_DIR)
-	@cp -r static/. $(BUILD_DIR)/
+	$(MAKE) copy-static
 	$(MAKE) build-pages
 	$(MAKE) build-posts
 	$(MAKE) build-error-pages
@@ -67,3 +65,4 @@ deploy:
 
 	# Clean up
 	git worktree remove /tmp/$(DEPLOY_BRANCH)
+	@$(MAKE) clean

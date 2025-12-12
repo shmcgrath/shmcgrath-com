@@ -48,7 +48,7 @@ fi
     printf "template = \"page.html\"\n"
     printf "draft = true\n"
     printf "[taxonomies]\n"
-    printf "tags = []\n"
+    printf "keywords = []\n"
     printf "category = \"blog\"\n"
     printf "[extra]\n"
     printf "+++\n\n"

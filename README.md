@@ -64,7 +64,6 @@ pandoc --print-highlight-style {{style}} >> {{style}}.css
 - [pandoc metadata information](https://gist.github.com/shorodilov/3d52206ea64bea4aae4fc8c19a88a2d1)
 
 ## TODO
-- changes tags to keywords to more closely match pandoc
 - set up last revised date to change html, possibly with current date, too (m4 again?)
 - get cyberdream to a  for code highlighting from pandoc
 - navigation html

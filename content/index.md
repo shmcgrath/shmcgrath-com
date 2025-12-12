@@ -7,6 +7,6 @@ draft: false
 
 ---
 
-Hi! I'm Sarah, a developer, sports fan, and tinkerer. I live in Pittsburgh, PA and am looking to to join a team as an entry level developer. I am an aspiring white hat and am working on expanding my bash skills in my free time
+Hi! I'm Sarah, a developer, sports fan, and tinkerer. I live in Pittsburgh, PA and am looking to to join a team as an entry level developer. I am an aspiring white hat and am working on expanding my bash skills in my free time.
 
 Feel free to contact me via email.
