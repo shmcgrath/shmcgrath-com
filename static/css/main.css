@@ -24,7 +24,33 @@
 	--header-font: Arial, sans-serif;
 }
 
+/* Fonts listed in my pelican theme:
+var(--header-font): 'Space Mono', Arial, sans-serif;
+var(--header-font): 'Playfair Display', serif;
+var(--header-font): 'Fauna One', serif;
+var(--main-font): 'Playfair Display', serif;
+var(--main-font): 'Space Mono', Arial, sans-serif;
+var(--main-font): 'Work Sans', Arial, sans-serif;
+var(--main-font): 'Fauna One', serif;
+*/
+
 * {box-sizing: border-box;}
+
+/* under body from scss
+  //display: grid;
+  //grid-template-columns: 1fr;
+  //grid-template-rows: auto;
+  //grid-template-areas:
+    "hd"
+    "mn"
+    "ft";
+*/
+
+/* this looks to be bad css but wanted it noted
+body {
+  margin: 2rem;
+  background: var(--background);
+}*/
 
 html body {
   font-family: var(--main-font);
@@ -37,6 +63,8 @@ html[data-theme="light"] body {
 	background-color: var(--background-light);
 	color: var(--text-light);
 	--shmaccent: var(--shmpurple);
+	--search-background: var(--background-light);
+	--search-color: var(--text-light);
 
 }
 
@@ -44,13 +72,9 @@ html[data-theme="dark"] body {
 	background-color: var(--background-dark);
 	color: var(--text-dark);
 	--shmaccent: var(--shmyellow);
+	--search-background: var(--base03);
+	--search-color: var(--text-dark);
 }
-
-/* this looks to be bad css but wanted it noted
-body {
-  margin: 2rem;
-  background: var(--background);
-}*/
 
 #theme-toggle-div {
   display: flex;
@@ -115,6 +139,7 @@ body[data-theme="dark"] #moon-toggle-icon { opacity: 1; }
 
 /* old p css:
  * margin: 1em 0;
+	* margin-bottom: 1em;
  * line-height: 1.6;
  */
 p {
@@ -125,16 +150,15 @@ article {
   margin: 2rem;
 }
 
-
 .socialIcon {
-  fill: var(--shmred);
+  fill: var(--shmblue);
 	transition: fill 0.2s;
 	width: 24px;
 	height: 24px;
 }
 
 a:hover .socialIcon {
-	fille: var(--shmblue);
+	fill: var(--shmblue);
 }
 
 .articleHeader {
@@ -147,7 +171,6 @@ a:hover .socialIcon {
 }
 
 #footerBase {
-  border-top: 0.5rem double var(--shmred);
 }
 
 #headerBase {
@@ -156,7 +179,6 @@ a:hover .socialIcon {
   align-items: center;
   justify-content: center;
   color: var(--shmblue);
-  border-bottom: 0.5rem double var(--shmred);
 }
 
 #headerBaseSitename {
@@ -289,21 +311,11 @@ a {
   justify-content: right;
 }
 
-#searchrow {
+.searchrow {
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-}
-
-#fuse_search_input {
-  height: 1rem;
-  width: 80%;
-  /* background: url("../img/search32b.png") no-repeat left center; */
-  padding: 0.5rem;
-  margin: 1rem;
-  padding-left: 2.1rem;
-  border: solid var(--shmred);
 }
 
 .footer {
@@ -311,6 +323,51 @@ a {
   grid-template-columns: 1fr 2fr;
   align-items: center;
   text-align: center;
+}
+
+.break {
+  border-bottom: 0.5rem double var(--shmred);
+	width: 98%;
+  grid-column: 1 / span 2;
+}
+
+search {
+  grid-column: 2;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	margin-right: 0.75rem;
+	margin-bottom: 0.75rem;
+}
+
+#searchInput {
+  height: 1.5rem;
+  width: 75%;
+  padding: 0.25rem;
+	margin: 0.4rem 0;
+	border: solid var(--shmred);
+	border-width: 1px 0 1px 1px;
+	border-radius: 2px 0 0 2px;
+  background-color: var(--search-background);
+  color: var(--search-color);
+	-webkit-appearance: textfield;
+}
+
+#searchIcon {
+	width: 1.5rem;
+	aspect-ratio: 1;
+	fill: var(--shmred);
+  background-color: var(--shmblue);
+	cursor: pointer;
+	border: solid var(--shmred);
+	border-radius: 0 2px 2px 0;
+	border-width: 1px 1px 1px 0;
+	margin: 0.4rem 0;
+}
+
+#searchIcon:hover {
+	fill: var(--shmblue);
+  background-color: var(--shmred);
 }
 
 #backTop,
@@ -401,3 +458,28 @@ ul ul ul {
   border-radius: 5px;
   font-size: 0.9rem;
 }
+
+/* https://www.w3.org/WAI/tutorials/forms/labels/#note-on-hiding-elements */
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+
+/* File: _header.scss
+ * from abby converted scss
+.header {
+  //grid-area: hd;
+}
+ */
+/* File: _main.scss
+//.main {
+  //grid-area: mn;
+//}
+ */

@@ -46,3 +46,18 @@
         console.error('Error while updating current year:', error);
     }
 })();
+
+document.addEventListener("DOMContentLoaded", function() {
+    const searchInput = document.getElementById('searchInput');
+
+    searchInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            const query = searchInput.value.trim();
+            if (query) {
+                // Redirect to search page with query in URL
+                const encodedQuery = encodeURIComponent(query);
+                window.location.href = `/search-results.html?q=${encodedQuery}`;
+            }
+        }
+    });
+});

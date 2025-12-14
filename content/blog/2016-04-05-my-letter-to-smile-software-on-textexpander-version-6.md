@@ -1,11 +1,12 @@
 ---
 title: My Letter to Smile Software on TextExpander Version 6
+subtitle:
 author: Sarah H. McGrath
-summary: A couple of people have said that they were interested in reading what I sent to Smile Software about their decision to move TextExpander to a SaaS model. I have copied and pasted my email below.
+desctiption: A couple of people have said that they were interested in reading what I sent to Smile Software about their decision to move TextExpander to a SaaS model. I have copied and pasted my email below.
 keywords: osx macos opinion software ios saas
-date: 2016-04-05T12:00:00-05:00
-date_updated: 2016-04-05T12:00:00-05:00
-date_published: 2016-04-05T12:00:00-05:00
+date: Tue, 05 Apr 2016 12:00:00 -0500
+date_published: Tue, 05 Apr 2016 12:00:00 -0500
+date_updated: Tue, 05 Apr 2016 12:00:00 -0500
 slug: 2016-04-05-my-letter-to-smile-software-on-textexpander-version-6
 in_search_index: true
 draft: false

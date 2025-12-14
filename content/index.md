@@ -2,6 +2,7 @@
 title: Home
 date: 2019-02-12T18:03:00-05:00
 date_updated: 2025-04-27T08:10:00-05:00
+slug: index
 in_search_index: true
 draft: false
 

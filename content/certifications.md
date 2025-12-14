@@ -2,6 +2,7 @@
 title: Certifications
 date: 2019-02-12T18:03:00-05:00
 date_updated: 2019-07-05T14:13:00-05:00
+slug: certifications
 in_search_index: true
 draft: false
 

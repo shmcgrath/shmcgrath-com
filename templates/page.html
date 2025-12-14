@@ -3,5 +3,5 @@ define(`M4_MAIN',`
 $if(title)$<h1>$title$</h1>$endif$
 $if(body)$<div>$body$</div>$endif$
 <!-- {% if page.modified and page.title != "Home"  and page.category != "error" %} -->
-$if(date_updated)$<p class="page-last-updated">Last updated: $date_updated$</p>$endif$
+$if(date_updated)$<p class="page-last-updated">Last updated: <time datetime=$date_updated$>$date_updated$</time></p>$endif$
 ')include(`templates/base.html')

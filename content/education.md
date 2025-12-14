@@ -1,7 +1,9 @@
 ---
 title: Education
+keywords: cua rmu seton lasalle
 date: 2019-02-12T18:03:00-05:00
 date_updated: 2019-07-05T14:13:00-05:00
+slug: education
 in_search_index: true
 draft: false
 
@@ -16,13 +18,13 @@ draft: false
 
 ## The Catholic University of America
 - Degree and Major: Bachelor of Arts, Philosophy
-- Graduation: May 2010 from the [School of Philosophy](http://philosophy.cua.edu/)
+- Graduation: May 2010 from the [School of Philosophy](https://philosophy.catholic.edu/)
 - Attended: August 2006 - May 2010
 - Studied a range of Philosophers in core coursework focusing on 'Aristotelian' philosophers such as Plato, Aristotle, and Aquinas. In addition, studied modern political philosophy, modern philosophy, and ancient philosophy.
 - Activities:
     - Catholic University of America Women's Rugby Football Club (2006-2010)
-    - [The Tower](http://cuatower.com/) (2006)
-- [CUA Website](https://www.catholic.edu/index.html)
+    - [The Tower](https://cuatower.com/) (2006)
+- [CUA Website](https://www.catholic.edu)
 
 ## Seton LaSalle Catholic High School
 - Degree: High School Diploma

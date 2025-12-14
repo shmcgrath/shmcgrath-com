@@ -1,18 +1,19 @@
 PROJECT_ROOT := $(CURDIR)
 BUILD_DIR := $(PROJECT_ROOT)/public
 CONTENT_DIR := $(PROJECT_ROOT)/content
+PINNED_FUSE_VERSION := 7.1.0
 DEPLOY_BRANCH := gh-pages
 
 .PHONY: serve build clean deploy new-post publish-post update-post fuse-update css-check-prefix
 
-build-pages:
-	./scripts/build-pages.sh $(CONTENT_DIR) $(BUILD_DIR)
-
-build-posts:
-	./scripts/build-posts.sh $(CONTENT_DIR) $(BUILD_DIR)
+build-content:
+	./scripts/build-content.sh $(CONTENT_DIR) $(BUILD_DIR)
 
 build-error-pages:
 	./scripts/build-error-pages.sh $(BUILD_DIR)
+
+generate-search-index:
+	./scripts/generate-indices.sh $(CONTENT_DIR) $(BUILD_DIR)
 
 clean:
 	@rm -rf $(BUILD_DIR)
@@ -30,6 +31,7 @@ build: clean
 	@mkdir -pv $(BUILD_DIR)
 	$(MAKE) copy-static
 	$(MAKE) build-pages
+	$(MAKE) build-blog
 	$(MAKE) build-posts
 	$(MAKE) build-error-pages
 
@@ -46,7 +48,7 @@ update-post:
 	./scripts/post-update.sh $(POST_FILE)
 
 fuse-update:
-	$(PROJECT_ROOT)/scripts/fuse-update.sh $(PROJECT_ROOT)
+	@$(PROJECT_ROOT)/scripts/fuse-update.sh $(PROJECT_ROOT) $(PINNED_FUSE_VERSION)
 
 deploy:
 	@$(MAKE) build

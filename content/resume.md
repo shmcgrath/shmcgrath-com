@@ -2,6 +2,7 @@
 title: Resume
 date: 2019-02-12T00:15:00-05:00
 date_updated: 2025-12-05T00:19:51-05:00
+slug: resume
 in_search_index: true
 draft: false
 

@@ -1,5 +1,5 @@
 # shmcgrath-com
-I have decided to use a combination of [Make](https://www.gnu.org/software/make/), [M4](https://www.gnu.org/software/m4/m4.html), [Pandoc](https://pandoc.org), and Bash to generate this blog. I previously used Pelican. I am using GitHub Pages to host it.
+I have decided to use a combination of [Make](https://www.gnu.org/software/make/), [M4](https://www.gnu.org/software/m4/m4.html), [Pandoc](https://pandoc.org), [jq](https://github.com/jqlang/jq), and Bash to generate this blog. I previously used Pelican. I am using GitHub Pages to host it.
 
 ## Color Palette
 I am using color combination number 12 from [ColorClaim by Tobias van Schneider](https://www.vanschneider.com/colors). In addition, I use the grayscale from [base16](http://chriskempson.com/projects/base16/).
@@ -63,6 +63,9 @@ pandoc --print-highlight-style {{style}} >> {{style}}.css
 
 - [pandoc metadata information](https://gist.github.com/shorodilov/3d52206ea64bea4aae4fc8c19a88a2d1)
 
+## Useful Resources and Code
+- [How to build a great search box by Sam Dutton](https://medium.com/@samdutton/how-to-build-a-great-search-box-2b9a6d1dce0d)
+- [Responsive search input by Sam Dutton](https://codepen.io/samdutton/pen/djrVVd)
 ## TODO
 - set up last revised date to change html, possibly with current date, too (m4 again?)
 - get cyberdream to a  for code highlighting from pandoc
@@ -100,6 +103,18 @@ pandoc --print-highlight-style {{style}} >> {{style}}.css
     - pelican plugins and search
     - i dont need a theme/config a lot can be hard coded, im not making bunches of websites
     - with a good base template, the varaibles i wanted to change in the configs can just be changed in the base template
-    - handle mono-fonts for code
-    - change font back to arial and then codeblocks
+    - super useful: https://medium.com/@samdutton/how-to-build-a-great-search-box-2b9a6d1dce0d
+- handle mono-fonts for code
+- change font back to arial and then codeblocks
 - pick a yellow
+- datetime html: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/time
+- https://www.w3.org/WAI/tutorials/forms/labels/#using-aria-label aria labels
+- fix button bezel/outline on search button
+- custom css for resume and script that into the header -- maybe via pandoc variables?
+- current year with datetime vs div
+- make date and get date to clipboard
+- make fuse update rely on a config file and maybe use a pinned version in the header via M4?
+- make the search results much better adn include a link? and matbe the matching part?
+- convert datetime between formats or just ignore the <time> tag?
+- css replace shmred and shmblue with shmprimary shmsecondary and make sure shmaccent is easy to change
+- add shmlinks color too?

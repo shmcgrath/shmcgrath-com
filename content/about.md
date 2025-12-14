@@ -2,6 +2,7 @@
 title: About Me
 date: 2019-02-12T18:03:00-05:00
 date_updated: 2025-12-05T00:14:09-05:00
+slug: about
 in_search_index: true
 draft: false
 
