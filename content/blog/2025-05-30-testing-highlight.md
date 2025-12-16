@@ -4,9 +4,11 @@ subtitle: This is a test
 author: Sarah H. McGrath
 description: Testing post for highlighting workflow
 keywords: osx macos opinion software ios saas
-date: Fri, 30 May 2025 19:19:57 -0400
-date_published: Fri, 30 May 2025 19:19:57 -0400
-date_updated: Fri, 30 May 2025 19:19:57 -0400
+date: 2025-05-30T19:19:57-04:00
+date_updated: 2025-05-30T19:19:57-04:00
+date_updated_rfc5322: Fri, 30 May 2025 19:19:57 -0400
+date_published: 2025-05-30T19:19:57-04:00
+date_published_rfc5322: Fri, 30 May 2025 19:19:57 -0400
 slug: 2025-05-30-testing-highlight
 in_search_index: true
 draft: true

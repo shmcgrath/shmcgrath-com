@@ -3,6 +3,11 @@ BUILD_DIR := $(PROJECT_ROOT)/public
 CONTENT_DIR := $(PROJECT_ROOT)/content
 PINNED_FUSE_VERSION := 7.1.0
 DEPLOY_BRANCH := gh-pages
+ifeq ($(shell uname -s),Darwin)
+CLIP := pbcopy
+else
+CLIP := wl-copy
+endif
 
 .PHONY: serve build clean deploy new-post publish-post update-post fuse-update css-check-prefix
 
@@ -12,16 +17,18 @@ build-content:
 build-error-pages:
 	./scripts/build-error-pages.sh $(BUILD_DIR)
 
-generate-search-index:
-	./scripts/generate-indices.sh $(CONTENT_DIR) $(BUILD_DIR)
+generate-indices:
+	./scripts/generate-search-index.sh $(CONTENT_DIR) $(BUILD_DIR)
+	./scripts/generate-rss.sh $(CONTENT_DIR) $(BUILD_DIR)
+	./scripts/generate-sitemap.sh $(CONTENT_DIR) $(BUILD_DIR)
 
 clean:
 	@rm -rf $(BUILD_DIR)
 	@rm -rf $(PROJECT_ROOT)/tmp
 
-serve:
-	@printf "http://127.0.0.1:5859/\n" | pbcopy
-	@python3 -m http.server --bind 127.0.0.1 --directory public 5859
+serve: build
+		@printf "http://127.0.0.1:5859/\n" | $(CLIP)
+		@python3 -m http.server --bind 127.0.0.1 --directory public 5859
 
 copy-static:
 	@mkdir -pv $(BUILD_DIR)
@@ -30,9 +37,7 @@ copy-static:
 build: clean
 	@mkdir -pv $(BUILD_DIR)
 	$(MAKE) copy-static
-	$(MAKE) build-pages
-	$(MAKE) build-blog
-	$(MAKE) build-posts
+	$(MAKE) build-content
 	$(MAKE) build-error-pages
 
 css-check-prefix:

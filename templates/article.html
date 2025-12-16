@@ -1,8 +1,8 @@
-changequote([,])
-define([M4_MAIN],[<article class="article">
-  <header class="articleHeader">
+changequote([[,]])
+define([[M4_MAIN]],[[<article class="article">
+  <header class="article-header">
   <h1 class="article-title">
-	$if(title)$<h1 class="articleTitle">
+	$if(title)$<h1 class="article-title">
 	</h1>$endif$
 		<a href="/blog/$slug$.html" rel="bookmark" title="Permalink to $title$"">$title$</a>
 	</h1>
@@ -11,11 +11,11 @@ define([M4_MAIN],[<article class="article">
 	$if(description)$<p class="articleDescription">$subtitle$</p>$endif$
   </header>
 	$if(body)$<div class=articleBody>$body$</div>$endif$
-  <footer class="articleFooter">
-		<div>Published: <time class="published" datetime="$date_published$"> $date_published$</time></div>
-		$if(date_updated)$<time class="page-last-updated" datetime=$date_updated$>Last Updated: $date_updated$</time></p>$endif$
+  <footer class="article-footer">
+		<time class="published" datetime="$date_published$">Published: $date_published$</time>
+		$if(date_updated)$<time class="pageLastUpdated" datetime=$date_updated$>Last Updated: $date_updated$</time></p>$endif$
 		$if(keywords)$<div class=keywords>$keywords$</div>$endif$
   </footer>
-</article>])
+</article>]])
 changequote(`,')
 ')include(`templates/base.html')

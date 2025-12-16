@@ -78,7 +78,7 @@ while IFS= read -r file; do
 		 if [[ "$file" == "$CONTENT_DIR/blog/"* ]]; then
 			date_published=$(pandoc "${file}" --template=<(echo '$date_published$') --to=plain)
 			if [ -z "${date_published}" ]; then
-				date_published=$(date -R)
+				date_published=$(date "+%Y-%m-%dT%H:%M:%S%z" | sed -E 's/([+-][0-9]{2})([0-9]{2})$/\1:\2/')
 			fi
 
             rss_items+=("  <item>

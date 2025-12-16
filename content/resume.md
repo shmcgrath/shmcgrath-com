@@ -18,13 +18,13 @@ draft: false
 
 ## Work Experience
 ### Evoqua
-#### Senior IT Business Analyst <span class="resumeDate">(November 2019 - June 2020)</span>
+#### Senior IT Business Analyst <span class="resume-date">(November 2019 - June 2020)</span>
 - Liaison between the business and developers for CRM feature development and implementation
 - Wrote functional requirements documents for and oversaw implementation of various features in Dynamics CRM; implementation includes development, testing, overseeing UAT/business testing, and acquiring organizational approval
 - Serve as top-tier escalation point for Dynamics CRM support issues
 
 ### Plus Consulting
-#### Applications Consultant <span class="resumeDate">(September 2017 - October 2019)</span>
+#### Applications Consultant <span class="resume-date">(September 2017 - October 2019)</span>
 - Wrote Microsoft Dynamics CRM Plugins and Custom Workflow Activities with C#
 	- Plugin functionality included checking user input, CRUD operations on records, and  updating data in individual fields
 	- Custom Workflow Activities were created for reusable functions such as adding days to a date
@@ -51,7 +51,7 @@ draft: false
 - Created Scribe Integration Solutions to migrate data from legacy, on-premise CRM systems to Dynamics 365 Online
 - Used TFS for source control and Azure Dev Ops (formerly VSTS) for ticket management
 
-#### Intern <span class="resumeDate">(January 2016 - September 2017)</span>
+#### Intern <span class="resume-date">(January 2016 - September 2017)</span>
 - Customized Microsoft Dynamics 365 for Sales CRM forms, Workflows, Business Process Flows, dashboards, views, Security Roles, etc. as per client specifications
 - Designed, crafted, and implemented a contract management process to track client change requests inside Microsoft Dynamics CRM using HTML, JavaScript, and Workflows
 - Wrote code for Web Resources in Microsoft Dynamics CRM using HTML, CSS, and JavaScript
@@ -66,13 +66,13 @@ draft: false
 	- Reports were used for quotes, invoices, form letters, and data analysis
 
 ### Thermo Fisher Scientific
-#### Contractor <span class="resumeDate">(September 2015 - December 2015)</span>
+#### Contractor <span class="resume-date">(September 2015 - December 2015)</span>
 - Processed incoming Hardware purchase requests into orders via Thermo Fisher systems
 - Participated in preliminary testing of new ERP systems
 - Worked on team responsible for scrubbing and migrating software licensing data to new systems
 
 ### United States Steel Corporation
-#### Procurement Analyst, Global Procurement Center of Excellence <span class="resumeDate">(September 2014 - December 2014)</span>
+#### Procurement Analyst, Global Procurement Center of Excellence <span class="resume-date">(September 2014 - December 2014)</span>
 - Processed and managed transactions from requisition to purchase order (PO) for all non-Machine and Fabrication commodities at five Texas facilities, including CapEx and MRO orders
 - Tasked with understanding request to purchase order process at five Texas facilities in order to identify and implement efficiencies that reduce manual transactions
 - Identified and implemented process efficiencies while using Oracle R11 in order to reduce manual touches on requisition to purchase order process
@@ -80,7 +80,7 @@ draft: false
 - Responsible for delegating and managing work of an assigned United States Steel contractor
 - Sent items from facility requisitions on request for quotation (RFQ) to suppliers based on item number history and detailed matrices from commodity managers
 
-#### Buyer, Process Optimization <span class="resumeDate">(February 2014 - September 2014)</span>
+#### Buyer, Process Optimization <span class="resume-date">(February 2014 - September 2014)</span>
 - Built Access database that Process Optimization used as a ticketing system to track assigned work, to track issues submitted to Accounts Payable, and generate weekly, monthly, and quarterly statistics; Access Database significantly reduced time required to generate reports
 - Aided suppliers and buyers in resolving payables issues such as invoice mismatches
 - Used statistics generated from reporting along with personal observation to determine various root causes of invoice mismatches and non-payments
@@ -90,7 +90,7 @@ draft: false
 - Simultaneously continued all responsibilities on Site Services team from February until May 2014
     - Site Services responsibilities listed below
 
-#### Buyer / Management Associate, Site Services <span class="resumeDate">(May 2011 - May 2014; *Promoted to Buyer June 2012*)</span>
+#### Buyer / Management Associate, Site Services <span class="resume-date">(May 2011 - May 2014; *Promoted to Buyer June 2012*)</span>
 - Procure various on-site services for all United States Steel facilities across the United States
     - Managed approximately twenty commodities including scaffolding services, laundry services, general rental services, diving, and survey and alignment services
 - Responsibilities included contract negotiation and management, preparing and awarding requests for quotations, and strategically sourcing services.
@@ -107,14 +107,14 @@ draft: false
 - Worked with United States Steel facilities to develop scopes of work for various site services
 - Reverse-auctioned bid for portable toilet service
 
-#### Management Associate, CapEx and Environmental Services <span class="resumeDate">(December 2010 - May 2011)</span>
+#### Management Associate, CapEx and Environmental Services <span class="resume-date">(December 2010 - May 2011)</span>
 - Responsible for CapEx and Environmental Services for the Great Lakes Works facility
 - Strategically sourced, RFQ’d, and awarded capital construction projects, construction maintenance projects, and environmental projects
 - Sent engineering-developed scopes of work to suppliers as a Request for Quotation (RFQ)
 - Turned facility generated requisitions into purchase orders (PO) using Passport PORTAL/G Version 9.0.0
 
 ### House of Commons of the United Kingdom, Office of Gregory Barker, MP
-#### Intern <span class="resumeDate">(May 2009 - July 2009)</span>
+#### Intern <span class="resume-date">(May 2009 - July 2009)</span>
 - Researched and drafted position paper on the Skills Gap in Green Jobs
 - Aided in organizing and staffed a Conservative Party fundraiser
 - Coordinated travel for MP and economic conference invitees
@@ -124,14 +124,14 @@ draft: false
 - Performed clerical tasks
 
 ### The Catholic University of America University Libraries
-#### Student Library Aid <span class="resumeDate">(August 2008-May 2010; *Worked during the academic/school year only*)</span>
+#### Student Library Aid <span class="resume-date">(August 2008-May 2010; *Worked during the academic/school year only*)</span>
 - Aided patrons with research
 - Located books and periodicals on stacks and by computer
 - Kept statistics of library patrons
 - Checked in and filed books and periodicals
 
 ### Allegheny County District Attorney’s Office
-#### Crimes Persons Unit Intern <span class="resumeDate">(May 2007-January 2009; Summer/Winter Intern)</span>
+#### Crimes Persons Unit Intern <span class="resume-date">(May 2007-January 2009; Summer/Winter Intern)</span>
 - Compiled and organized documentary evidence for criminal trials and official case files
 - Located, notified and assisted victims and witnesses before and during criminal trials 
 - Assisted Assistant District Attorneys (ADAs) during criminal trials
@@ -141,14 +141,14 @@ draft: false
 - Filed and located documents in Clerk of Courts Office
 
 ### Kennywood
-#### Green Shirt <span class="resumeDate">(June 2006 - August 2006)</span>
+#### Green Shirt <span class="resume-date">(June 2006 - August 2006)</span>
 - Operated beverage stand at amusement park
 - Served public and cooked at “Small Fry” stand
 - Waited on customers, took payment and made change
 - Accounted for receipts
 
 ## Skills
-<ul class="twoColumnList">
+<ul class="two-column-list">
     <li>Bash</li>
     <li>C#</li>
     <li>COBOL</li>

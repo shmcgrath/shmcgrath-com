@@ -1,27 +1,28 @@
 @charset "UTF-8";
+
 :root {
-  --shmred: hsl(2, 73%, 64%);
-  --shmblue: hsl(188, 90%, 44%);
-	--shmpurple: hsl(270, 40%, 60%);
-	--shmyellow: hsl(50, 90%, 50%);
-	--shmyellow: hsl(50, 70%, 60%);
+  --shmred: rgb(230 98 94);
+  --shmblue: rgb(11 188 214);
+	--shmpurple: rgb(153 112 194);
+	--shmyellow: rgb(242 204 13);
+	--shmyellow: rgb(224 201 82);
 	--shmaccent: var(--shmyellow);
-  --base00: hsl(0, 0%, 9%);
-  --base01: hsl(0, 0%, 16%);
-  --base02: hsl(0, 0%, 22%);
-  --base03: hsl(0, 0%, 35%);
-  --base04: hsl(0, 0%, 72%);
-  --base05: hsl(0, 0%, 85%);
-  --base06: hsl(0, 0%, 91%);
-  --base07: hsl(0, 0%, 97%);
+  --base00: rgb(23 23 23);
+  --base01: rgb(41 41 41);
+  --base02: rgb(56 56 56);
+  --base03: rgb(89 89 89);
+  --base04: rgb(184 184 184);
+  --base05: rgb(217 217 217);
+  --base06: rgb(232 232 232);
+  --base07: rgb(247 247 247);
   --background-light: var(--base06);
-	--text-light: #000000;
-	--text-light-alt: #1a1a1a;
+	--text-light: rgb(0 0 0);
+	--text-light-alt: rgb(26 26 26);
 	--background-dark: var(--base01);
-	--background-dark-alt: #0e0e0e;
-	--text-dark: #eaeaea;
-	--main-font: Arial, sans-serif;
-	--header-font: Arial, sans-serif;
+	--background-dark-alt: rgb(14 14 14);
+	--text-dark: rgb(234 234 234);
+	--main-font: arial, sans-serif;
+	--header-font: arial, sans-serif;
 }
 
 /* Fonts listed in my pelican theme:
@@ -150,30 +151,30 @@ article {
   margin: 2rem;
 }
 
-.socialIcon {
+.social-icon {
   fill: var(--shmblue);
 	transition: fill 0.2s;
 	width: 24px;
 	height: 24px;
 }
 
-a:hover .socialIcon {
+a:hover .social-icon {
 	fill: var(--shmblue);
 }
 
-.articleHeader {
+.article-header {
   color: var(--shmred);
 }
 
-.articleFooter {
+.article-footer {
   border-top: 2px dotted var(--shmred);
   padding-top: 1rem;
 }
 
-#footerBase {
+#footer-base {
 }
 
-#headerBase {
+#header-base {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -181,12 +182,12 @@ a:hover .socialIcon {
   color: var(--shmblue);
 }
 
-#headerBaseSitename {
+#header-base-sitename {
   color: var(--shmred);
   font-size: 1.75rem;
 }
 
-#headerBaseSitesubtitle {
+#header-base-sitesubtitle {
   color: var(--shmred);
   font-size: 1.5rem;
 }
@@ -262,7 +263,7 @@ nav li {
   color: var(--shmred);
 }
 
-#blogList {
+#blog-list {
   list-style-type: none;
 }
 
@@ -340,7 +341,7 @@ search {
 	margin-bottom: 0.75rem;
 }
 
-#searchInput {
+#search-input {
   height: 1.5rem;
   width: 75%;
   padding: 0.25rem;
@@ -353,7 +354,7 @@ search {
 	-webkit-appearance: textfield;
 }
 
-#searchIcon {
+#search-icon {
 	width: 1.5rem;
 	aspect-ratio: 1;
 	fill: var(--shmred);
@@ -365,27 +366,22 @@ search {
 	margin: 0.4rem 0;
 }
 
-#searchIcon:hover {
+#search-icon:hover {
 	fill: var(--shmblue);
   background-color: var(--shmred);
 }
 
-#backTop,
-#socialIcons,
-#disclaimerCopyright {
+#back-top,
+#social-icons,
+#disclaimer-copyright {
   grid-column: 1 / span 2;
 }
 
-#disclaimerCopyright {
+#disclaimer-copyright {
   font-size: 0.6rem;
 }
 
-#pelican {
-  text-align: left;
-  font-size: 0.75rem;
-}
-
-#blogArchive {
+#blog-archive {
   text-align: left;
   list-style-type: none;
   align-items: center;
@@ -393,7 +389,7 @@ search {
   justify-content: center;
 }
 
-#blogArchive li {
+#blog-archive li {
   list-style-type: none;
 }
 
@@ -405,12 +401,12 @@ search {
   margin: 0.5rem;
 }
 
-#socialIconsList li {
+#social-icons-list li {
   display: inline-block;
   list-style-type: none;
 }
 
-.twoColumnList {
+.two-column-list {
   columns: 2;
 }
 
@@ -438,11 +434,11 @@ ul ul ul {
   width: 55%;
 }
 
-.resumeDate {
+.resume-date {
   font-size: 0.7rem;
 }
 
-.resumeNote {
+.resume-note {
   font-size: 0.7rem;
   display: flex;
   margin: 0;
@@ -460,7 +456,7 @@ ul ul ul {
 }
 
 /* https://www.w3.org/WAI/tutorials/forms/labels/#note-on-hiding-elements */
-.visuallyhidden {
+.visually-hidden {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;

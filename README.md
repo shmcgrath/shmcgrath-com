@@ -118,3 +118,10 @@ pandoc --print-highlight-style {{style}} >> {{style}}.css
 - convert datetime between formats or just ignore the <time> tag?
 - css replace shmred and shmblue with shmprimary shmsecondary and make sure shmaccent is easy to change
 - add shmlinks color too?
+- clean up base.html and possibly break into more M4 templates
+- maybe have xml generated again and nest ifs, not sure. search index isn't relevant for that
+- create and update blog scrips for additional date formats
+- custom search vs fuse?
+- change all css and html to kebab case
+- [ARIA and other best practices](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA)
+- [meta element reference including theme](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/meta)
