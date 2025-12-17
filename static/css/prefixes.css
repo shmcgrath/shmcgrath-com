@@ -1,0 +1,73 @@
+/* User text selection */
+.noselect {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+/* Blurred backgrounds */
+.backdrop-blur {
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+}
+
+/* Reset native form styles */
+input, button, select, textarea {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+/* Automatic hyphenation */
+.hyphens-auto {
+  -webkit-hyphens: auto;
+     -ms-hyphens: auto;
+         hyphens: auto;
+}
+
+/* Mobile text zoom control */
+.text-adjust {
+  -webkit-text-size-adjust: 100%;
+     -ms-text-size-adjust: 100%;
+         text-size-adjust: 100%;
+}
+
+/* Flexbox compatibility */
+.flex {
+  display: -webkit-box;  /* Old Safari */
+  display: -ms-flexbox;  /* Old IE */
+  display: flex;
+}
+
+/* CSS transforms */
+.transform {
+  -webkit-transform: rotate(5deg);
+          transform: rotate(5deg);
+}
+
+/* CSS transitions */
+.transition {
+  -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+}
+
+/* CSS animations */
+@-webkit-keyframes example {
+  from {opacity: 0;}
+  to   {opacity: 1;}
+}
+@keyframes example {
+  from {opacity: 0;}
+  to   {opacity: 1;}
+}
+.animate {
+  -webkit-animation: example 1s infinite;
+          animation: example 1s infinite;
+}
+
+/* Sticky positioning */
+.sticky {
+  position: -webkit-sticky;
+          position: sticky;
+  top: 0;
+}

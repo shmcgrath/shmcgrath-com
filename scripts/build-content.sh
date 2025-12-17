@@ -42,23 +42,24 @@ while IFS= read -r file; do
 	if [ "${draft}" = "false" ]; then
 		printf "\n%s" "Processing page: $base"
 
-		if [ "$base" = "search-results" ]; then
-			m4 "templates/search-results.html" > "tmp/search-results.html"
+		if [ "$base" = "search" ]; then
+			m4 "templates/search.html" > "tmp/search.html"
 
 		elif [ "$base" = "blog" ]; then
 			find "$CONTENT_DIR/blog" -maxdepth 1 -type f -name '*.md' | while read -r article; do
 				article_draft=$(pandoc "${article}" --template=<(echo '$draft$') --to=plain)
+
 				article_title=$(pandoc "${article}" --template=<(echo '$title$') --to=plain)
-				article_title=${title:-""}
+				article_title=${article_title:-""}
 
 				article_author=$(pandoc "${article}" --template=<(echo '$author$') --to=plain)
-				article_author=${author:-""}
+				article_author=${article_author:-""}
 
 				article_description=$(pandoc "${article}" --template=<(echo '$description$') --to=plain)
-				description=${description:-""}
+				article_description=${article_description:-""}
 
 				article_keywords=$(pandoc "${article}" --template=<(echo '$keywords$') --to=plain)
-				article_keywords=${keywords:-""}
+				article_keywords=${article_keywords:-""}
 
 				article_date_published=$(pandoc "${article}" --template=<(echo '$date_published$') --to=plain)
 				if [ -z "${article_date_published}" ]; then
@@ -77,6 +78,11 @@ while IFS= read -r file; do
 			template="article"
 			printf "\n%s" "this is a blog page: ${base}"
 
+		elif [ "$base" = "index" ]; then
+			cp "tmp/page.html" "tmp/${base}.html"
+			awk '{gsub(/<h1>\$title\$<\/h1>/,"<h1 class=\"visually-hidden\">\$title\$</h1>"); print}' "tmp/${base}.html" > "tmp/${base}.html.tmp" && mv "tmp/${base}.html.tmp" "tmp/${base}.html"
+			make_nav_item_active "${base}"
+
 		else
 			cp "tmp/page.html" "tmp/${base}.html"
 			make_nav_item_active "${base}"
@@ -90,13 +96,15 @@ done < <(find "$CONTENT_DIR" -type f -name '*.md')
 printf "\n%s" "Processing complete."
 
 #  HTML for blog list
-#<li><a href="/blog/$slug$.html">$title$</a>
-	#<dl class="bloag-archive-detail">
+#<li><article><a class="archive-article-title" href="/blog/$slug$.html">$title$</a>
+	#<dl class="archive-article-detail">
 		#$if(subtitle)$<dt>Subtitle:</dt><dd>$subtitle$</dd>$endif$
 		#$if(author)$<dt>Author:</dt><dd>$author$</li>$endif$
 		#$if(description)$<dt>Summary:</dt><dd>$description$</dd>$endif$
 		#$if(keywords)$<dt>Keywords/Tags:</dt><dd>$keywords$</dd>$endif$
 		#<dt>Published:</dt>
 		#<dd><time class="published" datetime="$date_published$">$date_published$</time></dd>
+		#<dt>Updated:</dt>
+		#<dd><time class="published" datetime="$date_updated$">$date_updated$</time></dd>
 	#</dl>
-#</li>
+#</article></li>

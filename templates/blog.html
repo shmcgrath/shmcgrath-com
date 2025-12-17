@@ -1,71 +1,17 @@
-changequote([[,]])
-define([[M4_MAIN]],[[<div id="blog-archive">
+changequote([[,]])define([[M4_MAIN]],[[<div id="blog-archive">
 			$if(title)$<h1>$title$</h1>$endif$
-			<h2> Blog Articles by Year</h2>
+			<p>Link to Blogs by Year</p>
+			<p>Link to Tags in Blogs</p>
+      <div id="year-archive">
+			<h2>Blog Articles by Year</h2>
 			<h3 class="date">{{ (year_group|first).date|strftime('%Y') }}</h3>
-			<ol id="blog-list">
-      <ul id="blog-archive-list">M4_BLOG_ARCHIVE_LIST
+      <ul id="year-archive-list">M4_BLOG_ARCHIVE_LIST
       </ul>
       </div>
-  <li><article class="hentry">
-    <header> <h2 class="entry-title"><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2> </header>
-                <footer class="post-info">
-                    <time class="published" datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }} </time>
-                    <address class="vcard author">By
-                    {% for author in article.authors %}
-                        <a class="url fn" href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>
-                    {% endfor %}
-                    </address>
-                </footer><!-- /.post-info -->
-                <div class="entry-content"> {{ article.summary }} </div><!-- /.entry-content -->
-        </article></li>
-</ol>
-]])
-changequote(`,')
-')include(`templates/base.html')
-{# based on https://zhu45.org/posts/2016/Dec/17/pelican-hack-day/ #}
-
-<h3 class="date">{{ (year_group|first).date|strftime('%Y') }}</h3>
-  <div class="post archives">
-  <ul>
-    {% for article in year_group %}
-    <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
-    {% endfor %}
-  </ul>
-  </div>
-{% endfor %}
-{% endblock %}
-{% extends "base.jinja2" %}
-{% block title %}{{ SITENAME }} - {{ period | reverse | join(' ') }} archives {% endblock %}
-
-{% block contentblk %}
-<h1>Archives for {{ period | reverse | join(' ') }}</h1>
-
-<dl>
-{% for article in dates %}
-    <dt>{{ article.locale_date }}</dt>
-    <dd><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></dd>
-{% endfor %}
-</dl>
-{% endblock %}
-<ol id="blog-list">
-{% for article in articles_page.object_list %}
-  <li><article class="hentry">
-    <header> <h2 class="entry-title"><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2> </header>
-                <footer class="post-info">
-                    <time class="published" datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }} </time>
-                    <address class="vcard author">By
-                    {% for author in article.authors %}
-                        <a class="url fn" href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>
-                    {% endfor %}
-                    </address>
-                </footer><!-- /.post-info -->
-                <div class="entry-content"> {{ article.summary }} </div><!-- /.entry-content -->
-        </article></li>
-{% endfor %}
-</ol>
-{% if articles_page.has_other_pages() %}
-    {% include 'pagination.html' %}
-{% endif %}
-</section><!-- /#content -->
-{% endblock %}
+      <div id="tags-archive">
+			<h2>Tags</h2>
+      <ul id="tags-archive-list">M4_BLOG_ARCHIVE_LIST
+      </ul>
+      </div>
+      </div>]])dnl
+changequote(`,')include(`templates/base.html')dnl

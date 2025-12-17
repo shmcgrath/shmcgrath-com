@@ -1,10 +1,6 @@
-changequote([[,]])
-define([[M4_MAIN]],[[
-<!-- no title for home page -->
-$if(title)$<h1>$title$</h1>$endif$
-$if(body)$<div>$body$</div>$endif$
-<!-- {% if page.modified and page.title != "Home"  and page.category != "error" %} -->
-$if(date_updated)$<p class="page-last-updated">Last updated: <time datetime=$date_updated$>$date_updated$</time></p>$endif$
-]])dnl
-changequote(`,')
-include(`templates/base.html')
+changequote([[,]])define([[M4_MAIN]],[[$if(title)$<h1>$title$</h1>$endif$
+			$if(body)$<div class="main-body">
+				$body$
+			</div>$endif$
+			$if(date_updated)$<p class="page-last-updated">Last updated: <time datetime=$date_updated$>$date_updated$</time></p>$endif$]])dnl
+changequote(`,')include(`templates/base.html')dnl

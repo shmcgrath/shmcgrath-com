@@ -66,6 +66,10 @@ pandoc --print-highlight-style {{style}} >> {{style}}.css
 ## Useful Resources and Code
 - [How to build a great search box by Sam Dutton](https://medium.com/@samdutton/how-to-build-a-great-search-box-2b9a6d1dce0d)
 - [Responsive search input by Sam Dutton](https://codepen.io/samdutton/pen/djrVVd)
+
+## Notes
+Some pages have date_edited vs date_updated. date_updated is always equal to date_edited. I used date_edited on a couple of pages (blog and search) where I didn't want the date_updated rendering in the page.html template. This let me maintain fewer templates.
+
 ## TODO
 - set up last revised date to change html, possibly with current date, too (m4 again?)
 - get cyberdream to a  for code highlighting from pandoc
@@ -104,6 +108,7 @@ pandoc --print-highlight-style {{style}} >> {{style}}.css
     - i dont need a theme/config a lot can be hard coded, im not making bunches of websites
     - with a good base template, the varaibles i wanted to change in the configs can just be changed in the base template
     - super useful: https://medium.com/@samdutton/how-to-build-a-great-search-box-2b9a6d1dce0d
+    - why did i write my own search?
 - handle mono-fonts for code
 - change font back to arial and then codeblocks
 - pick a yellow
@@ -125,3 +130,13 @@ pandoc --print-highlight-style {{style}} >> {{style}}.css
 - change all css and html to kebab case
 - [ARIA and other best practices](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA)
 - [meta element reference including theme](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/meta)
+- add tag page and list of posts by tags (maybe make blog page by year then by tag? all in one page?)
+    - Blog
+        - Posts by Year
+            - 2025
+            - 2016
+        - Tag List
+- when clicking on a tag in a tag list, you then get taken to a new page where the tag is listed, so would need a hidden /tags/tag page - look at errors for generating it
+- css for <mark>
+- add the summary/description to search
+- css static prefix research again?

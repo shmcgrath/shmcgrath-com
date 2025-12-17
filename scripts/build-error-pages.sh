@@ -6,6 +6,9 @@ ERROR_BUILD_DIR=$BUILD_DIR/error
 
 mkdir -p "$ERROR_BUILD_DIR"
 
+TMP_DIR="$(pwd)/tmp"
+mkdir -p "$TMP_DIR"
+
 # List of error pages
 # TITLE BODY URL
 
@@ -18,15 +21,16 @@ ERROR_PAGES=(
 	"503 Service Unavailable|ERROR 503: SERVICE UNAVAILABLE|503"
 )
 
-mkdir -p "$(pwd)/tmp"
-m4 templates/error.html > tmp/error.html
+m4 "$(pwd)/templates/page.html" > "$TMP_DIR/error.html"
 
 for page in "${ERROR_PAGES[@]}"; do
 	IFS="|" read -r TITLE BODY URL <<< "$page"
 
 	pandoc --output="$ERROR_BUILD_DIR/$URL.html" \
-		--template="$(pwd)/tmp/error.html" \
+		--template="$TMP_DIR/error.html" \
 		--variable title="$TITLE" \
-		--variable body="$BODY" \
+		--variable body="<p class=\"error-body\">$BODY</p>" \
 		< /dev/null
 done
+
+#rm -f "$TMP_DIR/error.html"

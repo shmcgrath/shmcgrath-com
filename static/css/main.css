@@ -263,7 +263,8 @@ nav li {
   color: var(--shmred);
 }
 
-#blog-list {
+#year-archive-list,
+#tags-archive-list {
   list-style-type: none;
 }
 

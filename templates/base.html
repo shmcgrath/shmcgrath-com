@@ -67,10 +67,9 @@
 		<!-- Code Stylesheets -->
 		<link rel="stylesheet" type="text/css" id="syntax-theme" href="/css/syntax-theme-dark.css">
 		<!-- Scripts -->
-		<!-- fuse.js -->
-		<script type="text/javascript" src="/plugins/fuse.min.js"></script>
 		<!-- My JavaScript -->
-		<script type="text/javascript" src="/script/main.js" defer></script>ifdef(`M4_ADDITIONAL_SCRIPTS', M4_ADDITIONAL_SCRIPTS)
+		<script type="text/javascript" src="/script/main.js" defer></script>
+		ifdef(`M4_ADDITIONAL_SCRIPTS', M4_ADDITIONAL_SCRIPTS)dnl
 		<!-- RSS Feed Information -->
 		<link href="https://shmcgrath.com/rss.xml" type="application/rss+xml" rel="alternate" title="Sarah H. McGrath's Blog RSS Feed">
 	</head>
@@ -107,7 +106,8 @@
 			<hr class="break">
 		</header>
 
-		<main id="main-base">M4_MAIN
+		<main id="main-base">
+			M4_MAIN
 		</main>
 
 		<footer id="footer-base" class="footer">
@@ -117,7 +117,7 @@
 			</div>
 
 			<search>
-				<label id="searchLabel" class="visually-hidden" for="search-input">Search</label>
+				<label id="search-label" class="visually-hidden" for="search-input">Search</label>
 				<input type ="search" name="q" id="search-input" placeholder="Search">
 				<!-- svg source: https://frontendmasters.com/blog/the-html-css-and-svg-for-a-classic-search-form/ -->
 				<svg id="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" svg_source="frontendmasters.com">

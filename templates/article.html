@@ -1,5 +1,4 @@
-changequote([[,]])
-define([[M4_MAIN]],[[<article class="article">
+changequote([[,]])define([[M4_MAIN]],[[<article class="article">
   <header class="article-header">
   <h1 class="article-title">
 	$if(title)$<h1 class="article-title">
@@ -16,6 +15,5 @@ define([[M4_MAIN]],[[<article class="article">
 		$if(date_updated)$<time class="pageLastUpdated" datetime=$date_updated$>Last Updated: $date_updated$</time></p>$endif$
 		$if(keywords)$<div class=keywords>$keywords$</div>$endif$
   </footer>
-</article>]])
-changequote(`,')
-')include(`templates/base.html')
+</article>]])dnl
+changequote(`,')include(`templates/base.html')dnl
