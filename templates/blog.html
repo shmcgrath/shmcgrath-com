@@ -1,17 +1,16 @@
-changequote([[,]])define([[M4_MAIN]],[[<div id="blog-archive">
-			$if(title)$<h1>$title$</h1>$endif$
-			<p>Link to Blogs by Year</p>
-			<p>Link to Tags in Blogs</p>
-      <div id="year-archive">
-			<h2>Blog Articles by Year</h2>
-			<h3 class="date">{{ (year_group|first).date|strftime('%Y') }}</h3>
-      <ul id="year-archive-list">M4_BLOG_ARCHIVE_LIST
+changequote([[,]])define([[M4_MAIN]],[[$if(title)$<h1>$title$</h1>$endif$
+			<div id="blog-archive-links">
+				<a href="#chronological-archive-header">Article Tags</a>
+				<a href="#tags-archive-header">Article Tags</a>
+			</div>
+      <section id="chronological-archive">
+			<h2 id="chronological-archive-header">Blog Articles in Reverse Chronological Order</h2>
+				ifdef(`M4_CHRONOLOGICAL_ARCHIVE', M4_CHRONOLOGICAL_ARCHIVE)dnl
+      </section>
+      <section id="tags-archive">
+			<h2 id="tags-archive-header">Tags</h2>
+      <ul id="tags-archive-list">
+				ifdef(`M4_TAGS_ARCHIVE', M4_TAGS_ARCHIVE)dnl
       </ul>
-      </div>
-      <div id="tags-archive">
-			<h2>Tags</h2>
-      <ul id="tags-archive-list">M4_BLOG_ARCHIVE_LIST
-      </ul>
-      </div>
-      </div>]])dnl
+      </section>]])dnl
 changequote(`,')include(`templates/base.html')dnl

@@ -2,6 +2,11 @@ PROJECT_ROOT := $(CURDIR)
 BUILD_DIR := $(PROJECT_ROOT)/public
 CONTENT_DIR := $(PROJECT_ROOT)/content
 DEPLOY_BRANCH := gh-pages
+SITE_URL_DEV := http://127.0.0.1:5859
+SITE_URL_PROD := https://shmcgrath.com
+M4_SITE_URL ?= $(SITE_URL_PROD)
+export M4_SITE_URL
+
 ifeq ($(shell uname -s),Darwin)
 CLIP := pbcopy
 else
@@ -12,7 +17,8 @@ endif
 
 copy-static:
 	@mkdir -pv $(BUILD_DIR)
-	@cp -r static/. $(BUILD_DIR)/
+	@cp -r $(PROJECT_ROOT)/static/. $(BUILD_DIR)/
+	@mv -f $(BUILD_DIR)/img/favicon.ico $(BUILD_DIR)/favicon.ico
 	@rm -f $(BUILD_DIR)/.DS_Store
 
 build-content:
@@ -37,8 +43,13 @@ build: clean
 	@$(MAKE) build-error-pages
 	@$(MAKE) generate-indices
 
-serve: build
-		@printf "%s\n" "http://127.0.0.1:5859/" | $(CLIP)
+serve:
+		@read -p "Rebuild before starting server? (y/n): " answer; \
+		case "$$answer" in \
+			[yY]) $(MAKE) build M4_SITE_URL=$(SITE_URL_DEV) ;; \
+			*) printf "%s\n" "Skipping build..." ;; \
+		esac;
+		@printf "%s\n" "$(SITE_URL_DEV)" | $(CLIP)
 		@python3 -m http.server --bind 127.0.0.1 --directory public 5859
 
 css-check-prefix:

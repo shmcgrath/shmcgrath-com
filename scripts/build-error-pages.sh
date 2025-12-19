@@ -4,14 +4,15 @@ DEFAULT_BUILD_DIR="$(pwd)/public"
 BUILD_DIR="${1:-$DEFAULT_BUILD_DIR}"
 ERROR_BUILD_DIR=$BUILD_DIR/error
 
+: "${M4_SITE_URL:?M4_SITE_URL not set}"
+
 mkdir -p "$ERROR_BUILD_DIR"
 
 TMP_DIR="$(pwd)/tmp"
 mkdir -p "$TMP_DIR"
 
 # List of error pages
-# TITLE BODY URL
-
+# TITLE|BODY|URL
 ERROR_PAGES=(
 	"401 Authorization Required|ERROR 401: AUTHORIZATION REQUIRED|401"
 	"403 Forbidden|ERROR 403: FORBIDDEN|403"
@@ -21,7 +22,7 @@ ERROR_PAGES=(
 	"503 Service Unavailable|ERROR 503: SERVICE UNAVAILABLE|503"
 )
 
-m4 "$(pwd)/templates/page.html" > "$TMP_DIR/error.html"
+m4 -DM4_SITE_URL="${M4_SITE_URL}" "$(pwd)/templates/page.html" > "$TMP_DIR/error.html"
 
 for page in "${ERROR_PAGES[@]}"; do
 	IFS="|" read -r TITLE BODY URL <<< "$page"
@@ -29,8 +30,7 @@ for page in "${ERROR_PAGES[@]}"; do
 	pandoc --output="$ERROR_BUILD_DIR/$URL.html" \
 		--template="$TMP_DIR/error.html" \
 		--variable title="$TITLE" \
+		--variable slug="$URL" \
 		--variable body="<p class=\"error-body\">$BODY</p>" \
 		< /dev/null
 done
-
-#rm -f "$TMP_DIR/error.html"

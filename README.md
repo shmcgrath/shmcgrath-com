@@ -67,8 +67,17 @@ pandoc --print-highlight-style {{style}} >> {{style}}.css
 - [How to build a great search box by Sam Dutton](https://medium.com/@samdutton/how-to-build-a-great-search-box-2b9a6d1dce0d)
 - [Responsive search input by Sam Dutton](https://codepen.io/samdutton/pen/djrVVd)
 
-## Notes
+## Notes to Self
 Some pages have date_edited vs date_updated. date_updated is always equal to date_edited. I used date_edited on a couple of pages (blog and search) where I didn't want the date_updated rendering in the page.html template. This let me maintain fewer templates.
+
+### Head Meta Tags I Did Not Use
+``` html
+<!-- Bing -->
+<!-- These are used for address recognition purpose. These are supported by Bing but not Google. -->
+<meta name="geo.placename" content="Place Name">
+<meta name="”geo.position" content="latitude; longitude">
+<meta name="”geo.region" content="Country Subdivision Code">
+```
 
 ## TODO
 - set up last revised date to change html, possibly with current date, too (m4 again?)
@@ -140,3 +149,61 @@ Some pages have date_edited vs date_updated. date_updated is always equal to dat
 - css for <mark>
 - add the summary/description to search
 - css static prefix research again?
+- svg sheet and pull them in?
+- https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-color-scheme - prefers-color-scheme for me
+- templates in js https://www.youtube.com/watch?v=HgNDii20FG4
+- fix outline colors when you tab through things?
+- favicon in svg format - how?
+- can i use partial or standalone for pandoc to get html for the articles much easier?
+- look into [autoprefixer and the cli for it](https://github.com/postcss/autoprefixer)
+- [media queries and responsive design](https://www.w3schools.com/css/css_rwd_mediaqueries.asp)
+- [using media queries - mdn](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Media_queries/Using)
+- [20 New CSS Features You Need](https://www.youtube.com/watch?v=VA975GOUFmM)
+- [Website Accessibility](https://www.youtube.com/watch?v=FTdyf6t9PoA)
+- [CSS Wireframe](https://www.tutorialpedia.org/blog/html-css-wireframe/)
+- should h1 etc be in header or main
+- section in main vs div in main
+- add description to pages like about, resume, etc for the header
+- look into opengraph protocol for head tags
+- find out how to make paragraphs breathe more on article, cannnot seem to fix the line spacing at all, everything is too close together
+- try purple accent for both light and dark
+### Head Meta Tags I Need to Implement
+- [article meta add to M4_ADDITIONAL_META>](https://zhead.dev/meta/article-published_time)
+``` html
+<meta name="article:published_time" content="{{ article.modified.isoformat() }}">
+<meta name="article:modified_time" content="{{ article.date.isoformat() }}">
+<meta name="keywords" content="{{article.tags}}">
+<meta name="medium" content="article">
+<meta name="news_keywords" content="{{article.tags}}">
+```
+``` html
+<!-- twitter/x -->
+<meta name="twitter:app:id:googleplay" content="">
+<meta name="twitter:app:id:iphone" content="">
+<meta name="twitter:app:name:googleplay" content="">
+<meta name="twitter:app:name:iphone" content="">
+<meta name="twitter:app:url:googleplay" content="">
+<meta name="twitter:app:url:iphone" content="">
+<meta name="twitter:card" content="">
+<meta name="twitter:creator" content="">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="">
+<meta name="twitter:site" content="">
+<meta name="twitter:title" content="">
+<meta name="twitter:url" content="">
+<!-- facebook/meta -->
+<meta property="fb:app_id" content="">
+<meta property="fb:pages" content="">
+<meta property="og:description" content="">
+<meta property="og:image" content="">
+<meta property="og:image:height" content="">
+<meta property="og:image:width" content="">
+<meta property="og:site_name" content="">
+<meta property="og:title" content="">
+<meta property="og:type" content="article">
+<meta property="og:url" content="">
+<!-- Pinterest -->
+<meta name="pinterest:description" content="">
+<meta name="pinterest:media" content="">
+<meta name="pinterest:url" content="">
+```

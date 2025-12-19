@@ -1,21 +1,21 @@
 @charset "UTF-8";
 
 :root {
-  --shmred: rgb(230 98 94);
-  --shmblue: rgb(11 188 214);
+	--shmred: rgb(230 98 94);
+	--shmblue: rgb(11 188 214);
 	--shmpurple: rgb(153 112 194);
 	--shmyellow: rgb(242 204 13);
 	--shmyellow: rgb(224 201 82);
 	--shmaccent: var(--shmyellow);
-  --base00: rgb(23 23 23);
-  --base01: rgb(41 41 41);
-  --base02: rgb(56 56 56);
-  --base03: rgb(89 89 89);
-  --base04: rgb(184 184 184);
-  --base05: rgb(217 217 217);
-  --base06: rgb(232 232 232);
-  --base07: rgb(247 247 247);
-  --background-light: var(--base06);
+	--base00: rgb(23 23 23);
+	--base01: rgb(41 41 41);
+	--base02: rgb(56 56 56);
+	--base03: rgb(89 89 89);
+	--base04: rgb(184 184 184);
+	--base05: rgb(217 217 217);
+	--base06: rgb(232 232 232);
+	--base07: rgb(247 247 247);
+	--background-light: var(--base06);
 	--text-light: rgb(0 0 0);
 	--text-light-alt: rgb(26 26 26);
 	--background-dark: var(--base01);
@@ -57,7 +57,35 @@ html body {
   font-family: var(--main-font);
 	font-size: 0.95em;
 	min-height: 100vh;
-	transition: background 0.2s linear;
+	/* transition: background 0.2s linear; */
+}
+
+/* Default light mode based on system preference */
+@media (prefers-color-scheme: light) {
+  html body {
+    background-color: var(--background-light);
+    color: var(--text-light);
+    --shmaccent: var(--shmpurple);
+    --search-background: var(--background-light);
+    --search-color: var(--text-light);
+  }
+
+  /*body #sun-toggle-icon { opacity: 1; }
+  body #moon-toggle-icon { opacity: 0; }*/
+}
+
+/* Default dark mode based on system preference */
+@media (prefers-color-scheme: dark) {
+  html body {
+    background-color: var(--background-dark);
+    color: var(--text-dark);
+    --shmaccent: var(--shmyellow);
+    --search-background: var(--base03);
+    --search-color: var(--text-dark);
+  }
+
+  /*body #sun-toggle-icon { opacity: 0; }
+  body #moon-toggle-icon { opacity: 1; }*/
 }
 
 html[data-theme="light"] body {
@@ -144,11 +172,15 @@ body[data-theme="dark"] #moon-toggle-icon { opacity: 1; }
  * line-height: 1.6;
  */
 p {
-  line-height: 1.25;
+  line-height: 1.5;
 }
 
 article {
   margin: 2rem;
+}
+
+#article-body {
+	line-height: 1.5;
 }
 
 .social-icon {
@@ -156,14 +188,17 @@ article {
 	transition: fill 0.2s;
 	width: 24px;
 	height: 24px;
+	display: block;
 }
 
-a:hover .social-icon {
-	fill: var(--shmblue);
+#social-icons a:hover .social-icon,
+#social-icons a:focus-visible .social-icon {
+	fill: var(--shmred);
 }
 
 .article-header {
   color: var(--shmred);
+  border-bottom: 2px dotted var(--shmred);
 }
 
 .article-footer {
@@ -243,6 +278,11 @@ nav {
   color: var(--shmred);
 }
 
+#nav-links a:hover,
+#nav-links a:focus-visible {
+	color: var(--shmred);
+}
+
 /* was #navBase li in old version */
 #nav-menu li {
   display: inline-block;
@@ -313,7 +353,7 @@ a {
   justify-content: right;
 }
 
-.searchrow {
+.search-row {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -338,38 +378,58 @@ search {
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
+	margin-top: 0.5rem;
 	margin-right: 0.75rem;
 	margin-bottom: 0.75rem;
 }
 
+#search-form {
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: flex-end;
+	align-items: center;
+  flex: 1;
+}
+
 #search-input {
   height: 1.5rem;
-  width: 75%;
+	width: 55%;
   padding: 0.25rem;
-	margin: 0.4rem 0;
+	margin: 0;
 	border: solid var(--shmred);
 	border-width: 1px 0 1px 1px;
 	border-radius: 2px 0 0 2px;
   background-color: var(--search-background);
   color: var(--search-color);
-	-webkit-appearance: textfield;
+	field-sizing: content;
 }
 
-#search-icon {
+#search-button {
 	width: 1.5rem;
 	aspect-ratio: 1;
-	fill: var(--shmred);
+	margin: 0;
   background-color: var(--shmblue);
-	cursor: pointer;
 	border: solid var(--shmred);
 	border-radius: 0 2px 2px 0;
 	border-width: 1px 1px 1px 0;
-	margin: 0.4rem 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
 }
 
-#search-icon:hover {
-	fill: var(--shmblue);
+#search-icon {
+	width: 1rem;
+	aspect-ratio: 1;
+	fill: var(--shmred);
+}
+
+#search-button:hover {
   background-color: var(--shmred);
+}
+
+#search-button:hover #search-icon {
+	fill: var(--shmblue);
 }
 
 #back-top,
@@ -386,7 +446,6 @@ search {
   text-align: left;
   list-style-type: none;
   align-items: center;
-  display: flex;
   justify-content: center;
 }
 
@@ -402,7 +461,7 @@ search {
   margin: 0.5rem;
 }
 
-#social-icons-list li {
+#social-icons ul li {
   display: inline-block;
   list-style-type: none;
 }

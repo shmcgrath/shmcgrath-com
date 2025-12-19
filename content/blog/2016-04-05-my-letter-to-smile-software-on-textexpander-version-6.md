@@ -1,7 +1,7 @@
 ---
 title: My Letter to Smile Software on TextExpander Version 6
-author: Sarah H. McGrath
 subtitle:
+author: Sarah H. McGrath
 description: A couple of people have said that they were interested in reading what I sent to Smile Software about their decision to move TextExpander to a SaaS model. I have copied and pasted my email below.
 keywords: osx macos opinion software ios saas
 date: 2016-04-05T12:00:00-05:00
@@ -29,8 +29,6 @@ I know a lot of people have incredibly unrealistic expectations for developers t
     3. If I don’t touch my OS after month 18/24 for the next 5 years, I expect that software to keep working as it was when I bought it. I expect to be able to re-download and authenticate the last stable version of that release, or if you want, just re-download and not bother with authentication.
 
 These are just general guidelines. I do not expect new features. I don’t demand indefinite bug fixes. I just get to keep using the thing software that you are no longer liable for after that time frame. If I could buy v. 6 for the equivalent price of 18 months of service and own it, you would have my money already.
-
-<ol start="2" post_process="awk">
 
 2. Security and Privacy Concerns I also have some security and privacy concerns. I loved being able to use Dropbox to sync my snippets. The snippets were on my device and on a server that I trusted, has security audits, and makes a living doing these things. I also don't have to manage another login and remember that my data is scattered somewhere else. With v.6 of your software I have to do all of these things. I will be blunt here: I don't trust your server. I don't mean that with any malice, but I just do not trust a small developer with the following information: my name, my home address, my work address, my email accounts, various phone numbers, etc. All of that information is stuff that I keep in my snippets. In addition, TextExpander is a keylogger. It monitors what you are typing to replace portions of it with the snippets. I don't see anywhere on your site how much of that is going back to you folks at Smile. If it is going back, that is even more information that you have about me. I do think that you take security seriously. But, I can't find any third party audits about the security of your severs. How are you storing snippets? I have seen that you are storing them in Plain Text. If so, that is a huge no go for me. All of this information is a target for crackers. I would gladly buy a v. 6 of your software for three platforms that lets me go back to syncing with Dropbox.
 

@@ -1,0 +1,10 @@
+<article><a class="archive-article-title" href="/blog/$slug$.html">$title$</a>
+	<dl class="archive-article-detail">
+		$if(subtitle)$<dt>Subtitle:</dt><dd>$subtitle$</dd>$endif$
+		$if(author)$<dt>Author:</dt><dd>$author$</li>$endif$
+		$if(description)$<dt>Summary:</dt><dd>$description$</dd>$endif$
+		$if(keywords)$<dt>Keywords/Tags:</dt><dd>$keywords$</dd>$endif$
+		$if(date_published)$<dt>Published:</dt><dd><time class="published" datetime="$date_published$">$date_published$</time></dd>$endif$
+		$if(date_updated)$<dt>Updated:</dt><dd><time class="updated" datetime="$date_updated$">$date_updated$</time></dd>$endif$
+	</dl>
+</article>

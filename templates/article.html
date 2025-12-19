@@ -1,19 +1,16 @@
 changequote([[,]])define([[M4_MAIN]],[[<article class="article">
   <header class="article-header">
-  <h1 class="article-title">
-	$if(title)$<h1 class="article-title">
-	</h1>$endif$
-		<a href="/blog/$slug$.html" rel="bookmark" title="Permalink to $title$"">$title$</a>
-	</h1>
+	$if(title)$<h1 class="article-title">$title$</h1>$endif$
 	$if(subtitle)$<h2>$subtitle$</h2>$endif$
-	$if(author)$<p class=articleAuthor>$author$</h2>$endif$
-	$if(description)$<p class="articleDescription">$subtitle$</p>$endif$
+	$if(author)$<p class="article-author">$author$</p>$endif$
+	$if(description)$<p class="article-description">$subtitle$</p>$endif$
   </header>
-	$if(body)$<div class=articleBody>$body$</div>$endif$
+	$if(body)$<div class="article-body">$body$</div>$endif$
   <footer class="article-footer">
 		<time class="published" datetime="$date_published$">Published: $date_published$</time>
-		$if(date_updated)$<time class="pageLastUpdated" datetime=$date_updated$>Last Updated: $date_updated$</time></p>$endif$
-		$if(keywords)$<div class=keywords>$keywords$</div>$endif$
+		$if(date_updated)$<time class="page-last-updated" datetime="$date_updated$">Last Updated: $date_updated$</time>$endif$
+		$if(keywords)$<div class="keywords">$keywords$</div>$endif$
+		$if(url)$<a href="/$url$" rel="bookmark" title="Permalink to $title$">$title$</a>$endif$
   </footer>
 </article>]])dnl
 changequote(`,')include(`templates/base.html')dnl

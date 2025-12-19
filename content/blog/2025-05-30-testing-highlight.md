@@ -3,7 +3,7 @@ title: Testing Highlight
 subtitle: This is a test
 author: Sarah H. McGrath
 description: Testing post for highlighting workflow
-keywords: osx macos opinion software ios saas
+keywords: code
 date: 2025-05-30T19:19:57-04:00
 date_updated: 2025-05-30T19:19:57-04:00
 date_updated_rfc5322: Fri, 30 May 2025 19:19:57 -0400
@@ -11,7 +11,7 @@ date_published: 2025-05-30T19:19:57-04:00
 date_published_rfc5322: Fri, 30 May 2025 19:19:57 -0400
 slug: 2025-05-30-testing-highlight
 in_search_index: true
-draft: true
+draft: false
 
 ---
 
@@ -32,5 +32,4 @@ Testing out my options for code highlighting.
 </span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">morestrings</span><span class="p">.</span><span class="nf">ReverseRunes</span><span class="p">(</span><span class="s">&#34;!oG ,olleH&#34;</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre>
-
 ```
