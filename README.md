@@ -118,6 +118,8 @@ Some pages have date_edited vs date_updated. date_updated is always equal to dat
     - with a good base template, the varaibles i wanted to change in the configs can just be changed in the base template
     - super useful: https://medium.com/@samdutton/how-to-build-a-great-search-box-2b9a6d1dce0d
     - why did i write my own search?
+    - why no m4 config file - only variable i need can be done in a makefile
+    - makefile makes a great way to remember what scripts do what and what commands i have available
 - handle mono-fonts for code
 - change font back to arial and then codeblocks
 - pick a yellow
@@ -167,6 +169,12 @@ Some pages have date_edited vs date_updated. date_updated is always equal to dat
 - look into opengraph protocol for head tags
 - find out how to make paragraphs breathe more on article, cannnot seem to fix the line spacing at all, everything is too close together
 - try purple accent for both light and dark
+- [pandoc new lines quirks](https://blog.roberthallam.org/2023/01/pandoc-micro-tip-disabling-line-wrap-newlines/)
+- datetime of publishing fix display via either css and additional data or placing RCF-5322 in the HTML template
+- break out resume css and import it, easy to see what is specific to that then
+- import the code stuff or keep separate headings?
+- does @import require pre-processing?
+- make a code highlight css
 ### Head Meta Tags I Need to Implement
 - [article meta add to M4_ADDITIONAL_META>](https://zhead.dev/meta/article-published_time)
 ``` html

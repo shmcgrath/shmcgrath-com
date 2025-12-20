@@ -183,6 +183,10 @@ article {
 	line-height: 1.5;
 }
 
+#article-description {
+	font-style: italic;
+}
+
 .social-icon {
   fill: var(--shmblue);
 	transition: fill 0.2s;

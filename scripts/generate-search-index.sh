@@ -11,8 +11,8 @@ DEFAULT_BUILD_DIR="$(pwd)/public"
 CONTENT_DIR="${1:-$DEFAULT_CONTENT_DIR}"
 BUILD_DIR="${2:-$DEFAULT_BUILD_DIR}"
 
-printf "\n%s" "Using content directory: $CONTENT_DIR"
-printf "\n%s" "Using build directory: $BUILD_DIR"
+printf "\n%s" "[GSI] Content directory: $CONTENT_DIR"
+printf "\n%s" "[GSI] Build directory: $BUILD_DIR"
 
 mkdir -pv "$BUILD_DIR"
 mkdir -pv "$(pwd)/tmp"
@@ -51,7 +51,7 @@ while IFS= read -r file; do
 
 	if [[ "${in_search_index}" == "true" && "${draft}" == "false" ]]; then
 
-		printf "\n%s" "Processing page: $base"
+		printf "\n%s" "Generating search index for: $base"
 
 		title=$(pandoc "${file}" --template=<(echo '$title$') --to=plain)
 		title=${title:-""}
@@ -134,7 +134,7 @@ while IFS= read -r file; do
 		fi
 
 	else
-		printf "\n%s" "Not Processing: ${base} || Search Index: ${in_search_index} || Draft: ${draft}"
+		printf "\n%s" "Not generating search index for: ${base} || Search Index: ${in_search_index} || Draft: ${draft}"
 	fi
 
 done < <(find "$CONTENT_DIR" -type f -name '*.md')

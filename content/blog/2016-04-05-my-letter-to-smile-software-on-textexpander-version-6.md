@@ -15,8 +15,6 @@ draft: false
 
 ---
 
-*A couple of people have said that they were interested in reading what I sent to Smile Software about their decision to move TextExpander to a SaaS model. I have copied and pasted my email below.*
-
 Hello. I know today has probably been a rough day on you guys, and that can't be a good feeling when launching new software you have poured time and energy into. I don't want to pile onto you guys, but I wanted to take some time to give you guys some feedback on my thought process when buying software and services, and how that impacts my upgrade to TextExpander v.6.
 
 When I came across the MacStories article on TextExpander 6 in my RSS feed this morning I got really excited. My initial thought was "as soon as I am done reading about the cool new things I am going to upgrade!" I assumed that the upgrade path would be similar to previous versions: ~ $30 to upgrade from v. 5 and a new $5 iOS app. However, I soon found out that was not the case. TextExpander would be moving to a SaaS model. I was quite disappointed to find this out. I was even more disappointed about this change when I found out your software was finally coming to Windows. I would have gladly bought a v. 6 upgrade at $30, a new iOS app at $5 or $10 and a license for Windows at full retail of about $50. But, I will not be upgrading to v. 6 for a couple of reasons:

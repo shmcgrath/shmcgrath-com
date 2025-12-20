@@ -13,7 +13,7 @@ else
 CLIP := wl-copy
 endif
 
-.PHONY: serve build clean deploy new-post publish-post update-post fuse-update css-check-prefix
+.PHONY: serve build clean deploy new-post publish-post update-post css-check-prefix
 
 copy-static:
 	@mkdir -pv $(BUILD_DIR)
@@ -37,7 +37,6 @@ clean:
 	@rm -rf $(PROJECT_ROOT)/tmp
 
 build: clean
-	@mkdir -pv $(BUILD_DIR)
 	@$(MAKE) copy-static
 	@$(MAKE) build-content
 	@$(MAKE) build-error-pages

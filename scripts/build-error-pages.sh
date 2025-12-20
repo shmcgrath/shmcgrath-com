@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+printf "\n%s" "starting build-error-pages.sh"
+
 DEFAULT_BUILD_DIR="$(pwd)/public"
 BUILD_DIR="${1:-$DEFAULT_BUILD_DIR}"
 ERROR_BUILD_DIR=$BUILD_DIR/error
@@ -34,3 +36,5 @@ for page in "${ERROR_PAGES[@]}"; do
 		--variable body="<p class=\"error-body\">$BODY</p>" \
 		< /dev/null
 done
+
+printf "\n%s" "build-error-pages.sh complete"

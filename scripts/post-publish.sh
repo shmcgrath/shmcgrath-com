@@ -1,7 +1,5 @@
 #!/usr/bin/env sh
 
-#!/bin/sh
-
 # Check for fzf availability
 if ! command -v fzf >/dev/null 2>&1; then
     printf "Error: fzf not installed.\n" >&2
@@ -28,47 +26,55 @@ if [ ! -f "$FILE" ]; then
 fi
 
 # Generate new timestamp
-DATE_RAW=$(date +"%Y-%m-%dT%H:%M:%S%z")
-DATE_FORMATTED=$(printf "%s:%s" "${DATE_RAW%??}" "${DATE_RAW#????????????}")
-DATE_ONLY=$(date +"%Y-%m-%d")
+date_rfc3339=$(date "+%Y-%m-%dT%H:%M:%S%z" | sed -E 's/([+-][0-9]{2})([0-9]{2})$/\1:\2/')
+date_rfc5322=$(date +"%a, %d %b %Y %H:%M:%S %z")
 
 # Temp file
 TMP_FILE="${FILE}.tmp"
 
-# Process file
-awk -v newdate="$DATE_FORMATTED" -v newdateonly="$DATE_ONLY" '
-    BEGIN { changed_draft = 0 }
-    {
-        if ($0 ~ /^date = /) {
-            print "date = \"" newdate "\""
-            next
-        }
-        if ($0 ~ /^updated = /) {
-            print "updated = \"" newdate "\""
-            next
-        }
-        if ($0 ~ /^draft = false/) {
-            print "draft = true"
-            changed_draft = 1
-            next
-        }
-        if ($0 ~ /^slug = /) {
-            match($0, /slug = \"([0-9]{4}-[0-9]{2}-[0-9]{2})-(.*)\"/, parts)
-            if (parts[2] != "") {
-                print "slug = \"" newdateonly "-" parts[2] "\""
-                next
-            }
-        }
-        print
+awk \
+  -v published="$date_rfc3339" \
+  -v published5322="$date_rfc5322" '
+BEGIN {
+    seen_published = 0
+    seen_published5322 = 0
+    seen_draft = 0
+}
+{
+    if ($0 ~ /^date_published:/) {
+        print "date_published: " published
+        seen_published = 1
+        next
     }
-    END {
-        if (changed_draft == 0) {
-            printf "Warning: no draft = false found.\n" > "/dev/stderr"
-        }
+
+    if ($0 ~ /^date_published_rfc5322:/) {
+        print "date_published_rfc5322: " published5322
+        seen_published5322 = 1
+        next
     }
+
+    if ($0 ~ /^draft:[[:space:]]*true/) {
+        print "draft: false"
+        seen_draft = 1
+        next
+    }
+
+    print
+}
+END {
+    if (!seen_published)
+        printf "Warning: date_published not found\n" > "/dev/stderr"
+    if (!seen_published5322)
+        printf "Warning: date_published_rfc5322 not found\n" > "/dev/stderr"
+    if (!seen_draft)
+        printf "Warning: draft:true not found\n" > "/dev/stderr"
+}
 ' "$FILE" > "$TMP_FILE"
 
-# Overwrite original
-mv "$TMP_FILE" "$FILE"
-
-printf "Updated post: %s\n" "$FILE"
+if mv "$TMP_FILE" "$FILE"; then
+    printf "Updated post: %s\n" "$FILE"
+else
+    printf "Error: failed to update %s\n" "$FILE" >&2
+    rm -f "$TMP_FILE"
+    exit 1
+fi

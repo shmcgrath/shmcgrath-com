@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 
-echo "BASH VERSION: $BASH_VERSION"
-echo "BASH PATH: $BASH"
-which bash
-
 # Exit on error
 set -e
 
@@ -12,6 +8,8 @@ set -e
 # Defaults
 DEFAULT_CONTENT_DIR="$(pwd)/content"
 DEFAULT_BUILD_DIR="$(pwd)/public"
+TMP_DIR="$(pwd)/tmp"
+m4_chronological_archive=""
 
 # Read in arguments
 CONTENT_DIR="${1:-$DEFAULT_CONTENT_DIR}"
@@ -28,20 +26,16 @@ make_nav_item_active() {
 
 process_m4() {
 	local page="$1"
-	printf "\n%s" "DEBUG: process_m4 page=$page M4_SITE_URL=${M4_SITE_URL}"
 	m4 -DM4_SITE_URL="${M4_SITE_URL}" \
 	"$(pwd)/templates/${page}.html" > \
-	"$(pwd)/tmp/${page}.html"
+	"$TMP_DIR/${page}.html"
 }
 
-blog_objects=()
-m4_chronological_archive=""
-
-printf "\n%s" "Using content directory: $CONTENT_DIR"
-printf "\n%s" "Using build directory: $BUILD_DIR"
+printf "\n%s" "[BC] Content directory: $CONTENT_DIR"
+printf "\n%s" "[BC] Build directory: $BUILD_DIR"
 
 mkdir -p "$BUILD_DIR/blog"
-mkdir -p "$(pwd)/tmp"
+mkdir -p "$TMP_DIR"
 
 process_m4 "page"
 process_m4 "article"
@@ -55,7 +49,7 @@ while IFS= read -r file; do
 	url=$(pandoc "${file}" --template=<(echo '$slug$') --to=plain).html
 
 	if [ "${draft}" = "false" ]; then
-		printf "\n%s" "Processing page: $base"
+		printf "\n%s" "Building content: $base"
 
 		if [ "$base" = "search" ]; then
 			process_m4 "search"
@@ -64,6 +58,9 @@ while IFS= read -r file; do
 			
 		mapfile -t blog_articles < <(
 			find "$CONTENT_DIR/blog" -maxdepth 1 -type f -name '*.md' | while read -r article; do
+				article_draft=$(pandoc "${article}" --template=<(echo '$draft$') --to=plain)
+				# If article is a draft, skip
+				[ "${article_draft}" = "true" ] && continue
 				date_published=$(pandoc "$article" --template=<(printf "%s" '$date_published$') --to=plain)
 				[ -z "$date_published" ] && continue
 
@@ -76,6 +73,7 @@ while IFS= read -r file; do
 			IFS='|' read -r date_published article <<< "$entry"
 			m4_chronological_archive+="$(pandoc "$article" \
 				--to=html \
+				--template="$(pwd)/templates/_chronological_article_archive.html" \
 				--standalone=false)"
 		done
 
@@ -83,14 +81,13 @@ while IFS= read -r file; do
 			m4 -DM4_SITE_URL="${M4_SITE_URL}" \
 				-DM4_CHRONOLOGICAL_ARCHIVE="${m4_chronological_archive}" \
 				"$(pwd)/templates/blog.html" > \
-				"$(pwd)/tmp/blog.html"
+				"$TMP_DIR/blog.html"
 			make_nav_item_active "${base}"
 
 		 elif [[ "$file" == "$CONTENT_DIR/blog/"* ]]; then
 			template="article"
 			url="blog/${url}"
 			output="${BUILD_DIR}/blog/${base}.html"
-			printf "\n%s" "this is a blog page: ${base}"
 
 		elif [ "$base" = "index" ]; then
 			cp "tmp/page.html" "tmp/${base}.html"
@@ -104,8 +101,8 @@ while IFS= read -r file; do
 		fi
 		pandoc "$file" --output="$output" --variable url="${url}" --to=html --template="tmp/${template}.html"
 	else
-		printf "\n%s" "Not processing: ${base}; draft status = true"
+		printf "\n%s" "Not building content: ${base}; draft status = ${draft}"
 	fi
 done < <(find "$CONTENT_DIR" -type f -name '*.md')
 
-printf "\n%s" "Processing complete."
+printf "\n%s" "build-content.sh complete."

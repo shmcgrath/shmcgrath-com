@@ -26,25 +26,49 @@ if [ ! -f "$FILE" ]; then
 fi
 
 # Generate timestamp
-DATE_RAW=$(date +"%Y-%m-%dT%H:%M:%S%z")
-DATE_FORMATTED=$(printf "%s:%s" "${DATE_RAW%??}" "${DATE_RAW#????????????}")
+date_rfc3339=$(date "+%Y-%m-%dT%H:%M:%S%z" | sed -E 's/([+-][0-9]{2})([0-9]{2})$/\1:\2/')
+date_rfc5322=$(date +"%a, %d %b %Y %H:%M:%S %z")
 
 # Temp file
 TMP_FILE="${FILE}.tmp"
 
-# Update only the 'updated =' field
-awk -v newdate="$DATE_FORMATTED" '
-    {
-        if ($0 ~ /^updated = /) {
-            print "updated = \"" newdate "\""
-            next
-        }
-        print
+awk \
+  -v updated="$date_rfc3339" \
+  -v updated5322="$date_rfc5322" '
+BEGIN {
+    seen_updated = 0
+    seen_updated5322 = 0
+}
+{
+    if ($0 ~ /^date_updated:/) {
+        print "date_updated: " updated
+        seen_updated = 1
+        next
     }
+
+    if ($0 ~ /^date_updated_rfc5322:/) {
+        print "date_updated_rfc5322: " updated5322
+        seen_updated5322 = 1
+        next
+    }
+
+    print
+}
+END {
+    if (!seen_updated)
+        printf "Warning: date_updated not found\n" > "/dev/stderr"
+    if (!seen_updated5322)
+        printf "Warning: date_updated_rfc5322 not found\n" > "/dev/stderr"
+}
 ' "$FILE" > "$TMP_FILE"
 
-# Move temp file back to original
-mv "$TMP_FILE" "$FILE"
+if mv "$TMP_FILE" "$FILE"; then
+    printf "Updated updated-dates in: %s\n" "$FILE"
+else
+    printf "Error: failed to update %s\n" "$FILE" >&2
+    rm -f "$TMP_FILE"
+    exit 1
+fi
 
 # Append the Edit/Update/Post Publication section
 {

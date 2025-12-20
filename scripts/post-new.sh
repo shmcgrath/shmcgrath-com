@@ -18,11 +18,11 @@ fi
 TITLE_SLUG=$(printf "%s" "$TITLE" | tr '[:upper:]' '[:lower:]' | tr ' ' '-' | tr -cd '[:alnum:]-')
 
 # Generate timestamps
-DATE_RAW=$(date +"%Y-%m-%dT%H:%M:%S%z")  # ex: 2025-04-25T21:25:00-0400
-DATE_FORMATTED=$(printf "%s:%s" "${DATE_RAW%??}" "${DATE_RAW#????????????}")
+date_rfc3339=$(date "+%Y-%m-%dT%H:%M:%S%z" | sed -E 's/([+-][0-9]{2})([0-9]{2})$/\1:\2/')
+date_rfc5322=$(date +"%a, %d %b %Y %H:%M:%S %z")
 
 # Filepath
-DIR="content/posts"
+DIR="$(pwd)/content/posts"
 FILE="${DIR}/$(date +"%Y-%m-%d")-${TITLE_SLUG}.md"
 
 # Create directory if needed
@@ -36,22 +36,23 @@ if [ -e "$FILE" ]; then
     exit 1
 fi
 
-# Create file with TOML frontmatter
+# Create file with YAML frontmatter
 {
-    printf "+++\n"
-    printf "title = \"%s\"\n" "$TITLE"
-    printf "slug = \"%s\"\n" "$(date +"%Y-%m-%d")-${TITLE_SLUG}"
-    printf "authors = [\"Sarah H. McGrath\"]\n"
-    printf "date = \"%s\"\n" "$DATE_FORMATTED"
-    printf "updated = \"%s\"\n" "$DATE_FORMATTED"
-    printf "in_search_index = true\n"
-    printf "template = \"page.html\"\n"
-    printf "draft = true\n"
-    printf "[taxonomies]\n"
-    printf "keywords = []\n"
-    printf "category = \"blog\"\n"
-    printf "[extra]\n"
-    printf "+++\n\n"
+    printf "%s\n" "---"
+    printf "%s\n" "title: ${TITLE}"
+    printf "%s\n" "subtitle:"
+    printf "%s\n" "author: Sarah H. McGrath"
+    printf "%s\n" "description:"
+    printf "%s\n" "keywords:"
+    printf "%s\n" "date: ${date_rfc3339}"
+    printf "%s\n" "date_updated:"
+    printf "%s\n" "date_updated_rfc5322:"
+    printf "%s\n" "date_published:"
+    printf "%s\n" "date_published_rfc5322:"
+    printf "%s\n" "slug: $(date +"%Y-%m-%d")-${TITLE_SLUG}"
+    printf "%s\n" "in_search_index: true"
+    printf "%s\n" "draft: true"
+    printf "%s\n\n" "---"
 } > "$FILE"
 
 printf "New post created: %s\n" "$FILE"
@@ -62,4 +63,3 @@ if [ -n "$VISUAL" ]; then
 else
     vi "$FILE"
 fi
-
