@@ -201,13 +201,16 @@ article {
 }
 
 .article-header {
-  color: var(--shmred);
   border-bottom: 2px dotted var(--shmred);
 }
 
 .article-footer {
   border-top: 2px dotted var(--shmred);
   padding-top: 1rem;
+}
+
+.article-author {
+  color: var(--shmred);
 }
 
 #footer-base {
