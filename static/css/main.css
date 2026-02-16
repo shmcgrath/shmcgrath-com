@@ -3,10 +3,9 @@
 :root {
 	--shmred: rgb(230 98 94);
 	--shmblue: rgb(11 188 214);
-	--shmpurple: rgb(153 112 194);
-	--shmyellow: rgb(242 204 13);
-	--shmyellow: rgb(224 201 82);
-	--shmaccent: var(--shmyellow);
+	--accent-muted: hsl(270deg 40% 55%);
+	--accent-bright: hsl(270deg 40% 75%);
+	--shmaccent: var(--accent-bright);
 	--base00: rgb(23 23 23);
 	--base01: rgb(41 41 41);
 	--base02: rgb(56 56 56);
@@ -65,7 +64,7 @@ html body {
   html body {
     background-color: var(--background-light);
     color: var(--text-light);
-    --shmaccent: var(--shmpurple);
+    --shmaccent: var(--accent-muted);
     --search-background: var(--background-light);
     --search-color: var(--text-light);
   }
@@ -79,7 +78,7 @@ html body {
   html body {
     background-color: var(--background-dark);
     color: var(--text-dark);
-    --shmaccent: var(--shmyellow);
+    --shmaccent: var(--accent-bright);
     --search-background: var(--base03);
     --search-color: var(--text-dark);
   }
@@ -91,7 +90,7 @@ html body {
 html[data-theme="light"] body {
 	background-color: var(--background-light);
 	color: var(--text-light);
-	--shmaccent: var(--shmpurple);
+	--shmaccent: var(--accent-muted);
 	--search-background: var(--background-light);
 	--search-color: var(--text-light);
 
@@ -100,7 +99,7 @@ html[data-theme="light"] body {
 html[data-theme="dark"] body {
 	background-color: var(--background-dark);
 	color: var(--text-dark);
-	--shmaccent: var(--shmyellow);
+	--shmaccent: var(--accent-bright);
 	--search-background: var(--base03);
 	--search-color: var(--text-dark);
 }
