@@ -19,7 +19,6 @@ The dark//light toggle was inspired by [Light/Dark Theme Toggle using CSS and Ja
 
 Note: to change the light/dark toggle icon color, search ".theme-toggle-icon" in main.css
 
-
 ## Icons
 I made my favicon. I want to move it to svg eventually. The SVGs are credited inline via the svg_source tag.
 
@@ -75,11 +74,12 @@ Some pages have date_edited vs date_updated. date_updated is always equal to dat
 <!-- Bing -->
 <!-- These are used for address recognition purpose. These are supported by Bing but not Google. -->
 <meta name="geo.placename" content="Place Name">
-<meta name="”geo.position" content="latitude; longitude">
-<meta name="”geo.region" content="Country Subdivision Code">
+<meta name="geo.position" content="latitude; longitude">
+<meta name="geo.region" content="Country Subdivision Code">
 ```
 
 ## TODO
+- last updated on pages shows no space on rendering but shows space in template
 - have blog highligted in menu for article pages
 - set up last revised date to change html, possibly with current date, too (m4 again?)
 - get cyberdream to a  for code highlighting from pandoc
