@@ -79,7 +79,7 @@ Some pages have date_edited vs date_updated. date_updated is always equal to dat
 ```
 
 ## TODO
-- last updated on pages shows no space on rendering but shows space in template
+- last updated on pages shows no space on rendering but shows space in template - weirder it shows it on the raw HTML but doesn't render it
 - have blog highligted in menu for article pages
 - set up last revised date to change html, possibly with current date, too (m4 again?)
 - get cyberdream to a  for code highlighting from pandoc
