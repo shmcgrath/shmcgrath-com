@@ -80,6 +80,7 @@ Some pages have date_edited vs date_updated. date_updated is always equal to dat
 ```
 
 ## TODO
+- have blog highligted in menu for article pages
 - set up last revised date to change html, possibly with current date, too (m4 again?)
 - get cyberdream to a  for code highlighting from pandoc
 - navigation html
