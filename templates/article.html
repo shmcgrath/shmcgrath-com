@@ -7,9 +7,9 @@ changequote([[,]])define([[M4_MAIN]],[[<article class="article">
   </header>
 	$if(body)$<div class="article-body">$body$</div>$endif$
   <footer class="article-footer">
-		$if(date_updated)$<time class="page-last-updated" datetime="$date_updated$">Last Updated: $date_updated$</time>$endif$
-		<time class="published" datetime="$date_published$">Published: $date_published$</time>
-		$if(keywords)$<div class="keywords">Keywords: $keywords$</div>$endif$
+		$if(date_updated)$<time class="article-last-updated" datetime="$date_updated$">Last Updated: $date_updated$</time>$endif$
+		<time class="article-published" datetime="$date_published$">Published: $date_published$</time>
+		$if(keywords)$<div class="article-keywords">Keywords: $keywords$</div>$endif$
 		$if(url)$Permalink: <a href="/$url$" rel="bookmark" title="Permalink to $title$">$title$</a>$endif$
   </footer>
 </article>]])dnl
