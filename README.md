@@ -81,6 +81,7 @@ Some pages have date_edited vs date_updated. date_updated is always equal to dat
 ```
 
 ## TODO
+- decide if you want "Blog" nav active on individual blog posts? not sure?
 - fix permalink on urls - no site url is there?
 - last updated on pages shows no space on rendering but shows space in template - weirder it shows it on the raw HTML but doesn't render it
 - have blog highligted in menu for article pages
