@@ -22,15 +22,15 @@ copy-static:
 	@rm -f $(BUILD_DIR)/.DS_Store
 
 build-content:
-	@./scripts/build-content.sh $(CONTENT_DIR) $(BUILD_DIR)
+	@./bin/build-content.sh $(CONTENT_DIR) $(BUILD_DIR)
 
 build-error-pages:
-	@./scripts/build-error-pages.sh $(BUILD_DIR)
+	@./bin/build-error-pages.sh $(BUILD_DIR)
 
 generate-indices:
-	@./scripts/generate-search-index.sh $(CONTENT_DIR) $(BUILD_DIR)
-#@./scripts/generate-rss.sh $(CONTENT_DIR) $(BUILD_DIR)
-#@./scripts/generate-sitemap.sh $(CONTENT_DIR) $(BUILD_DIR)
+	@./bin/generate-search-index.sh $(CONTENT_DIR) $(BUILD_DIR)
+#@./bin/generate-rss.sh $(CONTENT_DIR) $(BUILD_DIR)
+#@./bin/generate-sitemap.sh $(CONTENT_DIR) $(BUILD_DIR)
 
 clean:
 	@rm -rf $(BUILD_DIR)
@@ -52,16 +52,16 @@ serve:
 		@python3 -m http.server --bind 127.0.0.1 --directory public 5859
 
 css-check-prefix:
-	./scripts/css-prefix-check.sh
+	./bin/css-prefix-check.sh
 
 new-post:
-	./scripts/post-new.sh $(POST_TITLE)
+	./bin/post-new.sh $(POST_TITLE)
 
 publish-post:
-	./scripts/post-publish.sh $(POST_FILE)
+	./bin/post-publish.sh $(POST_FILE)
 
 update-post:
-	./scripts/post-update.sh $(POST_FILE)
+	./bin/post-update.sh $(POST_FILE)
 
 deploy:
 	@$(MAKE) build
