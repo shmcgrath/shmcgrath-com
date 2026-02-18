@@ -26,7 +26,7 @@ Note: to change the social icons color, search ".socialIcon" in main.css.
 
 ## Search
 
-Search is powered by [fuse.js](https://www.fusejs.io/).
+I wrote a simple search solution. Third party solutions seemed to be overkill for a blog that has one published article, and I wanted to reduce overhead.
 
 ## .htaccess remove html from url
 
