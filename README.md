@@ -2,7 +2,7 @@
 I have decided to use a combination of [Make](https://www.gnu.org/software/make/), [M4](https://www.gnu.org/software/m4/m4.html), [Pandoc](https://pandoc.org), [jq](https://github.com/jqlang/jq), and Bash to generate this blog. I previously used Pelican. I am using GitHub Pages to host it.
 
 ## Color Palette
-I am using color combination number 12 from [ColorClaim by Tobias van Schneider](https://www.vanschneider.com/colors). In addition, I use the grayscale from [base16](http://chriskempson.com/projects/base16/).
+I am using color combination number 12 from [ColorClaim by Tobias van Schneider](https://www.vanschneider.com/colors). In addition, I use the grayscale from [base16](http://chriskempson.com/projects/base16/). For code highlights, I am using my own port of [cyberdream.nvim](https://github.com/scottmckendry/cyberdream.nvim). I exported one of the pandoc themes and changed the colors to match cyberdream as best as I could.
 
 ### Blue
 - Hex: #0BBCD6
@@ -62,6 +62,8 @@ pandoc --print-highlight-style {{style}} >> {{style}}.css
 
 - [pandoc metadata information](https://gist.github.com/shorodilov/3d52206ea64bea4aae4fc8c19a88a2d1)
 
+To get line numbers on code blocks, add {.number-lines} after the language at the beginning of code blocks. I may write a lua filter to do this in the future.
+
 ## Useful Resources and Code
 - [How to build a great search box by Sam Dutton](https://medium.com/@samdutton/how-to-build-a-great-search-box-2b9a6d1dce0d)
 - [Responsive search input by Sam Dutton](https://codepen.io/samdutton/pen/djrVVd)
@@ -79,6 +81,7 @@ Some pages have date_edited vs date_updated. date_updated is always equal to dat
 ```
 
 ## TODO
+- fix permalink on urls - no site url is there?
 - last updated on pages shows no space on rendering but shows space in template - weirder it shows it on the raw HTML but doesn't render it
 - have blog highligted in menu for article pages
 - set up last revised date to change html, possibly with current date, too (m4 again?)
@@ -176,6 +179,124 @@ Some pages have date_edited vs date_updated. date_updated is always equal to dat
 - import the code stuff or keep separate headings?
 - does @import require pre-processing?
 - make a code highlight css
+- implement inline code highlighting filter
+- lua filter for {.number-lines}
+
+### Pandoc Pygments Default CSS to Implement
+```css
+body {
+  margin: 0 auto;
+  max-width: 36em;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+p {
+  margin: 1em 0;
+}
+img {
+  max-width: 100%;
+}
+svg {
+  height: auto;
+  max-width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 1.4em;
+}
+h5, h6 {
+  font-size: 1em;
+  font-style: italic;
+}
+h6 {
+  font-weight: normal;
+}
+ol, ul {
+  padding-left: 1.7em;
+  margin-top: 1em;
+}
+li > ol, li > ul {
+  margin-top: 0;
+}
+blockquote {
+  margin: 1em 0 1em 1.7em;
+  padding-left: 1em;
+  border-left: 2px solid #e6e6e6;
+  color: #606060;
+}
+hr {
+  border: none;
+  border-top: 1px solid #1a1a1a;
+  height: 1px;
+  margin: 1em 0;
+}
+table {
+  margin: 1em 0;
+  border-collapse: collapse;
+  width: 100%;
+  overflow-x: auto;
+  display: block;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+table caption {
+  margin-bottom: 0.75em;
+}
+tbody {
+  margin-top: 0.5em;
+  border-top: 1px solid #1a1a1a;
+  border-bottom: 1px solid #1a1a1a;
+}
+th {
+  border-top: 1px solid #1a1a1a;
+  padding: 0.25em 0.5em 0.25em 0.5em;
+}
+td {
+  padding: 0.125em 0.5em 0.25em 0.5em;
+}
+header {
+  margin-bottom: 4em;
+  text-align: center;
+}
+#TOC li {
+  list-style: none;
+}
+#TOC ul {
+  padding-left: 1.3em;
+}
+#TOC > ul {
+  padding-left: 0;
+}
+#TOC a:not(:hover) {
+  text-decoration: none;
+}
+span.smallcaps {
+  font-variant: small-caps;
+}
+div.columns {
+  display: flex;
+  gap: min(4vw, 1.5em);
+}
+div.column {
+  flex: auto;
+  overflow-x: auto;
+}
+div.hanging-indent {
+  margin-left: 1.5em;
+  text-indent: -1.5em;
+}
+/* The extra [class] is a hack that increases specificity enough to
+   override a similar rule in reveal.js */
+ul.task-list[class] {
+  list-style: none;
+}
+ul.task-list li input[type="checkbox"] {
+  font-size: inherit;
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+```
 ### Head Meta Tags I Need to Implement
 - [article meta add to M4_ADDITIONAL_META>](https://zhead.dev/meta/article-published_time)
 ``` html
