@@ -15,15 +15,6 @@ m4_chronological_archive=""
 CONTENT_DIR="${1:-$DEFAULT_CONTENT_DIR}"
 BUILD_DIR="${2:-$DEFAULT_BUILD_DIR}"
 
-make_nav_item_active() {
-	local page="$1"
-	# Patch nav: add class="active" to the correct <li>
-	# macOS BSD sed
-	sed -i '' "/<a href=\"\/${page}.html\">/s|<li>|<li class=\"active\">|" "tmp/${page}.html" 2>/dev/null || \
-	# GNU sed
-	sed -i "/<a href=\"\/${page}.html\">/s|<li>|<li class=\"active\">|" "tmp/${page}.html"
-}
-
 process_m4() {
 	local page="$1"
 	m4 -DM4_SITE_URL="${M4_SITE_URL}" \
@@ -44,6 +35,7 @@ process_m4 "article"
 while IFS= read -r file; do
 	base=$(basename "${file%.*}")
 	template="${base}"
+	nav_var="nav_${base}=true"
 	output="${BUILD_DIR}/${base}.html"
 	draft=$(pandoc "${file}" --template=<(echo '$draft$') --to=plain)
 	url=$(pandoc "${file}" --template=<(echo '$slug$') --to=plain).html
@@ -82,7 +74,6 @@ while IFS= read -r file; do
 				-DM4_CHRONOLOGICAL_ARCHIVE="${m4_chronological_archive}" \
 				"$(pwd)/templates/blog.html" > \
 				"$TMP_DIR/blog.html"
-			make_nav_item_active "${base}"
 
 		 elif [[ "$file" == "$CONTENT_DIR/blog/"* ]]; then
 			template="article"
@@ -93,13 +84,11 @@ while IFS= read -r file; do
 			cp "tmp/page.html" "tmp/${base}.html"
 			# make the h1 visually-hidden so it is there for accessibility
 			awk '{gsub(/<h1>\$title\$<\/h1>/,"<h1 class=\"visually-hidden\">\$title\$</h1>"); print}' "tmp/${base}.html" > "tmp/${base}.html.tmp" && mv "tmp/${base}.html.tmp" "tmp/${base}.html"
-			make_nav_item_active "${base}"
 
 		else
 			cp "tmp/page.html" "tmp/${base}.html"
-			make_nav_item_active "${base}"
 		fi
-		pandoc "$file" --output="$output" --variable url="${url}" --to=html --template="tmp/${template}.html"
+		pandoc "$file" --output="$output" --variable url="${url}" --variable "${nav_var}" --to=html --template="tmp/${template}.html"
 	else
 		printf "\n%s" "Not building content: ${base}; draft status = ${draft}"
 	fi
