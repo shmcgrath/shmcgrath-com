@@ -77,6 +77,8 @@ while IFS= read -r file; do
 
 		 elif [[ "$file" == "$CONTENT_DIR/blog/"* ]]; then
 			template="article"
+			# set blog nav class as "active" when showing a blog post with nav_var
+			nav_var="nav_blog=true"
 			url="blog/${url}"
 			output="${BUILD_DIR}/blog/${base}.html"
 
