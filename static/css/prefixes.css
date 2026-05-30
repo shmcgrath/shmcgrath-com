@@ -21,15 +21,15 @@ input, button, select, textarea {
 /* Automatic hyphenation */
 .hyphens-auto {
   -webkit-hyphens: auto;
-     -ms-hyphens: auto;
-         hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
 }
 
 /* Mobile text zoom control */
 .text-adjust {
   -webkit-text-size-adjust: 100%;
-     -ms-text-size-adjust: 100%;
-         text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+          text-size-adjust: 100%;
 }
 
 /* Flexbox compatibility */
@@ -68,6 +68,6 @@ input, button, select, textarea {
 /* Sticky positioning */
 .sticky {
   position: -webkit-sticky;
-          position: sticky;
+ 	position: sticky;
   top: 0;
 }
