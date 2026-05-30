@@ -8,7 +8,7 @@ fi
 
 # Check for file argument
 if [ $# -lt 1 ]; then
-    FILE=$(find content/posts -type f -name '*.md' | sort | fzf --prompt="Select post to publish/edit: ")
+    FILE=$(find content -type f -name '*.md' | sort | fzf --prompt="Select post to publish/edit: ")
 else
     FILE="$1"
 fi
