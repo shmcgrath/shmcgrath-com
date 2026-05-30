@@ -81,6 +81,8 @@ Some pages have date_edited vs date_updated. date_updated is always equal to dat
 ```
 
 ## TODO
+- fix css for metadata at bottom of article looks blocky and difficult to read
+- look more into these [lua filters for blogging](https://akos.ma/blog/pandoc-filters-in-lua/)
 - decide if you want "Blog" nav active on individual blog posts? not sure?
 - fix permalink on urls - no site url is there?
 - last updated on pages shows no space on rendering but shows space in template - weirder it shows it on the raw HTML but doesn't render it
@@ -168,7 +170,6 @@ Some pages have date_edited vs date_updated. date_updated is always equal to dat
 - [20 New CSS Features You Need](https://www.youtube.com/watch?v=VA975GOUFmM)
 - [Website Accessibility](https://www.youtube.com/watch?v=FTdyf6t9PoA)
 - [CSS Wireframe](https://www.tutorialpedia.org/blog/html-css-wireframe/)
-- should h1 etc be in header or main
 - section in main vs div in main
 - add description to pages like about, resume, etc for the header
 - look into opengraph protocol for head tags
@@ -184,6 +185,8 @@ Some pages have date_edited vs date_updated. date_updated is always equal to dat
 - lua filter for {.number-lines}
 - set up [llms.txt](https://dev.to/lab451/complete-llmstxt-guide-for-2026-57d)
     - look into [ai.txt](https://www.coronium.io/blog/robots-txt-llms-txt-ai-txt-2026#ai)
+- nav in header or out/after header (out in pandoc base template, but seems to make sense to be in it to me?)
+- should h1 etc be in header or main
 
 ### Pandoc Pygments Default CSS to Implement
 ```css
