@@ -39,6 +39,19 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^([^\.]+)$ $1.html [NC,L]
 \# RewriteRule ^(.*)\.html$ /$1 [L,R=301]
 ```
+
+## .htaccess redirect error pages to error/ folder
+*Note:* .htaccess does not work with GitHub Pages. I am putting my .htaccess here for future reference.
+
+``` shell
+\# Error Documents
+ErrorDocument 401 /error/401.html
+ErrorDocument 403 /error/403.html
+ErrorDocument 404 /error/404.html
+ErrorDocument 500 /error/500.html
+ErrorDocument 502 /error/502.html
+ErrorDocument 503 /error/503.html
+```
 ## pandoc notes
 To print the default HTML template to ./pandoc-default.html:
 ``` bash

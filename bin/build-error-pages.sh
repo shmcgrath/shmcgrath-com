@@ -4,11 +4,10 @@ printf "\n%s" "Building error pages..."
 
 DEFAULT_BUILD_DIR="$(pwd)/public"
 BUILD_DIR="${1:-$DEFAULT_BUILD_DIR}"
-ERROR_BUILD_DIR=$BUILD_DIR/error
 
 : "${M4_SITE_URL:?M4_SITE_URL not set}"
 
-mkdir -p "$ERROR_BUILD_DIR"
+mkdir -p "$BUILD_DIR"
 
 TMP_DIR="$(pwd)/tmp"
 mkdir -p "$TMP_DIR"
@@ -29,7 +28,7 @@ m4 -DM4_SITE_URL="${M4_SITE_URL}" "$(pwd)/templates/page.html" > "$TMP_DIR/error
 for page in "${ERROR_PAGES[@]}"; do
 	IFS="|" read -r TITLE BODY URL <<< "$page"
 
-	pandoc --output="$ERROR_BUILD_DIR/$URL.html" \
+	pandoc --output="$BUILD_DIR/$URL.html" \
 		--template="$TMP_DIR/error.html" \
 		--variable title="$TITLE" \
 		--variable slug="$URL" \
