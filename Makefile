@@ -65,12 +65,10 @@ update-post:
 
 deploy:
 	@$(MAKE) build
-	rm -rf $(BUILD_DIR)/.git
-	cd $(BUILD_DIR) && \
-		git init && \
-		git checkout -B $(DEPLOY_BRANCH) && \
-		git add . && \
-		git commit -m "Deploy site" && \
-		git remote add origin git@github.com:shmcgrath/shmcgrath-com.git && \
-		git push -f origin $(DEPLOY_BRANCH)
+	git checkout $(DEPLOY_BRANCH)
+	rsync -av --delete $(BUILD_DIR)/ .
+	git add -A
+	git commit -m "Deploy site" || true
+	git push origin $(DEPLOY_BRANCH)
+	git checkout -
 	@$(MAKE) clean
