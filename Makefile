@@ -65,15 +65,12 @@ update-post:
 
 deploy:
 	@$(MAKE) build
-	git worktree prune
-	rm -rf /tmp/$(DEPLOY_BRANCH)
-	-git worktree remove --force /tmp/$(DEPLOY_BRANCH)
-	git fetch origin $(DEPLOY_BRANCH)
-	git worktree add /tmp/$(DEPLOY_BRANCH) $(DEPLOY_BRANCH)
-	rsync -av --delete $(BUILD_DIR)/ /tmp/$(DEPLOY_BRANCH)/
-	cd /tmp/$(DEPLOY_BRANCH) && \
+	rm -rf $(BUILD_DIR)/.git
+	cd $(BUILD_DIR) && \
+		git init && \
+		git checkout -B $(DEPLOY_BRANCH) && \
 		git add . && \
-		git commit -m "Deploy site" || true && \
-		git push origin $(DEPLOY_BRANCH)
-	git worktree remove --force /tmp/$(DEPLOY_BRANCH) || true
+		git commit -m "Deploy site" && \
+		git remote add origin git@github.com:shmcgrath/shmcgrath-com.git && \
+		git push -f origin $(DEPLOY_BRANCH)
 	@$(MAKE) clean
