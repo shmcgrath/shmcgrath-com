@@ -96,8 +96,6 @@ Some pages have date_edited vs date_updated. date_updated is always equal to dat
 - add to build-pages script to generate blog index
 - do i split out template processing to a different script then pandoc everything?
 - any additional m4 processing on base (make build-base) possibly current date and year?
-- rss or atom feed script
-- sitemap script
 - add twitter, facebook, etc metadata
 - for each page and post: <link rel="canonical" href="https://www.example.com/preferred-page" />
 - cleanup steps: delete tmp and also delete public once it is pushed to github
