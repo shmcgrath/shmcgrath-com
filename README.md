@@ -62,7 +62,7 @@ pandoc --print-highlight-style {{style}} >> {{style}}.css
 
 - [pandoc metadata information](https://gist.github.com/shorodilov/3d52206ea64bea4aae4fc8c19a88a2d1)
 
-To get line numbers on code blocks, add {.number-lines} after the language at the beginning of code blocks. I may write a lua filter to do this in the future.
+To get line numbers on code blocks, add {.number-lines} after the language at the beginning of code blocks. I wrote a lua filter to do this, so it is not needed in my markdown sources.
 
 ## Useful Resources and Code
 - [How to build a great search box by Sam Dutton](https://medium.com/@samdutton/how-to-build-a-great-search-box-2b9a6d1dce0d)
