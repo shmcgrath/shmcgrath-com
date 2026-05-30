@@ -65,19 +65,32 @@ update-post:
 
 deploy:
 	@$(MAKE) build
-	# Add worktree
-	rm -rf /tmp/$(DEPLOY_BRANCH)
-	git worktree add -B $(DEPLOY_BRANCH) /tmp/$(DEPLOY_BRANCH) origin/$(DEPLOY_BRANCH)
 
-	# Copy files
+	# Clean stale worktree records first (IMPORTANT)
+	git worktree prune
+
+	# Remove leftover directory if it exists
+	rm -rf /tmp/$(DEPLOY_BRANCH)
+
+	# Remove any lingering worktree entry (safe if missing)
+	-git worktree remove --force /tmp/$(DEPLOY_BRANCH)
+
+	# Ensure latest remote state
+	git fetch origin $(DEPLOY_BRANCH)
+
+	# Create clean worktree
+	git worktree add /tmp/$(DEPLOY_BRANCH) $(DEPLOY_BRANCH)
+
+	# Copy build output
 	rsync -av --delete $(BUILD_DIR)/ /tmp/$(DEPLOY_BRANCH)/
 
 	# Commit and push
 	cd /tmp/$(DEPLOY_BRANCH) && \
-	git add . && \
-	git commit -m "Deploy site" && \
-	git push origin $(DEPLOY_BRANCH)
+		git add . && \
+		git commit -m "Deploy site" || true && \
+		git push origin $(DEPLOY_BRANCH)
 
-	# Clean up
-	git worktree remove /tmp/$(DEPLOY_BRANCH)
+	# Cleanup
+	git worktree remove --force /tmp/$(DEPLOY_BRANCH) || true
+
 	@$(MAKE) clean
