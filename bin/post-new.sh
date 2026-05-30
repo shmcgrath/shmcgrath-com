@@ -53,8 +53,7 @@ fi
     printf "%s\n" "slug: $(date +"%Y-%m-%d")-${TITLE_SLUG}"
     printf "%s\n" "in_search_index: true"
     printf "%s\n" "draft: true"
-    printf "%s\n\n" "---"
-    printf "%s\n\n" ""
+    printf "\n%s\n\n\n" "---"
 } > "$FILE"
 
 printf "New post created: %s\n" "$FILE"
