@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+set -eu
+
 # Check for fzf
 if ! command -v fzf >/dev/null 2>&1; then
     printf "Error: fzf not installed.\n" >&2
@@ -31,8 +33,7 @@ date_rfc5322=$(date +"%a, %d %b %Y %H:%M:%S %z")
 
 # Temp file
 TMP_FILE="${FILE}.tmp"
-
-awk \
+if ! awk \
   -v updated="$date_rfc3339" \
   -v updated5322="$date_rfc5322" '
 BEGIN {
@@ -40,16 +41,26 @@ BEGIN {
     seen_updated5322 = 0
 }
 {
-    # match: date_updated OR date_edited
-    if (match($0, /^(date_(updated|edited)):/, m)) {
-        print m[1] ": " updated
+    if ($0 ~ /^date_updated:/) {
+        print "date_updated: " updated
         seen_updated = 1
         next
     }
 
-    # match: date_updated_rfc5322 OR date_edited_rfc5322
-    if (match($0, /^(date_(updated|edited)_rfc5322):/, m)) {
-        print m[1] ": " updated5322
+    if ($0 ~ /^date_edited:/) {
+        print "date_edited: " updated
+        seen_updated = 1
+        next
+    }
+
+    if ($0 ~ /^date_updated_rfc5322:/) {
+        print "date_updated_rfc5322: " updated5322
+        seen_updated5322 = 1
+        next
+    }
+
+    if ($0 ~ /^date_edited_rfc5322:/) {
+        print "date_edited_rfc5322: " updated5322
         seen_updated5322 = 1
         next
     }
@@ -58,11 +69,22 @@ BEGIN {
 }
 END {
     if (!seen_updated)
-        printf "Warning: date_updated or date_edited not found\n" > "/dev/stderr"
+        print "Warning: missing date_updated or date_edited" > "/dev/stderr"
     if (!seen_updated5322)
-        printf "Warning: date_updated_rfc5322 or date_edited_rfc5322 not found\n" > "/dev/stderr"
+        print "Warning: missing date_updated_rfc5322 or date_edited_rfc5322" > "/dev/stderr"
 }
 ' "$FILE" > "$TMP_FILE"
+then
+    printf "Error: awk failed, aborting.\n" >&2
+    rm -f "$TMP_FILE"
+    exit 1
+fi
+
+if [ ! -s "$TMP_FILE" ]; then
+    printf "Error: temp file is empty, aborting.\n" >&2
+    rm -f "$TMP_FILE"
+    exit 1
+fi
 
 if mv "$TMP_FILE" "$FILE"; then
     printf "Updated updated-dates in: %s\n" "$FILE"
@@ -73,10 +95,7 @@ else
 fi
 
 # Append the Edit/Update/Post Publication section
-{
-    printf "\n"
-    printf "## Edit/Update/Post Publication Note:\n\n"
-} >> "$FILE"
+printf "\n## Edit/Update/Post Publication Note:\n\n" >> "$FILE"
 
 printf "Updated 'updated' field and added post-publication note: %s\n" "$FILE"
 
