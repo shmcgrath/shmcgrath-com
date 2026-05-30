@@ -106,7 +106,7 @@ while IFS= read -r file; do
 						--arg author "${author}" \
 						--arg summary "${description}" \
 						--arg slug "${slug}" \
-						--arg url "${url}" \
+						--arg url "${url}.html" \
 						--arg body "${body}" \
 						--argjson keywords "${keywords_array}" \
 						--argjson titleWords "${title_words_array}" \
