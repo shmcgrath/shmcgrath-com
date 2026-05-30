@@ -29,8 +29,8 @@ build-error-pages:
 
 generate-indices:
 	@./bin/generate-search-index.sh $(CONTENT_DIR) $(BUILD_DIR)
-#@./bin/generate-rss.sh $(CONTENT_DIR) $(BUILD_DIR)
-#@./bin/generate-sitemap.sh $(CONTENT_DIR) $(BUILD_DIR)
+	@./bin/generate-sitemap.sh $(CONTENT_DIR) $(BUILD_DIR)
+	@./bin/generate-rss.sh $(CONTENT_DIR) $(BUILD_DIR)
 
 clean:
 	@rm -rf $(BUILD_DIR)
