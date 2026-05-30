@@ -1,7 +1,9 @@
 ---
 title: About Me
 date: 2019-02-12T18:03:00-05:00
-date_updated: 2025-12-05T00:14:09-05:00
+date_rfc5322: Tue, 12 Feb 2019 18:03:00 -0500
+date_updated: 2026-05-30T12:52:53-04:00
+date_updated_rfc5322: Sat, 30 May 2026 12:52:53 -0400
 slug: about
 in_search_index: true
 draft: false
