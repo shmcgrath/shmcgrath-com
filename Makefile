@@ -66,6 +66,7 @@ update-post:
 deploy:
 	@$(MAKE) build
 	rm -rf $(BUILD_DIR)/.git
+	echo "shmcgrath.com" > "$(BUILD_DIR)/CNAME"
 	cd $(BUILD_DIR) && \
 		git init && \
 		git checkout -B $(DEPLOY_BRANCH) && \
