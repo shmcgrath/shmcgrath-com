@@ -19,8 +19,6 @@ mkdir -pv "$(pwd)/tmp"
 
 # array to hold json objects as they are built
 json_objects=()
-rss_items=()
-SITE_URL="https://shmcgrath.com"
 
 process_words () {
 	local input="$1"
@@ -74,11 +72,17 @@ while IFS= read -r file; do
 			keywords_array=$(jq --null-input --arg k "$keywords" '$k | split(" ")')
 		fi
 
-		slug=$(pandoc "${file}" --template=<(echo '$slug$') --to=plain)
-		slug=${slug:-""}
 
-		url="/${file#$CONTENT_DIR/}"; url="${url%.md}"
-		url=${url:-""}
+		slug=$(pandoc "$file" --template=<(echo '$slug$') --to=plain | tr -d '\n')
+		if [ -z "$slug" ]; then
+			slug="$(basename "$file" .md)"
+		fi
+		if [[ "$file" == "$CONTENT_DIR/blog/"* ]]; then
+			section="/blog"
+		else
+			section=""
+		fi
+		url="${section}/${slug}.html"
 
 		# tr: replaces newline with space
 		# sed: removes leading and trailing spaces and makes multiple spaces one
@@ -106,7 +110,7 @@ while IFS= read -r file; do
 						--arg author "${author}" \
 						--arg summary "${description}" \
 						--arg slug "${slug}" \
-						--arg url "${url}.html" \
+						--arg url "${url}" \
 						--arg body "${body}" \
 						--argjson keywords "${keywords_array}" \
 						--argjson titleWords "${title_words_array}" \
@@ -117,21 +121,6 @@ while IFS= read -r file; do
             '{title: $title, author: $author, summary: $summary, keywords: $keywords, slug: $slug, url: $url, body: $body, titleWords: $titleWords, slugWords: $slugWords, authorWords: $authorWords, summaryWords: $summaryWords, bodyWords: $bodyWords}')
 
 		json_objects+=("$file_json")
-		sitemap_urls+=("  <url><loc>$SITE_URL$url</loc></url>")
-
-		 if [[ "$file" == "$CONTENT_DIR/blog/"* ]]; then
-			date_published=$(pandoc "${file}" --template=<(echo '$date_published$') --to=plain)
-			if [ -z "${date_published}" ]; then
-				date_published=$(date "+%Y-%m-%dT%H:%M:%S%z" | sed -E 's/([+-][0-9]{2})([0-9]{2})$/\1:\2/')
-			fi
-
-            rss_items+=("  <item>
-			    <title><![CDATA[$title]]></title>
-				<link>$SITE_URL$url</link>
-				<description><![CDATA[$description]]></description>
-				<pubDate>${date_published}</pubDate>
-			</item>")
-		fi
 
 	else
 		printf "\n%s" "Not generating search index for: ${base} || Search Index: ${in_search_index} || Draft: ${draft}"
@@ -142,37 +131,3 @@ done < <(find "$CONTENT_DIR" -type f -name '*.md')
 printf '%s\n' "${json_objects[@]}" | jq --slurp --compact-output '.' > "$BUILD_DIR/search_index.en.json"
 
 printf "\n%s\n" "Search index written to $BUILD_DIR/search_index.en.json"
-
-# Write RSS feed
-RSS_FILE="$BUILD_DIR/rss.xml"
-cat > "$RSS_FILE" <<EOF
-<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
-<channel>
-	<title>Sarah H. McGrath's Blog</title>
-	<link>$SITE_URL</link>
-  <description>A collection of sporadic writings</description>
-EOF
-
-for item in "${rss_items[@]}"; do
-    echo "$item" >> "$RSS_FILE"
-done
-
-echo "</channel></rss>" >> "$RSS_FILE"
-printf "RSS feed written to %s\n" "$RSS_FILE"
-
-# Write sitemap
-SITEMAP_FILE="$BUILD_DIR/sitemap.xml"
-
-cat > "$SITEMAP_FILE" <<EOF
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-EOF
-
-for u in "${sitemap_urls[@]}"; do
-	echo "$u" >> "$SITEMAP_FILE"
-done
-
-
-echo "</urlset>" >> "$SITEMAP_FILE"
-printf "Sitemap written to %s\n" "$SITEMAP_FILE"
