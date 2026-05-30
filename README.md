@@ -180,11 +180,11 @@ Some pages have date_edited vs date_updated. date_updated is always equal to dat
 - does @import require pre-processing?
 - make a code highlight css
 - implement inline code highlighting filter
-- lua filter for {.number-lines}
 - set up [llms.txt](https://dev.to/lab451/complete-llmstxt-guide-for-2026-57d)
     - look into [ai.txt](https://www.coronium.io/blog/robots-txt-llms-txt-ai-txt-2026#ai)
 - nav in header or out/after header (out in pandoc base template, but seems to make sense to be in it to me?)
 - should h1 etc be in header or main
+- css prefixes, should i import? something else?
 
 ### Pandoc Default Template - Missing from Base
 $if(date-meta)$
