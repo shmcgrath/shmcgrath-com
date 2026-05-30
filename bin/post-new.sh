@@ -45,6 +45,7 @@ fi
     printf "%s\n" "description:"
     printf "%s\n" "keywords:"
     printf "%s\n" "date: ${date_rfc3339}"
+    printf "%s\n" "date_rfc5322: ${date_rfc5322}"
     printf "%s\n" "date_updated:"
     printf "%s\n" "date_updated_rfc5322:"
     printf "%s\n" "date_published:"
@@ -53,6 +54,7 @@ fi
     printf "%s\n" "in_search_index: true"
     printf "%s\n" "draft: true"
     printf "%s\n\n" "---"
+    printf "%s\n\n" ""
 } > "$FILE"
 
 printf "New post created: %s\n" "$FILE"
