@@ -62,7 +62,7 @@ while IFS= read -r file; do
 			IFS='|' read -r date_published article <<< "$entry"
 			m4_chronological_archive+="$(pandoc "$article" \
 				--to=html \
-				--template="$(pwd)/templates/_chronological_article_archive.html" \
+				--template="$(pwd)/templates/_chronological_archive_article.html" \
 				--standalone=false)"
 		done
 
