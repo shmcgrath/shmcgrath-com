@@ -182,6 +182,8 @@ Some pages have date_edited vs date_updated. date_updated is always equal to dat
 - make a code highlight css
 - implement inline code highlighting filter
 - lua filter for {.number-lines}
+- set up [llms.txt](https://dev.to/lab451/complete-llmstxt-guide-for-2026-57d)
+    - look into [ai.txt](https://www.coronium.io/blog/robots-txt-llms-txt-ai-txt-2026#ai)
 
 ### Pandoc Pygments Default CSS to Implement
 ```css
