@@ -11,11 +11,10 @@ DEFAULT_BUILD_DIR="$(pwd)/public"
 CONTENT_DIR="${1:-$DEFAULT_CONTENT_DIR}"
 BUILD_DIR="${2:-$DEFAULT_BUILD_DIR}"
 
-printf "\n%s" "[GSI] Content directory: $CONTENT_DIR"
-printf "\n%s" "[GSI] Build directory: $BUILD_DIR"
-
 mkdir -pv "$BUILD_DIR"
 mkdir -pv "$(pwd)/tmp"
+
+printf "\n%s" "Generating search index..."
 
 # array to hold json objects as they are built
 json_objects=()
@@ -48,8 +47,6 @@ while IFS= read -r file; do
 	draft=$(pandoc "${file}" --template=<(echo '$draft$') --to=plain)
 
 	if [[ "${in_search_index}" == "true" && "${draft}" == "false" ]]; then
-
-		printf "\n%s" "Generating search index for: $base"
 
 		title=$(pandoc "${file}" --template=<(echo '$title$') --to=plain)
 		title=${title:-""}

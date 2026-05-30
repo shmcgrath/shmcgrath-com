@@ -22,8 +22,7 @@ process_m4() {
 	"$TMP_DIR/${page}.html"
 }
 
-printf "\n%s" "[BC] Content directory: $CONTENT_DIR"
-printf "\n%s" "[BC] Build directory: $BUILD_DIR"
+printf "\n%s" "Building content..."
 
 mkdir -p "$BUILD_DIR/blog"
 mkdir -p "$TMP_DIR"
@@ -41,8 +40,6 @@ while IFS= read -r file; do
 	url=$(pandoc "${file}" --template=<(echo '$slug$') --to=plain).html
 
 	if [ "${draft}" = "false" ]; then
-		printf "\n%s" "Building content: $base"
-
 		if [ "$base" = "search" ]; then
 			process_m4 "search"
 
@@ -96,4 +93,4 @@ while IFS= read -r file; do
 	fi
 done < <(find "$CONTENT_DIR" -type f -name '*.md')
 
-printf "\n%s" "build-content.sh complete."
+printf "\n%s\n" "Content built."

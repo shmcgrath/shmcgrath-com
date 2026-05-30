@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-printf "\n%s" "starting build-error-pages.sh"
+printf "\n%s" "Building error pages..."
 
 DEFAULT_BUILD_DIR="$(pwd)/public"
 BUILD_DIR="${1:-$DEFAULT_BUILD_DIR}"
@@ -37,4 +37,4 @@ for page in "${ERROR_PAGES[@]}"; do
 		< /dev/null
 done
 
-printf "\n%s" "build-error-pages.sh complete"
+printf "\n%s\n" "Error pages built."
