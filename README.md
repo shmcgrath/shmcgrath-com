@@ -37,7 +37,7 @@ RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^([^\.]+)$ $1.html [NC,L]
-# RewriteRule ^(.*)\.html$ /$1 [L,R=301]
+\# RewriteRule ^(.*)\.html$ /$1 [L,R=301]
 ```
 ## pandoc notes
 To print the default HTML template to ./pandoc-default.html:
