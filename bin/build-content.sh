@@ -90,7 +90,7 @@ while IFS= read -r file; do
 		else
 			cp "tmp/page.html" "tmp/${base}.html"
 		fi
-		pandoc "$file" --output="$output" --variable url="${url}" --variable "${nav_var}" --to=html --template="tmp/${template}.html"
+		pandoc "$file" --output="$output" --variable url="${url}" --variable "${nav_var}" --to=html --template="tmp/${template}.html" --lua-filter="bin/sourceCode-number-lines.lua" --wrap=none
 	else
 		printf "\n%s" "Not building content: ${base}; draft status = ${draft}"
 	fi
