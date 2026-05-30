@@ -40,14 +40,16 @@ BEGIN {
     seen_updated5322 = 0
 }
 {
-    if ($0 ~ /^date_updated:/) {
-        print "date_updated: " updated
+    # match: date_updated OR date_edited
+    if (match($0, /^(date_(updated|edited)):/, m)) {
+        print m[1] ": " updated
         seen_updated = 1
         next
     }
 
-    if ($0 ~ /^date_updated_rfc5322:/) {
-        print "date_updated_rfc5322: " updated5322
+    # match: date_updated_rfc5322 OR date_edited_rfc5322
+    if (match($0, /^(date_(updated|edited)_rfc5322):/, m)) {
+        print m[1] ": " updated5322
         seen_updated5322 = 1
         next
     }
@@ -56,9 +58,9 @@ BEGIN {
 }
 END {
     if (!seen_updated)
-        printf "Warning: date_updated not found\n" > "/dev/stderr"
+        printf "Warning: date_updated or date_edited not found\n" > "/dev/stderr"
     if (!seen_updated5322)
-        printf "Warning: date_updated_rfc5322 not found\n" > "/dev/stderr"
+        printf "Warning: date_updated_rfc5322 or date_edited_rfc5322 not found\n" > "/dev/stderr"
 }
 ' "$FILE" > "$TMP_FILE"
 
