@@ -1,16 +1,6 @@
 changequote([[,]])define([[M4_MAIN]],[[$if(title)$<h1>$title$</h1>$endif$
-			<div id="blog-archive-links">
-				<a href="#chronological-archive-header">Chronological Archive</a>
-				<a href="#tags-archive-header">Article Tags</a>
-			</div>
       <section id="chronological-archive">
 			<h2 id="chronological-archive-header">Blog Articles in Reverse Chronological Order</h2>
 				ifdef(`M4_CHRONOLOGICAL_ARCHIVE', M4_CHRONOLOGICAL_ARCHIVE)dnl
-      </section>
-      <section id="tags-archive">
-			<h2 id="tags-archive-header">Tags</h2>
-      <ul id="tags-archive-list">
-				ifdef(`M4_TAGS_ARCHIVE', M4_TAGS_ARCHIVE)dnl
-      </ul>
       </section>]])dnl
 changequote(`,')include(`templates/base.html')dnl
