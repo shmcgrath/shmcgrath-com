@@ -188,6 +188,23 @@ Some pages have date_edited vs date_updated. date_updated is always equal to dat
 - nav in header or out/after header (out in pandoc base template, but seems to make sense to be in it to me?)
 - should h1 etc be in header or main
 
+### Pandoc Default Template - Missing from Base
+$if(date-meta)$
+  <meta name="dcterms.date" content="$date-meta$" />
+$endif$
+$if(keywords)$
+  <meta name="keywords" content="$for(keywords)$$keywords$$sep$, $endfor$" />
+$endif$
+$if(description-meta)$
+  <meta name="description" content="$description-meta$" />
+$endif$
+
+
+should subtitle be H2 or a p?
+$if(subtitle)$
+<p class="subtitle">$subtitle$</p>
+$endif$
+
 ### Pandoc Pygments Default CSS to Implement
 ```css
 body {
