@@ -22,7 +22,7 @@ date_rfc3339=$(date "+%Y-%m-%dT%H:%M:%S%z" | sed -E 's/([+-][0-9]{2})([0-9]{2})$
 date_rfc5322=$(date +"%a, %d %b %Y %H:%M:%S %z")
 
 # Filepath
-DIR="$(pwd)/content/posts"
+DIR="$(pwd)/content/blog"
 FILE="${DIR}/$(date +"%Y-%m-%d")-${TITLE_SLUG}.md"
 
 # Create directory if needed
