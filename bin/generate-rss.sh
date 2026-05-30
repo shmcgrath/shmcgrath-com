@@ -6,129 +6,86 @@ set -e
 # Defaults
 DEFAULT_CONTENT_DIR="$(pwd)/content"
 DEFAULT_BUILD_DIR="$(pwd)/public"
+TMP_DIR="$(pwd)/tmp"
 
 # Read in arguments
 CONTENT_DIR="${1:-$DEFAULT_CONTENT_DIR}"
 BUILD_DIR="${2:-$DEFAULT_BUILD_DIR}"
 
-printf "\n%s" "Using content directory: $CONTENT_DIR"
-printf "\n%s" "Using build directory: $BUILD_DIR"
+printf "\n%s" "Generating RSS feed..."
 
 mkdir -pv "$BUILD_DIR"
-mkdir -pv "$(pwd)/tmp"
+mkdir -p "$TMP_DIR"
 
-# array to hold json objects as they are built
-json_objects=()
-rss_items=()
-SITE_URL="https://shmcgrath.com"
+: "${M4_SITE_URL:?M4_SITE_URL not set}"
+SITE_URL=${M4_SITE_URL}
+
+RSS_ITEMS_FILE="$TMP_DIR/rss-items.xml"
+: > "$RSS_ITEMS_FILE"
 
 while IFS= read -r file; do
-	base=$(basename "${file%.*}")
-	in_search_index=$(pandoc "${file}" --template=<(echo '$in_search_index$') --to=plain)
 	draft=$(pandoc "${file}" --template=<(echo '$draft$') --to=plain)
 
-	if [[ "${in_search_index}" == "true" && "${draft}" == "false" ]]; then
-
-		printf "\n%s" "Processing page: $base"
+	if [[ "${draft}" == "false" ]]; then
 
 		title=$(pandoc "${file}" --template=<(echo '$title$') --to=plain)
 		title=${title:-""}
+		title=${title//]]>/]]&gt;}
+		title=$(printf '%s' "$title" | tr -d '\n')
 
-		author=$(pandoc "${file}" --template=<(echo '$author$') --to=plain)
-		author=${author:-""}
-
+		# tr: replaces newline with space
+		# sed: removes leading and trailing spaces and makes multiple spaces one
 		description=$(pandoc "${file}" --template=<(echo '$description$') --to=plain 2>/dev/null \
 			| tr '\n' ' ' \
 			| sed 's/  */ /g; s/^ *//; s/ *$//')
 		description=${description:-""}
+		description=${description//]]>/]]&gt;}
+		description=$(printf '%s' "$description" | tr -d '\n')
 
-		keywords=$(pandoc "${file}" --template=<(echo '$keywords$') --to=plain)
-		keywords=${keywords:-""}
-		if [[ -z "$keywords" ]]; then
-			keywords_array='[]'
+		slug=$(pandoc "$file" --template=<(echo '$slug$') --to=plain | tr -d '\n')
+		if [ -z "$slug" ]; then
+			slug="$(basename "$file" .md)"
+		fi
+		if [[ "$file" == "$CONTENT_DIR/blog/"* ]]; then
+			section="/blog"
 		else
-			keywords_array=$(jq --null-input --arg k "$keywords" '$k | split(" ")')
+			section=""
+		fi
+		url="${section}/${slug}.html"
+
+		rss_date_published=$(pandoc "${file}" --template=<(echo '$date_published_rfc5322$') --to=plain)
+		rss_date_published=$(printf "%s" "$rss_date_published" | tr -d '\n')
+		if [ -z "${rss_date_published}" ]; then
+			rss_date_published=$(date "+%a, %d %b %Y %H:%M:%S %z")
 		fi
 
-		slug=$(pandoc "${file}" --template=<(echo '$slug$') --to=plain)
-		slug=${slug:-""}
+		rss_feed_item=$(
+			m4 \
+				-DM4_TITLE="$title" \
+				-DM4_URL="${SITE_URL}${url}" \
+				-DM4_DESCRIPTION="$description" \
+				-DM4_PUBDATE="$rss_date_published" \
+				"$(pwd)/templates/_rss-item.xml"
+		)
 
-		url="/${file#$CONTENT_DIR/}"; url="${url%.md}"
-		url=${url:-""}
+		printf "%s\n" "$rss_feed_item" >> "$RSS_ITEMS_FILE"
 
-		body=$(pandoc "${file}" --template=<(echo '$body$') --to=plain 2>/dev/null \
-			| tr '\n' ' ' \
-			| sed 's/  */ /g; s/^ *//; s/ *$//' \
-			| jq --raw-input --slurp . | sed 's/^"//; s/"$//')
-		body=${body:-""}
-
-		file_json=$(jq --null-input \
-						--arg title "${title}" \
-						--arg author "${author}" \
-						--arg description "${description}" \
-						--argjson keywords "${keywords_array}" \
-						--arg slug "${slug}" \
-						--arg url "${url}" \
-						--arg body "${body}" \
-						'{title: $title, author: $author, description: $description, keywords: $keywords, slug: $slug, url: $url, body: $body}')
-
-		json_objects+=("$file_json")
-		sitemap_urls+=("  <url><loc>$SITE_URL$url</loc></url>")
-
-		 if [[ "$file" == "$CONTENT_DIR/blog/"* ]]; then
-			date_published=$(pandoc "${file}" --template=<(echo '$date_published$') --to=plain)
-			if [ -z "${date_published}" ]; then
-				date_published=$(date "+%Y-%m-%dT%H:%M:%S%z" | sed -E 's/([+-][0-9]{2})([0-9]{2})$/\1:\2/')
-			fi
-
-            rss_items+=("  <item>
-			    <title><![CDATA[$title]]></title>
-				<link>$SITE_URL$url</link>
-				<description><![CDATA[$description]]></description>
-				<pubDate>${date_published}</pubDate>
-			</item>")
-		fi
-
-	else
-		printf "\n%s" "Not processing: ${base} check in_search_index or draft status"
 	fi
-
-done < <(find "$CONTENT_DIR" -type f -name '*.md')
-
-printf '%s\n' "${json_objects[@]}" | jq --slurp '.' > "$BUILD_DIR/search_index.en.json"
-
-printf "\n%s\n" "Search index written to $BUILD_DIR/search_index.en.json"
+done < <(find "$CONTENT_DIR/blog" -type f -name '*.md' | sort --reverse)
+# Note the sort --reverse above sorts by filename
+# Will need to implement a different sort for RSS
+# if I stop using dates at the start of filenames
 
 # Write RSS feed
 RSS_FILE="$BUILD_DIR/rss.xml"
-cat > "$RSS_FILE" <<EOF
-<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
-<channel>
-	<title>Sarah H. McGrath's Blog</title>
-	<link>$SITE_URL</link>
-  <description>A collection of sporadic writings</description>
-EOF
+rss_items=$(cat "$RSS_ITEMS_FILE")
+last_build_date=$(date +"%a, %d %b %Y %H:%M:%S %z")
 
-for item in "${rss_items[@]}"; do
-    echo "$item" >> "$RSS_FILE"
-done
+m4 \
+	-DM4_SITE_URL="$SITE_URL" \
+	-DM4_RSS_BUILD_DATE="$last_build_date" \
+	-DM4_RSS_ITEMS="$rss_items" \
+	"$(pwd)/templates/rss.xml" \
+	> "$RSS_FILE"
 
-echo "</channel></rss>" >> "$RSS_FILE"
-printf "RSS feed written to %s\n" "$RSS_FILE"
-
-# Write sitemap
-SITEMAP_FILE="$BUILD_DIR/sitemap.xml"
-
-cat > "$SITEMAP_FILE" <<EOF
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-EOF
-
-for u in "${sitemap_urls[@]}"; do
-	echo "$u" >> "$SITEMAP_FILE"
-done
-
-
-echo "</urlset>" >> "$SITEMAP_FILE"
-printf "Sitemap written to %s\n" "$SITEMAP_FILE"
+printf "\nRSS feed written to %s\n" "$RSS_FILE"

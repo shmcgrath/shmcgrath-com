@@ -1,0 +1,7 @@
+		<item>
+			<title><![CDATA[M4_TITLE]]></title>
+			<link>M4_URL</link>
+			<description><![CDATA[M4_DESCRIPTION]]></description>
+			<pubDate>M4_PUBDATE</pubDate>
+			<guid isPermaLink="true">M4_URL</guid>
+		</item>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Sarah H. McGrath's Blog</title>
+		<link>M4_SITE_URL</link>
+		<description>A collection of sporadic writings</description>
+		<atom:link href="M4_SITE_URL/rss.xml"
+			rel="self"
+			type="application/rss+xml"/>
+		<language>en-us</language>
+		<lastBuildDate>M4_RSS_BUILD_DATE</lastBuildDate>
+M4_RSS_ITEMS
+	</channel>
+</rss>
