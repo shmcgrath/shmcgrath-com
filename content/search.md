@@ -16,5 +16,5 @@ draft: false
 
 <h2 id="query-display"></h2>
 <ul id="search-results-list"></ul>
-<p id="seach-information"></p>
+<p id="search-information"></p>
 
