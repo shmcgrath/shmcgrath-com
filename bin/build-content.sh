@@ -14,7 +14,7 @@ TMP_DIR="$(pwd)/tmp"
 CONTENT_DIR="${1:-$DEFAULT_CONTENT_DIR}"
 BUILD_DIR="${2:-$DEFAULT_BUILD_DIR}"
 
-SITE_LAST_UPDATED="$(date -u +"%d %B %Y")"
+SITE_LAST_UPDATED="$(date +"%d %B %Y")"
 
 process_m4() {
 	local page="$1"

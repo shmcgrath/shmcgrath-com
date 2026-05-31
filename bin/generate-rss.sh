@@ -12,6 +12,8 @@ TMP_DIR="$(pwd)/tmp"
 CONTENT_DIR="${1:-$DEFAULT_CONTENT_DIR}"
 BUILD_DIR="${2:-$DEFAULT_BUILD_DIR}"
 
+SITE_LAST_UPDATED="$(date +"%d %B %Y")"
+
 printf "\n%s" "Generating RSS feed..."
 
 mkdir -pv "$BUILD_DIR"

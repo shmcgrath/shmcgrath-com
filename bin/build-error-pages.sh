@@ -6,6 +6,7 @@ DEFAULT_BUILD_DIR="$(pwd)/public"
 BUILD_DIR="${1:-$DEFAULT_BUILD_DIR}"
 
 : "${M4_SITE_URL:?M4_SITE_URL not set}"
+SITE_LAST_UPDATED="$(date +"%d %B %Y")"
 
 mkdir -p "$BUILD_DIR"
 
