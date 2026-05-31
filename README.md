@@ -94,6 +94,7 @@ Some pages have date_edited vs date_updated. date_updated is always equal to dat
 ```
 
 ## TODO
+- better way to handle the last modified date or just keep using deploy date?
 - fix css for metadata at bottom of article looks blocky and difficult to read - make it change colors with theme
 - look more into these [lua filters for blogging](https://akos.ma/blog/pandoc-filters-in-lua/)
 - decide if you want "Blog" nav active on individual blog posts? not sure?
