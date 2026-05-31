@@ -4,7 +4,7 @@
 		<title>Sarah H. McGrath's Blog</title>
 		<link>M4_SITE_URL</link>
 		<description>A collection of sporadic writings</description>
-		<atom:link href="M4_SITE_URL/rss.xml"
+		<atom:link href="M4_SITE_URL/feed.xml"
 			rel="self"
 			type="application/rss+xml"/>
 		<language>en-us</language>

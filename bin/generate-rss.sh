@@ -77,7 +77,7 @@ done < <(find "$CONTENT_DIR/blog" -type f -name '*.md' | sort --reverse)
 # if I stop using dates at the start of filenames
 
 # Write RSS feed
-RSS_FILE="$BUILD_DIR/rss.xml"
+RSS_FILE="$BUILD_DIR/feed.xml"
 rss_items=$(cat "$RSS_ITEMS_FILE")
 last_build_date=$(date +"%a, %d %b %Y %H:%M:%S %z")
 
@@ -85,7 +85,7 @@ m4 \
 	-DM4_SITE_URL="$SITE_URL" \
 	-DM4_RSS_BUILD_DATE="$last_build_date" \
 	-DM4_RSS_ITEMS="$rss_items" \
-	"$(pwd)/templates/rss.xml" \
+	"$(pwd)/templates/rss-feed.xml" \
 	> "$RSS_FILE"
 
 printf "\nRSS feed written to %s\n" "$RSS_FILE"
