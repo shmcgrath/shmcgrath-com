@@ -79,8 +79,6 @@ document.addEventListener("DOMContentLoaded", async function () {
 		}
 	} else {
 
-		console.log(results);
-
 		const highlight = (text) => {
 			let out = text;
 			for (const t of searchTerms) {
@@ -92,6 +90,35 @@ document.addEventListener("DOMContentLoaded", async function () {
 			return out;
 		};
 
+		const makeSnippet = (text) => {
+			if (!text) return "";
+
+			const lower = text.toLowerCase();
+
+			let matchPos = -1;
+
+			for (const term of searchTerms) {
+				matchPos = lower.indexOf(term);
+
+				if (matchPos !== -1) {
+					break;
+				}
+			}
+
+			if (matchPos === -1) {
+				return text.substring(0, 500);
+			}
+
+			const start = Math.max(0, matchPos - 250);
+			const end = Math.min(text.length, matchPos + 250);
+
+			return (
+				(start > 0 ? "…" : "") +
+				text.substring(start, end) +
+				(end < text.length ? "…" : "")
+			);
+		};
+
 		results.forEach(doc => {
 			const li = document.createElement("li");
 			const a = document.createElement("a");
@@ -100,14 +127,15 @@ document.addEventListener("DOMContentLoaded", async function () {
 			a.innerHTML = highlight(doc.title || "No title");
 			li.appendChild(a);
 
-			const snippetText = (doc.summary || doc.body || "").substring(0, 500);
+			const content = `${doc.summary || ""} ${doc.body || ""}`;
+			const snippetText = makeSnippet(content);
+
 			if (snippetText) {
-				const snippetWords = snippetText.toLowerCase().split(/\s+/).filter(Boolean);
 				const snippet = document.createElement("p");
-				snippet.innerHTML = highlight(snippetText) + ((doc.summary || doc.body || "").length > 200 ? "…" : "");
+				snippet.innerHTML = highlight(snippetText);
 
 				li.appendChild(snippet);
-			}
+}
 			resultsContainer.appendChild(li);
 		});
 	}
