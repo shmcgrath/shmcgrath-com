@@ -1039,7 +1039,6 @@ article {
 /* VALUES */
 .article-detail-list dd {
   margin: 0;
-  color: var(--base06);
   word-break: break-word;
 	align-items: center;
 }/* }}} */
