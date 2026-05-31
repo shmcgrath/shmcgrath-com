@@ -23,7 +23,7 @@ ERROR_PAGES=(
 	"503 Service Unavailable|ERROR 503: SERVICE UNAVAILABLE|503"
 )
 
-m4 -DM4_SITE_URL="${M4_SITE_URL}" "$(pwd)/templates/page.html" > "$TMP_DIR/error.html"
+m4 -DM4_SITE_URL="${M4_SITE_URL}" -DM4_SITE_LAST_UPDATED="${SITE_LAST_UPDATED}" "$(pwd)/templates/page.html" > "$TMP_DIR/error.html"
 
 for page in "${ERROR_PAGES[@]}"; do
 	IFS="|" read -r TITLE BODY URL <<< "$page"

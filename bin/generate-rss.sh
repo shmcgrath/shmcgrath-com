@@ -65,6 +65,7 @@ while IFS= read -r file; do
 				-DM4_URL="${SITE_URL}${url}" \
 				-DM4_DESCRIPTION="$description" \
 				-DM4_PUBDATE="$rss_date_published" \
+				-DM4_SITE_LAST_UPDATED="${SITE_LAST_UPDATED}" \
 				"$(pwd)/templates/_rss-item.xml"
 		)
 
@@ -85,6 +86,7 @@ m4 \
 	-DM4_SITE_URL="$SITE_URL" \
 	-DM4_RSS_BUILD_DATE="$last_build_date" \
 	-DM4_RSS_ITEMS="$rss_items" \
+	-DM4_SITE_LAST_UPDATED="${SITE_LAST_UPDATED}" \
 	"$(pwd)/templates/rss-feed.xml" \
 	> "$RSS_FILE"
 

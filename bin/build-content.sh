@@ -14,9 +14,12 @@ TMP_DIR="$(pwd)/tmp"
 CONTENT_DIR="${1:-$DEFAULT_CONTENT_DIR}"
 BUILD_DIR="${2:-$DEFAULT_BUILD_DIR}"
 
+SITE_LAST_UPDATED="$(date -u +"%d %B %Y")"
+
 process_m4() {
 	local page="$1"
 	m4 -DM4_SITE_URL="${M4_SITE_URL}" \
+	-DM4_SITE_LAST_UPDATED="${SITE_LAST_UPDATED}" \
 	"$(pwd)/templates/${page}.html" > \
 	"$TMP_DIR/${page}.html"
 }
@@ -69,6 +72,7 @@ while IFS= read -r file; do
 
 			process_m4 "blog"
 			m4 -DM4_SITE_URL="${M4_SITE_URL}" \
+				-DM4_SITE_LAST_UPDATED="${SITE_LAST_UPDATED}" \
 				"$(pwd)/templates/blog.html" > \
 				"$TMP_DIR/blog.html"
 
