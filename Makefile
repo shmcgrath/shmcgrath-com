@@ -7,12 +7,6 @@ SITE_URL_PROD := https://shmcgrath.com
 M4_SITE_URL ?= $(SITE_URL_PROD)
 export M4_SITE_URL
 
-ifeq ($(shell uname -s),Darwin)
-CLIP := pbcopy
-else
-CLIP := wl-copy
-endif
-
 .PHONY: serve build clean deploy new-post publish-post update-post css-check-prefix
 
 copy-static:
@@ -48,7 +42,7 @@ serve:
 			[yY]) $(MAKE) build M4_SITE_URL=$(SITE_URL_DEV) ;; \
 			*) printf "%s\n" "Skipping build..." ;; \
 		esac;
-		@printf "%s\n" "$(SITE_URL_DEV)" | $(CLIP)
+		@printf "Site served on %s\n" "$(SITE_URL_DEV)"
 		@python3 -m http.server --bind 127.0.0.1 --directory public 5859
 
 css-check-prefix:
