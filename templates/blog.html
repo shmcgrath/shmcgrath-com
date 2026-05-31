@@ -1,6 +1,6 @@
 changequote([[,]])define([[M4_MAIN]],[[$if(title)$<h1>$title$</h1>$endif$
-      <section id="chronological-archive">
-			<h2 id="chronological-archive-header">Blog Articles in Reverse Chronological Order</h2>
-				ifdef(`M4_CHRONOLOGICAL_ARCHIVE', M4_CHRONOLOGICAL_ARCHIVE)dnl
-      </section>]])dnl
+			<section id="chronological-archive">
+				<p>Note: Blog articles are in reverse chronological order.</p>
+include(`tmp/chronological_archive.html')
+			</section>]])dnl
 changequote(`,')include(`templates/base.html')dnl

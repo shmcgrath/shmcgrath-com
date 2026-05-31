@@ -2,5 +2,7 @@ changequote([[,]])define([[M4_MAIN]],[[$if(title)$<h1>$title$</h1>$endif$
 			$if(body)$<div class="main-body">
 				$body$
 			</div>$endif$
-			$if(date_updated)$<p class="page-last-updated">Last updated: <time datetime=$date_updated$>$date_updated$</time></p>$endif$]])dnl
+$if(date_updated)$
+			<p class="page-last-updated">Last updated:&nbsp;<time datetime="$date_updated$">$date_updated_rfc5322$</time></p>
+$endif$]])dnl
 changequote(`,')include(`templates/base.html')dnl
