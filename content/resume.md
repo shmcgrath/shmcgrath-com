@@ -1,5 +1,9 @@
 ---
 title: Resume
+subtitle:
+author:
+description:
+keywords:
 date: 2019-02-12T00:15:00-05:00
 date_rfc5322: Tue, 12 Feb 2019 00:15:00 -0500
 date_updated: 2025-12-05T00:19:51-05:00
