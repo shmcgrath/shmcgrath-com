@@ -9,7 +9,6 @@ set -e
 DEFAULT_CONTENT_DIR="$(pwd)/content"
 DEFAULT_BUILD_DIR="$(pwd)/public"
 TMP_DIR="$(pwd)/tmp"
-m4_chronological_archive=""
 
 # Read in arguments
 CONTENT_DIR="${1:-$DEFAULT_CONTENT_DIR}"
@@ -37,7 +36,7 @@ while IFS= read -r file; do
 	nav_var="nav_${base}=true"
 	output="${BUILD_DIR}/${base}.html"
 	draft=$(pandoc "${file}" --template=<(echo '$draft$') --to=plain)
-	url=$(pandoc "${file}" --template=<(echo '$slug$') --to=plain).html
+	slug=$(pandoc "${file}" --template=<(echo '$slug$') --to=plain).html
 
 	if [ "${draft}" = "false" ]; then
 		if [ "$base" = "search" ]; then
@@ -60,15 +59,16 @@ while IFS= read -r file; do
 
 		for entry in "${blog_articles[@]}"; do
 			IFS='|' read -r date_published article <<< "$entry"
-			m4_chronological_archive+="$(pandoc "$article" \
+			m4_chronological_archive_article="$(pandoc "$article" \
 				--to=html \
 				--template="$(pwd)/templates/_chronological_archive_article.html" \
+				--wrap=none \
 				--standalone=false)"
 		done
+			printf "%s" "$m4_chronological_archive_article" > "$TMP_DIR/chronological_archive.html"
 
 			process_m4 "blog"
 			m4 -DM4_SITE_URL="${M4_SITE_URL}" \
-				-DM4_CHRONOLOGICAL_ARCHIVE="${m4_chronological_archive}" \
 				"$(pwd)/templates/blog.html" > \
 				"$TMP_DIR/blog.html"
 
@@ -76,7 +76,7 @@ while IFS= read -r file; do
 			template="article"
 			# set blog nav class as "active" when showing a blog post with nav_var
 			nav_var="nav_blog=true"
-			url="blog/${url}"
+			full_slug="blog/${slug}"
 			output="${BUILD_DIR}/blog/${base}.html"
 
 		elif [ "$base" = "index" ]; then
@@ -87,7 +87,7 @@ while IFS= read -r file; do
 		else
 			cp "tmp/page.html" "tmp/${base}.html"
 		fi
-		pandoc "$file" --output="$output" --variable url="${url}" --variable "${nav_var}" --to=html --template="tmp/${template}.html" --lua-filter="bin/sourceCode-number-lines.lua" --wrap=none
+		pandoc "$file" --output="$output" --variable slug="${full_slug}" --variable "${nav_var}" --to=html --template="tmp/${template}.html" --lua-filter="bin/sourceCode-number-lines.lua" --wrap=none
 	else
 		printf "\n%s" "Not building content: ${base}; draft status = ${draft}"
 	fi
