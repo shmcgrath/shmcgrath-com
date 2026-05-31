@@ -1050,3 +1050,8 @@ article {
   word-break: break-word;
 	align-items: center;
 }/* }}} */
+
+/* mark for search result highlighting */
+mark {
+	background-color: var(--shmaccent);
+}
