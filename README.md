@@ -97,29 +97,12 @@ Some pages have date_edited vs date_updated. date_updated is always equal to dat
 - better way to handle the last modified date or just keep using deploy date?
 - fix css for metadata at bottom of article looks blocky and difficult to read - make it change colors with theme
 - look more into these [lua filters for blogging](https://akos.ma/blog/pandoc-filters-in-lua/)
-- decide if you want "Blog" nav active on individual blog posts? not sure?
-- fix permalink on urls - no site url is there?
-- last updated on pages shows no space on rendering but shows space in template - weirder it shows it on the raw HTML but doesn't render it
-- have blog highligted in menu for article pages
-- set up last revised date to change html, possibly with current date, too (m4 again?)
-- get cyberdream to a  for code highlighting from pandoc
-- navigation html
 - code css for each type of post and fix light theme (text seems too black?)
-- set up templates for pages, errors, blog posts, and blog archive/index
-- flesh out build-posts script
-- add to build-pages script to generate blog index
 - do i split out template processing to a different script then pandoc everything?
 - any additional m4 processing on base (make build-base) possibly current date and year?
 - add twitter, facebook, etc metadata
-- for each page and post: <link rel="canonical" href="https://www.example.com/preferred-page" />
-- cleanup steps: delete tmp and also delete public once it is pushed to github
 - make sure everything has tabs not spaces
 - learn shellcheck and do that for the bash
-- implement fuse.js search
-- script to generate json for fuse.js
-- script to remove any inline css from pandoc code highlighting? is there a way to stop pandoc generating this?
-    - <link rel="stylesheet" href="/css/syntax.css">
-    - --css=style.css also have --standalone flag
 - list of metatags: https://dev.to/electrondome/are-meta-tags-still-relevant-in-2025-3l70
 - https://sluggenius.com/blog/meta-tags-optimization
 - robots.txt in 2025
@@ -127,31 +110,24 @@ Some pages have date_edited vs date_updated. date_updated is always equal to dat
     - https://thetexttool.com/blog/robots-txt-best-practices-2025
 - handle mono-fonts for code
 - change font back to arial and then codeblocks
-- pick a yellow
 - datetime html: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/time
 - https://www.w3.org/WAI/tutorials/forms/labels/#using-aria-label aria labels
 - fix button bezel/outline on search button
 - custom css for resume and script that into the header -- maybe via pandoc variables?
 - current year with datetime vs div
 - make date and get date to clipboard
-- make fuse update rely on a config file and maybe use a pinned version in the header via M4?
-- make the search results much better adn include a link? and matbe the matching part?
 - convert datetime between formats or just ignore the <time> tag?
-- css replace shmred and shmblue with shmprimary shmsecondary and make sure shmaccent is easy to change
-- add shmlinks color too?
 - clean up base.html and possibly break into more M4 templates
-- maybe have xml generated again and nest ifs, not sure. search index isn't relevant for that
 - create and update blog scrips for additional date formats
-- custom search vs fuse?
 - change all css and html to kebab case
 - [ARIA and other best practices](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA)
 - [meta element reference including theme](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/meta)
-- css for <mark>
 - add the summary/description to search
 - css static prefix research again?
 - svg sheet and pull them in?
 - https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-color-scheme - prefers-color-scheme for me
 - templates in js https://www.youtube.com/watch?v=HgNDii20FG4
+    - possibly implement in search?
 - fix outline colors when you tab through things?
 - favicon in svg format - how?
 - can i use partial or standalone for pandoc to get html for the articles much easier?
@@ -235,4 +211,46 @@ $endif$
 <meta name="pinterest:description" content="">
 <meta name="pinterest:media" content="">
 <meta name="pinterest:url" content="">
+
+<!-- From ESPN -->
+<!DOCTYPE html>
+<html class="no-icon-fonts" lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="referrer" content="origin-when-cross-origin">
+<link rel="canonical" href="https://www.espn.com" />
+<title>ESPN - Serving Sports Fans. Anytime. Anywhere.</title>
+<meta name="description" content="Visit ESPN for live scores, highlights and sports news. Stream exclusive games on ESPN and play fantasy sports." />
+<link rel="manifest" href="/manifest.json">
+<meta property="fb:app_id" content="116656161708917" />
+<meta property="og:site_name" content="ESPN.com" />
+<meta property="og:url" content="https://www.espn.com" />
+<meta property="og:title" content="ESPN - Serving Sports Fans. Anytime. Anywhere."/>
+<meta property="og:description" content="Visit ESPN for live scores, highlights and sports news. Stream exclusive games on ESPN and play fantasy sports." />
+<meta property="og:image" content="https://a1.espncdn.com/combiner/i?img=%2Fi%2Fespn%2Fespn_logos%2Fespn_red.png"/>
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:type" content="website" />
+<meta name="twitter:site" content="espn" />
+<meta name="twitter:url" content="https://www.espn.com" />
+<meta name="twitter:title" content="ESPN - Serving Sports Fans. Anytime. Anywhere."/>
+<meta name="twitter:description" content="Visit ESPN for live scores, highlights and sports news. Stream exclusive games on ESPN and play fantasy sports." />
+<meta name="twitter:card" content="summary">
+<meta name="twitter:app:name:iphone" content="ESPN"/>
+<meta name="twitter:app:id:iphone" content="317469184"/>
+<meta name="twitter:app:name:googleplay" content="ESPN"/>
+<meta name="twitter:app:id:googleplay" content="com.espn.score_center"/>
+<meta name="title" content="ESPN - Serving Sports Fans. Anytime. Anywhere."/>
+<meta name="medium" content="index" />
 ```
+
+### Using M4 Templates and Conditionals
+ifdef(`TWITTER_INCLUDE', `...block...')
+    - ifdef checks if defined at all
+ifelse(TWITTER_INCLUDE, `yes', `
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@myhandle">
+')
+ - ifelse checks for what the definition is
