@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /documents/SHMcGrathResume.pdf
+Allow: /public/
+
+Sitemap: https://shmcgrath.com/sitemap.xml
