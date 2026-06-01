@@ -10,7 +10,7 @@ date_updated: 2019-07-05T14:13:00-05:00
 date_updated_rfc5322: Fri, 05 Jul 2019 14:13:00 -0500
 slug: education
 in_search_index: true
-draft: false
+draft: true
 
 ---
 

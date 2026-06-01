@@ -14,6 +14,9 @@ copy-static:
 	@cp -r $(PROJECT_ROOT)/static/. $(BUILD_DIR)/
 	@mv -f $(BUILD_DIR)/img/favicon.ico $(BUILD_DIR)/favicon.ico
 	@rm -f $(BUILD_DIR)/.DS_Store
+	@printf "%s\n" "Removing supporting items for resume and education"
+	@rm -fr $(BUILD_DIR)/documents
+	@rm -fr $(BUILD_DIR)/img
 
 build-content:
 	@./bin/build-content.sh $(CONTENT_DIR) $(BUILD_DIR)

@@ -21,6 +21,9 @@ mkdir -p "$TMP_DIR"
 SITE_URL=${M4_SITE_URL}
 
 while IFS= read -r file; do
+	base=$(basename "${file%.*}")
+	draft=$(pandoc "${file}" --template=<(echo '$draft$') --to=plain)
+	if [[ "${draft}" == "false" ]]; then
 		slug=$(pandoc "$file" --template=<(echo '$slug$') --to=plain | tr -d '\n')
 		if [ -z "$slug" ]; then
 			slug="$(basename "$file" .md)"
@@ -54,7 +57,9 @@ while IFS= read -r file; do
 		  url="/"
 		fi
 		sitemap_urls+=("$(printf '  <url><loc>%s%s</loc><lastmod>%s</lastmod></url>' "$SITE_URL" "$url" "$lastmod")")
-
+	else
+		printf "\n%s" "Not adding ${base} to sitemap. || Draft: ${draft}"
+	fi
 done < <(find "$CONTENT_DIR" -type f -name '*.md')
 
 # Write sitemap

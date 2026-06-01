@@ -10,7 +10,7 @@ date_updated: 2025-12-05T00:19:51-05:00
 date_updated_rfc5322: Fri, 05 Dec 2025 00:19:51 -0500
 slug: resume
 in_search_index: true
-draft: false
+draft: true
 
 ---
 
