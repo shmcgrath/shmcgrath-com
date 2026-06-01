@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", async function () {
-	const resultsContainer = document.getElementById("search-results-list");
+	const resultsContainer = document.getElementById("search-results-container");
 	const queryDisplay = document.getElementById("query-display");
 	const searchInformation = document.getElementById("search-information");
 
@@ -11,27 +11,27 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 	if (!query) {
 		if (searchInformation) {
-				searchInformation.textContent = "No query. To search, enter a query.";
+			searchInformation.textContent = "No query. To search, enter a query in the search box in the footer.";
 		}
 		return;
 	}
 
 	// Display query
 	if (queryDisplay) {
-			queryDisplay.textContent = `Search results for "${query}"`;
+		queryDisplay.textContent = `Search results for "${query}"`;
 	}
 
 	// Load search_index.en.json
 	let searchData = [];
 	try {
-			const response = await fetch("/search_index.en.json");
-			searchData = await response.json();
+		const response = await fetch("/search_index.en.json");
+		searchData = await response.json();
 	} catch (err) {
-			console.error("Failed to load search index:", err);
-			if (searchInformation) {
-					searchInformation.textContent = "Failed to load search_index.en.json";
-			}
-			return;
+		console.error("Failed to load search index:", err);
+		if (searchInformation) {
+			searchInformation.textContent = "Failed to load search_index.en.json";
+		}
+		return;
 	}
 
 	const searchTerms = query.split(/\s+/).filter(t => t.length >= 2);
@@ -73,9 +73,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 	if (!results.length) {
 		if (searchInformation) {
-				searchInformation.textContent = `No results found for "${query}"`;
-		} else {
-			resultsContainer.innerHTML = `<li>No results found for "${query}"</li>`;
+			searchInformation.textContent = `No results found for "${query}"`;
 		}
 	} else {
 
@@ -120,23 +118,23 @@ document.addEventListener("DOMContentLoaded", async function () {
 		};
 
 		results.forEach(doc => {
-			const li = document.createElement("li");
-			const a = document.createElement("a");
-
-			a.href = doc.url || "#";
-			a.innerHTML = highlight(doc.title || "No title");
-			li.appendChild(a);
-
+			const cloneResult = 
+				document.getElementById("search-result-template").content.cloneNode(true);
 			const content = `${doc.summary || ""} ${doc.body || ""}`;
 			const snippetText = makeSnippet(content);
-
+			const snippetElement = cloneResult.querySelector(".result-snippet");
 			if (snippetText) {
-				const snippet = document.createElement("p");
-				snippet.innerHTML = highlight(snippetText);
+				snippetElement.innerHTML = highlight(snippetText);
+			} else {
+				snippetElement.textContent =
+					"No excerpt containing search results available. Click link to go to full page.";
+			}
+			// cloneResult.querySelector(".result-snippet").innerHTML = highlight(snippetText) || "No excerpt containing search results available. Click link to go to full page.";
+			cloneResult.querySelector(".result-link").href = doc.url || "#";
+			cloneResult.querySelector(".result-link").textContent = 
+				doc.title || "No title";
 
-				li.appendChild(snippet);
-}
-			resultsContainer.appendChild(li);
+			resultsContainer.appendChild(cloneResult);
 		});
 	}
 });

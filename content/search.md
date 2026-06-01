@@ -14,7 +14,14 @@ draft: false
 
 ---
 
+```{=html}
 <h2 id="query-display"></h2>
-<ul id="search-results-list"></ul>
+<div id="search-results-container"></div>
 <p id="search-information"></p>
-
+<template id="search-result-template">
+    <article class="search-result">
+        <h3><a class="result-link"></a></h3>
+        <p class="result-snippet"></p>
+    </article>
+</template>
+```
